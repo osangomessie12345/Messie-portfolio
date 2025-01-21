@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>ℎ𝑜𝑟𝑙𝑜𝑔𝑒 𝕕𝕖 𝐌𝐄𝐒𝐒𝐈𝐄 𝕆𝕊𝔸ℕ𝔾𝕆</title>
+       <style>
+        body {
+        background-image: 
+        url('https://i.imgur.com/2fkv28c.jpeg');
+         
+             background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+        font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #55c1ff;
+            border-radius:300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff1554;
+        }
+
+        .clock {
+            font-size: 50px;
+            color: #ffd26a;
+            margin: 5px 0;
+        }
+
+        .date {
+            font-size: 10px;
+            color: #5cff40;
+        }
+    </style>
+<head>
+<body>   
+   <body>
+<div class="container">
+    <h>𝐇𝐎𝐑𝐋𝐎𝐆𝐄 𝐔𝐍𝐈𝐕𝐄𝐑𝐒𝐈𝐓𝐀𝐈𝐑𝐄</h>
+    <h6>𝐇𝐎𝐑𝐋𝐎𝐆𝐄</h6>
+    <div id="clock" class="clock"></div>
+    <p id="date" class="date"></p>
+        <p>𝐜'𝐞𝐬𝐭 𝐥𝐚 𝐝𝐚𝐭𝐞 , 𝐥'𝐡𝐞𝐮𝐫𝐞 , 𝐥𝐚 𝐦𝐢𝐧𝐮𝐭𝐞 , 𝐥𝐞𝐬 𝐬𝐞𝐜𝐨𝐧𝐝𝐞𝐬 𝐚𝐜𝐭𝐮𝐞𝐥𝐥𝐞𝐬</p>
+            
+        <h2>𝐯𝐨𝐢𝐜𝐢 𝐥'𝐡𝐨𝐫𝐥𝐨𝐠𝐞</h2>
+
+
+   <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = currentTime;
+
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString('fr-FR', options);
+            document.getElementById('date').textContent = currentDate;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Appel initial pour afficher l'heure immédiatement
+    </script>
+      
+</body>
+</html>
+  
