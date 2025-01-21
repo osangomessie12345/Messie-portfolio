@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <style>
+        /* Style global */
+        body {
+            background-image: url('https://i.imgur.com/jo5FmCb.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Conteneur principal */
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 50px auto;
+           height:180px;
+       background:linear-gradient(blue,red);
+            padding: 20px;
+            border-radius: 45px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        /* Formulaire de recherche */
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            height: 40px;
+            padding: 0 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+            border-color: #007bff;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #3367D6;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        svg {
+            fill: white;
+        }
+
+        /* Menu bouton */
+        .menu-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .menu-button span {
+            display: block;
+            width: 8px;
+            height: 8px;
+            margin: 4px auto;
+            background-color: blue;
+            border-radius: 50%;
+        }
+
+        .menu-dropdown {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+
+        .menu-dropdown a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: black;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-dropdown a:hover {
+            background-color: #f5f5f5;
+        }
+
+        .menu-button:focus + .menu-dropdown,
+        .menu-dropdown:hover {
+            display: block;
+        }
+
+        /* Responsivité */
+        @media (max-width: 600px) {
+            input[type="text"] {
+                font-size: 14px;
+            }
+            button {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteneur principal -->
+    <div class="container">
+        <h1 style="color: #333; font-size: 2.5rem;">Recherche Google</h1>
+        <form action="https://www.google.com/search" method="get">
+            <button type="submit">
+                <svg focusable="false" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+            </button>
+            <input type="text" name="q" placeholder="Rechercher sur Google...">
+        </form>
+    </div>
+
+     </div>
+</body>
+</html>
