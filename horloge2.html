@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Titre de la page</title>
+    
+</head>
+
+<body>
+    <script>
+         
+function updateClock() {
+    const now = new Date();
+    const utcHours = now.getUTCHours().toString().padStart(2, '0');
+    const utcMinutes = now.getUTCMinutes().toString().padStart(2, '0');
+    const utcSeconds = now.getUTCSeconds().toString().padStart(2, '0');
+
+    const timeString = `${utcHours}:${utcMinutes}:${utcSeconds}`;
+    document.getElementById('time').textContent = timeString;
+}
+
+setInterval(updateClock, 1000);
+updateClock(); // Appel initial pour afficher l'heure Immédiatement  
+</script>
+    <style>
+    
+
+body {
+  animation: colorChange 5s infinite;
+  font-family:georgia;
+}
+
+@keyframes colorChange {
+  0% { background: linear-gradient(90deg, red, orange); }
+  25% { background: linear-gradient(500deg, blue, purple); }
+  50% { background: linear-gradient(90deg, green, yellow); }
+  75% { background: linear-gradient(90deg, blue,red); }
+  100% { background: linear-gradient(90deg, red, orange); }
+}
+.
+
+.clock {
+    text-align: center;
+    boder-radius:55px;
+}
+
+#time {
+    font-size: 48px;
+    margin-top: 20px;
+}
+    </style>
+    <style>
+        body{
+   display : flex;
+   justify-content:center;
+ align-items: center;
+height:100vh;
+background-color:#282c34;
+color: white;
+font-family: arial,sans-serif; 
+}
+
+.cloc{
+text-align:center;
+border:2px solid    #61dafb;
+border-radius: 10px;
+padding: 20px;
+background-color: #20232a;
+}
+
+.time{
+  font-zize : 48px;
+  margin-bottom : 10px;
+  
+}
+.timezone{
+    font-zize : 24px;
+    color: #51dafb;
+}
+    </style>
+  <div class="cloc">
+      <div class="time"id="time"></div>
+      <div class="timezone" id="timezone"></div>
+        <img src="https://i.imgur.com/2fkv28c.jpeg" width="300" height="300" style="border-radius:5555px">
+  </div> 
+
+</body>
+</html>
