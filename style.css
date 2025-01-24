@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 :root {
@@ -16,7 +17,7 @@ html {
 
 
 body {
-  background:linear-gradient(blue,red,purple,skyblue,black);
+  background-color:skyblue;
   font-family: georgia;
   font-weight: 500;
   font-size: 17px;
@@ -162,7 +163,7 @@ section {
   max-width: 700px;
   position:center;
   margin: 0 auto;
-background:linear-gradient(skyblue,blue,red);
+background:linear-gradient(skyblue,blue);
   padding: 30px;
   border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -191,7 +192,7 @@ div {
   max-width: 600px;
   position:center;
   margin: 20px;
-background:linear-gradient(skyblue,blue,red);
+background:linear-gradient(skyblue,blue);
   padding: 30px;
   border-radius: 3px;
   box-shadow: 0 4px 100px rgba(0, 0, 0, 0.2);
@@ -510,7 +511,7 @@ footer {
 
 
     .button {
-            background: linear-gradient(135deg, #6a40fc, #bc48fc, #f86cd3, #fa84ac, #fa919f, #faa27c, #ffb168);
+            background: linear-gradient(blue,purple);
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -522,9 +523,9 @@ footer {
      
       
    		.button {
-  background-color:red;
+  background-color:white;
   border: none;
-  color: blue;
+  color: white;
   border-radius: 5px;
   height:30px;
   padding: 5px 10px;
@@ -558,7 +559,7 @@ form {
  
   width: 300px;
   margin: 50px auto;
-  background:linear-gradient(blue,red);
+  background:linear-gradient(blue,skyblue);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
@@ -624,7 +625,7 @@ button {
 
 button:hover {
   transform: translateY(-3px); /* Effet de soulèvement */
-  background: linear-gradient(135deg, #bc48fc, #6a40fc);
+  background: linear-gradient(blue,red);
 }
 
 /* Footer */
@@ -679,7 +680,7 @@ footer p {
 body {
     margin: 0;
     font-family: georgia;
-    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    background: linear-gradient(skyblue,blue);
     color: white;
     overflow-x: hidden;
 }
@@ -706,12 +707,12 @@ section {
   max-width: 700px;
   position:center;
   margin: 0 auto;
-background:linear-gradient(purple,blue,red);
+background:linear-gradient(skyblue,blue);
   padding: 30px;
   border-radius: 3px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0; /* Cache le formulaire au début */
-  animation: fadeIn 1s ease-in-out 2s forwards; /* Animation après 2 secondes */
+  animation: fadeIn 1s ease-in-out 5s forwards; /* Animation après 2 secondes */
 }
   
   
