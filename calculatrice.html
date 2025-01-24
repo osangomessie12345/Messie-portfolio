@@ -6,112 +6,122 @@
     <title>Calculatrice</title>
     <style>
         body {
-  animation: colorChange 5s infinite;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family:georgia;
-}
-
-@keyframes colorChange {
-  0% { background: linear-gradient(90deg, red, orange); }
-  25% { background: linear-gradient(90deg, blue, purple); }
-  50% { background: linear-gradient(90deg, green, red); }
-  75% { background: linear-gradient(90deg, blue,purple); }
-  100% { background: linear-gradient(90deg, red, orange); }
-
-  
-}
-
-
-
+            animation: colorChange 5s infinite;
+            background: linear-gradient(blue, purple);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            font-family: georgia;
+        }
 
         .calculator {
-        
-@keyframes colorChange {
-  0% { background: linear-gradient(90deg, red, orange); }
-  25% { background: linear-gradient(90deg, blue, purple); }
-  50% { background: linear-gradient(90deg, green, red); }
-  75% { background: linear-gradient(90deg, blue,purple); }
-  100% { background: linear-gradient(90deg, red, orange); }
-
-  
-}
-            
-            border-radius: 50px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(blue, purple);
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             padding: 20px;
-            width: 320px;
+            width: 300px;
+            text-align: center;
         }
 
         .display {
             width: 95%;
             height: 60px;
-            background: darkblack;
-            border: none;
-            border-radius: 5px;
+            background: skyblue;
+            border: 2px solid #ccc;
+            border-radius: 30px;
             text-align: right;
             font-size: 2rem;
             padding: 10px;
             margin-bottom: 20px;
+            outline: none;
             box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .buttons {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 15px;
+            margin-bottom: 15px;
         }
 
         .button {
             height: 60px;
             background: #007bff;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: transform 0.2s, background 0.3s;
         }
 
         .button:hover {
             background: #0056b3;
+            transform: scale(1.1);
         }
 
-        .button.operation {
-            background: #ff6b6b;
-        }
-
-        .button.operation:hover {
-            background: #d9534f;
+        .button:active {
+            background-color: red;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transform: scale(0.95);
         }
 
         .button.equal {
-            grid-column: span 3;
             background: #28a745;
         }
 
         .button.equal:hover {
             background: #218838;
         }
-        .buttons button {
-  padding: 10px;
-  border-radius: 15px;
-  border: none;
-  font-size: 20px;
-  color: red;
-  background-color: black;
-  
-  outline: none;
-  transition: box-shadow 0.3s ease-in-out;
-}
 
-.buttons button:active,
-.buttons button:hover {
-  box-shadow: 0 0 50px 20px yellow;
-}
-     </style>
+        .button.equal:active {
+            background-color: red;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transform: scale(0.95);
+        }
+
+        .button.special {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .button.special:hover {
+            background: #e0a800;
+        }
+
+        .button.special:active {
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 193, 7, 1) 100%);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+            transform: scale(0.95);
+        }
+
+        .autor {
+            display: inline-block;
+            background: linear-gradient(to right, #ff6a00, #ee0979);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .autor:hover {
+            box-shadow: 0 0 20px rgba(255, 106, 0, 0.8), 0 0 30px rgba(238, 9, 121, 0.8);
+            transform: scale(1.1);
+        }
+
+        .autor:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+        }
+    </style>
 </head>
 <body>
     <div class="calculator">
@@ -137,9 +147,12 @@
             <button class="button" onclick="deleteLast()">DEL</button>
             <button class="button operation" onclick="appendValue('+')">+</button>
 
+            <button class="button special" onclick="calculateSquareRoot()">√</button>
+            <button class="button special" onclick="calculatePower()">xʸ</button>
             <button class="button" onclick="clearDisplay()">C</button>
             <button class="button equal" onclick="calculate()">=</button>
         </div>
+        <a href="https://www.facebook.com/profile.php?id=61564382117276" class="autor">Auteur</a>
     </div>
 
     <script>
@@ -184,4 +197,4 @@
         }
     </script>
 </body>
-              </html>
+</html>
