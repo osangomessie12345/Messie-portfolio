@@ -1,318 +1,273 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>messie chatbot</title>
+    <title>Messie Chatbot</title>
+    <style>
+        /* Style global */
+        body {
+            font-family: 'Georgia', serif;
+            animation: backgroundAnimation 10s infinite alternate;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+        }
 
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(90deg, #ff9a9e, #fad0c4); }
+            50% { background: linear-gradient(90deg, #a1c4fd, #c2e9fb); }
+            100% { background: linear-gradient(90deg, #ffecd2, #fcb69f); }
+        }
+
+        /* Conteneur principal */
+        .container {
+            width: 800px;
+            height: 600px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #6a40fc, #bc48fc);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header .button {
+            background: white;
+            color: #6a40fc;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .header .button:hover {
+            background: #f3e8fd;
+        }
+
+        /* Zone de chat */
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: linear-gradient(to bottom, #e4ecf1, #ffffff);
+        }
+
+        .chat-box .message-container {
+            background-color: #6a40fc;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            max-width: 70%;
+            word-wrap: break-word;
+            animation: messageFadeIn 0.5s ease-out;
+        }
+
+        .chat-box .user-message .message-container {
+            background-color: #4caf50;
+            align-self: flex-end;
+        }
+
+        @keyframes messageFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Barre d'entrée */
+        .input-container {
+            display: flex;
+            padding: 10px;
+            background: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        .input-container input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            margin-right: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-container input[type="text"]:focus {
+            border-color: #6a40fc;
+        }
+
+        .input-container button {
+            background: #6a40fc;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-container button:hover {
+            background: #8b5cf6;
+        }
+
+        /* Indicateur de saisie */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .typing-indicator .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            animation: blink 1.5s infinite ease-in-out;
+        }
+
+        .typing-indicator .dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator .dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0%, 80%, 100% { opacity: 0; }
+            40% { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-  
-
-<style>
-/* style.css */
-
-body {
-  animation: colorChange 5s infinite;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes colorChange {
-  0% { background: linear-gradient(90deg, red, orange); }
-  25% { background: linear-gradient(90deg, blue, purple); }
-  50% { background: linear-gradient(90deg, green, yellow); }
-  75% { background: linear-gradient(90deg, pink, cyan); }
-  100% { background: linear-gradient(90deg, red, orange); }
-
-  
-}
-
-.container {
-      width: 800px;
-    height:600px;
-    background-color: #ffffff;
-            border-bottom-left-radius: 10px;
-    border-top-right-radius:35px;
-    border-left: 50px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.header {
-       background: linear-gradient(135deg, green,blue);
-    color: white;
-    padding: 10px;
- width: 350px;
- height:90px;
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-.chat-box {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-       background-image:url(https://i.imgur.com/B2WfX1k.jpeg);
-           background-position:center;
-    background-size: 465px;
-    background-repeat:no-repeat;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    
-}
-
-.chat-box  .message-container {
-        background-color: yellowgreen;
-    color: white;
-    padding: 15px;
-        border-bottom-left-radius: 20px;
-    border-top-right-radius:20px;
-    border-radius: 5px;
-    max-width: 70%;
-        border-bottom-left-radius: 30px;
-    border-top-right-radius:30px;
-    justify-content: flex-start;
-    margin: 10px;
-      
-            max-width: 100%;
-           
-       
-        }
- 
-
-
-.chat-box .bot-message .message-container {
-    background-color: orangered;
-    color: white;
-    padding: 10px;
-    border-radius: 42px;
-    max-width: 100%;
-}
-
-.input-container {
-    display: flex;
-    padding: 1px;
-    background-color:blue;
-}
-
-.input-container input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-    font-size: 1em;
-    margin-right: 5px;
-    
-    transition: border-color 0.3s ease;
-}
-
-.input-container input[type="text"]:focus {
-    border-color: blue;
-   
-   
-}
-
-.input-container button {
-    background-color: red;
-    color: white;
-    border: none;
-    margin: 10px;
-    padding: 10px 10px;
-    border-radius: 10px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.input-container button:hover {
-    background-color:red;
-}
-
-.typing-indicator {
-    display: flex;
-    gap: 5px;
-}
-
-.typing-indicator .dot {
-    width: 8px;
-    height: 8px;
-    background-color: #bbb;
-    border-radius: 50%;
-    animation: blink 1.5s infinite ease-in-out;
-}
-
-.typing-indicator .dot:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.typing-indicator .dot:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-@keyframes blink {
-    0%, 80%, 100% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
-}
-
-    .button {
-            background: linear-gradient(135deg, #6a40fc, #bc48fc, #f86cd3, #fa84ac);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 55px;
-            color: white;
-            font-size: 1em;
-            cursor: pointer;
-            text-decoration: none;
-        }
-     
-      
-   		.button {
-  background-color:red;
-  border: none;
-  color: blue;
-  border-radius: 55px;
-  padding: 5px 100px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 5px;
-  margin: 1px;
-  cursor: pointer;
-   
-
-
-</style>  
-  
-  
-  
- 
-     
-  
-<div class="container">
-  
-
-    <div class="header">
-       
-      <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button" ><h5>autor</h5></a>
-  <h4>messie chatbot</h4>
- 
-        
-        
-    </div>
-    <div class="chat-box" id="chat-box"></div>
-    <div class="input-container">
-        <input type="text" id="user-input" placeholder="écrivez votre question . . .">
-        <button id="send-btn">Envoyer</button>
+    <div class="container">
+        <div class="header">
+            <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button">Auteur</a>
+            <h4>Messie Chatbot</h4>
+        </div>
+        <div class="chat-box" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Écrivez votre question...">
+            <button id="send-btn">Envoyer</button>
+        </div>
     </div>
 
-    <!-- Bloc d'information sur l'IA -->
-    <div class="info">
-    
-    </div>
-</div>
-
-<script type="importmap">
-    {
-         "imports": {
-               "@google/generative-ai": "https://esm.run/@google/generative-ai"
-         }
-    }
-</script>
-<script type="module">
-    import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
-    import { GoogleGenerativeAI } from "@google/generative-ai";
-
-    const API_KEY = "AIzaSyBUkLeLsQtfEcCGqWxeG1y7e4TVcq9olSc";
-    const genAI = new GoogleGenerativeAI(API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-    function filterResponse(text) {
-        // Remplace "Gemini" par "messie"
-        text = text.replace(/Gemini/gi, "Ai");
-        const inappropriateWords = ["idota", "badword2"]; // Liste de mots inappropriés
-        for (let word of inappropriateWords) {
-            const regex = new RegExp(`\\b${word}\\b`, "gi");
-            text = text.replace(regex, "[censuré]");
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
         }
-        return text;
-    }
+    </script>
+    <script type="module">
+        import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
+        import { GoogleGenerativeAI } from "@google/generative-ai";
 
-    async function run() {
-        const prompt = document.getElementById("user-input").value.trim().toLowerCase();
-        
-        // Afficher l'indicateur de saisie
-        const typingIndicator = document.createElement("div");
-        typingIndicator.classList.add("bot-message");
-        typingIndicator.innerHTML = `
-            <div class="message-container typing-indicator">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        `;
-        document.getElementById("chat-box").appendChild(typingIndicator);
-        
-        let responseText;
+        const API_KEY = "AIzaSyBUkLeLsQtfEcCGqWxeG1y7e4TVcq9olSc";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-        // Vérifier les réponses spécifiques
-        if (prompt === "𝑆𝐴𝐿𝑈𝑇 𝐶𝑂𝑀𝑀𝐸𝑁𝑇 𝑉𝐴𝑆-𝑇𝑈 ?") {
-            responseText = "Bonjour";
-        } else if (prompt === "bonjour, comment vas-tu ?") {
-            responseText = "Salut";
-        } else if (prompt.includes("comment vas-tu ?") || prompt.includes("qui es-tu")) {
-            responseText = "je suis l'intelligence artificielle créé par messie osango !";
-        } else if (prompt.includes("créateur")) {
-            responseText = "Mon créateur est messie osango";
-        } else {
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            const text = await response.text();
-            responseText = filterResponse(text); // Appliquer le filtre ici
+        function filterResponse(text) {
+            text = text.replace(/Gemini/gi, "Ai");
+            const inappropriateWords = ["idota", "badword2"];
+            for (let word of inappropriateWords) {
+                const regex = new RegExp(`\\b${word}\\b`, "gi");
+                text = text.replace(regex, "[censuré]");
+            }
+            return text;
         }
-        
-        // Supprimer l'indicateur de saisie
-        document.getElementById("chat-box").removeChild(typingIndicator);
-        
-        if (!responseText.trim()) {
-            responseText = "Désolé, je ne peux pas répondre à ça.";
-        }
-        
-        const botMessage = document.createElement("div");
-        botMessage.classList.add("bot-message");
-        botMessage.innerHTML = `
-            <div class="message-container">
-                ${marked.parse(responseText)}
-            </div>
-        `;
-        document.getElementById("chat-box").appendChild(botMessage);
-        document.getElementById("user-input").value = "";
-    }
 
-    document.getElementById("send-btn").addEventListener("click", async () => {
-        const userMessage = document.createElement("div");
-        userMessage.classList.add("user-message");
-        userMessage.innerHTML = `
-            <div class="message-container">
-                ${document.getElementById("user-input").value}
-            </div>
-        `;
-        document.getElementById("chat-box").appendChild(userMessage);
-        await run();
-    });
-</script>
+        async function run() {
+            const prompt = document.getElementById("user-input").value.trim().toLowerCase();
+
+            const typingIndicator = document.createElement("div");
+            typingIndicator.classList.add("bot-message");
+            typingIndicator.innerHTML = `
+                <div class="message-container typing-indicator">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            `;
+            document.getElementById("chat-box").appendChild(typingIndicator);
+
+            let responseText;
+
+            if (prompt === "𝑆𝐴𝐿𝑈𝑇 𝐶𝑂𝑀𝑀𝐸𝑁𝑇 𝑉𝐴𝑆-𝑇𝑈 ?") {
+                responseText = "Bonjour";
+            } else if (prompt === "bonjour, comment vas-tu ?") {
+                responseText = "Salut";
+            } else if (prompt.includes("comment vas-tu ?") || prompt.includes("qui es-tu")) {
+                responseText = "je suis l'intelligence artificielle créé par messie osango !";
+            } else if (prompt.includes("créateur")) {
+                responseText = "Mon créateur est messie osango";
+            } else {
+                const result = await model.generateContent(prompt);
+                const response = await result.response;
+                const text = await response.text();
+                responseText = filterResponse(text);
+            }
+
+            document.getElementById("chat-box").removeChild(typingIndicator);
+
+            if (!responseText.trim()) {
+                responseText = "Désolé, je ne peux pas répondre à ça.";
+            }
+
+            const botMessage = document.createElement("div");
+            botMessage.classList.add("bot-message");
+            botMessage.innerHTML = `
+                <div class="message-container">
+                    ${marked.parse(responseText)}
+                </div>
+            `;
+            document.getElementById("chat-box").appendChild(botMessage);
+            document.getElementById("user-input").value = "";
+        }
+
+        document.getElementById("send-btn").addEventListener("click", async () => {
+            const userMessage = document.createElement("div");
+            userMessage.classList.add("user-message");
+            userMessage.innerHTML = `
+                <div class="message-container">
+                    ${document.getElementById("user-input").value}
+                </div>
+            `;
+            document.getElementById("chat-box").appendChild(userMessage);
+            await run();
+        });
+    </script>
 </body>
 </html>
-
-  
