@@ -24,10 +24,10 @@
 
 /* Formulaire */
 form {
-  width: 90%;
-  max-width: 400px;
+  width: 70%;
+  max-width: 300px;
   margin: 50px auto;
-  background: linear-gradient(135deg, #ff6b6b, #6a40fc);
+  background: linear-gradient(135deg,red, blueviolet);
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -191,9 +191,12 @@ video {
 </style>
     
     
-    
-    
+   
+  
               <div class="container" style="border-radius:30px">
+                  
+                     
+                         
                   <div style="border-radius:55px">
                       <div style="border-radius:50px">
          <h1 class="col text-center" style="font-size: 10px; padding: 10px;text-align:center">𝐶𝑂𝑀𝑃𝑇𝐸 𝐹𝐴𝐶𝐸𝐵𝑂𝑂𝐾 𝐷𝐸 𝐿'𝐴𝑈𝑇𝐸𝑈𝑅</h1>
@@ -206,7 +209,9 @@ video {
    <button type="button" style="width:200px; background :linear-gradient(skyblue,blue);border-radius:40px">mon compte Facebook </button>
 </a>
 </div>
+
 </div>
+
 <br>
   
        <section id='hero'>
@@ -321,42 +326,59 @@ style="border-radius:25px">
   
   
           <section id="contact" class="animated-section section-margin">
-    <div class="container">
-      
+              
+    
+     <form class="contactForm" id="contactForm">
         <div>
           <label for="name"></label>
           <input type="text" id="name" placeholder="Your Name">
         </div>
         <br>
-        <br>
+        
         <div>
           <label for="email"></label>
           <input type="email" id="email" placeholder="ton e-mail">
         </div>
         <br>
-        <br>
+      
         <div>
           <input type="tel" placeholder="Your Phone"><br>
         </div>
         <br>
-        <br>
+        
         <div>
           <label for="message"></label>
           <textarea id="message" rows="4" placeholder="Your Message"></textarea>
         </div>
         <br>
         <br>
-        <button type="submit" style="width:200px">envoyer</button>
+        <button type="submit" style="width:180px">envoyer</button>
       </form>
-    </div>
+  
+   </form>
   </section>
   </footer>
 </main>
 
 
-<script src="script.js"></script>
+<script>    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Collect form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // WhatsApp API URL
+      const phoneNumber = '+243897520168'; // Replace with your WhatsApp number
+           const whatsappURL = `https://wa.me/${phoneNumber}?text=%0AMessage:%20${encodeURIComponent(message)}`;
+      
+      // Redirect user to WhatsApp chat
+      window.open(whatsappURL, '_blank');
+    });</script>
+  
    
 
 </body>
-                </html>
-                
+    </html>
+    
