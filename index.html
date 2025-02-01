@@ -1,402 +1,1170 @@
-
 <!DOCTYPE html>
-<html lang="fr">
-<head>
+<html>
+    <head>
+        <title>social service</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
- <link rel="stylesheet" href="style.css">   
-</head>
+    <meta name="author" content="messie osango">
 
-<body>
     
- <style>
-/* Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+   
+    
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    
+    </head>
+    
+    <body>
+
+            <style>
+        
+        
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
+
+
+
+
+html {
+    scroll-behavior:smooth;
+        
+
+} 
+
+body {
+margin:0;
+    padding:0;
+    font-family:georgia; 
 }
 
-/* Formulaire */
-form {
-  width: 70%;
-  max-width: 300px;
-  margin: 50px auto;
-  background: linear-gradient(135deg,red, blueviolet);
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out 4s forwards;
-  backdrop-filter: blur(10px);
+#logo {
+
+    font-weight:bold;
+    position:absolute ;
+    left:3%;
+    top:8%;
+    font-size:40px;
+    padding:1.5%;
+    color:white;
+   
+    
 }
 
-/* Style des labels */
-label {
-  margin-bottom: 10px;
-  display: block;
-  font-weight: bold;
-  color: #fff;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+
+.header {
+    background-image:url("https://files.catbox.moe/hewj08.jpeg");
+    background-attachment:fixed;
+    background-size:cover;
+    background-color:rgba(0,0,0,0.7);
+    background-blend-mode:color; 
+    text-align:center;
+    
+    width:100%;
+    overflow:auto;
+    padding-bottom:15%;
+    
 }
 
-/* Inputs et textareas */
-input,
-textarea {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 1rem;
-  box-sizing: border-box;
-  transition: border 0.3s ease, background 0.3s ease;
+
+
+
+.headertext {
+    float:left;
+    width:70%;
+    text-align:left;
+    margin-left:10%;
+    padding-right:10%;
+    animation-duration:1s;
+    animation-iteration-count:1;
+    
+    animation-timing-function:linear;
+    animation-name:text;
 }
 
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: #6a40fc;
-  background: rgba(0, 0, 0, 0.8);
+
+@keyframes text {
+    0% {transform:scale(1.2);opacity:0;}
+    
+    100% {transform:scale(1.0);opacity:1.0;}
 }
 
-/* Boutons */
-button {
-  background: linear-gradient(135deg, #6a40fc, #ff3e3e);
-  padding: 12px 20px;
+
+
+
+
+
+.header h1 {
+    color:white;
+    font-family:georgia;
+    font-weight:bold;
+    font-size:45px;
+}
+
+
+.header p {
+    color:white;
+    font-family:arial;
+    font-size:15px;
+    line-height:30px;
+    
+    font-weight:light;
+}
+
+
+.header button {
+    color:white;
+    padding:10px;
+    background:none;
+    border:2px solid white;
+    margin:1%;
+    transition:all 0.5s;
+    outline:none;
+    font-weight:bolder;
+    border-radius:0px 25px 0px 25px;
+}
+
+	.button {
+  background-color: black;
   border: none;
-  border-radius: 10px;
   color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-transform: uppercase;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #bc48fc, #6a40fc);
-}
-
-/* Conteneur principal */
-main {
-  font-family: Arial, sans-serif;
-  color: #fff;
-  background: #121212;
-  padding: 20px;
-  line-height: 1.6;
-}
-
-/* Section hero */
-#hero {
+  padding: 12px 100px;
   text-align: center;
-  padding: 50px 20px;
-}
-
-#hero h1, 
-#hero h2, 
-#hero h3, 
-#hero h4 {
-  margin: 10px 0;
-  color: #fff;
-}
-
-/* Images stylisées */
-img {
-  border-radius: 15px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* Sections */
-.section-margin {
-  margin: 40px 0;
-}
-
-.section-margin h4 {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Liens */
-a.button {
-  display: inline-block;
-  background: linear-gradient(135deg, #ff6b6b, #6a40fc);
-  color: white;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  transition: background 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+  font-size: 10px;
+  margin: 10px 2px;
+  cursor: pointer;
 }
 
-a.button:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(135deg, #bc48fc, #ff3e3e);
+
+.header button:hover {
+    color:black;
+    background:white;
 }
 
-/* Footer */
+
+    .navbar {
+    background:none;
+    margin:0;
+    padding:0;
+}
+
+
+.header ul {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    width:100%;
+    overflow:auto;
+    float:left;
+    text-align:right;
+    height:auto;
+    background-color:rgba(0,0,0,0.3);
+    position:fixed;
+    top:0;
+    z-index:50;
+    
+}
+
+
+
+.header li {
+    display:inline-block ;
+    margin-left:3%;
+    padding:2.5%;
+    color:white;
+    outline:none;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:bold;
+    
+    
+}
+
+
+.header li:hover {
+    border-bottom:2px solid white;
+}
+
+
+button.bar {
+    color:white;
+    font-weight:bold;
+    font-size:25px;
+    position:absolute;
+    right:5%;
+    top:6%;
+    border:none;
+    background:none;
+    outline:none;
+    
+    
+}
+
+button.search, button.searched {
+    
+    position:absolute;
+    right:20%;
+    top:6%;
+    border:none;
+    font-weight:bold;
+    background:none;
+    color:white;
+    font-size:25px;
+
+}
+
+button.search:hover {
+    background:none;
+    color:white;
+}
+
+
+.header i {
+    margin-right:5%;
+    font-size:20px;
+}
+
+
+.icons i {
+    color:white;
+    font-size:20px;
+    
+    
+
+}
+
+.icons {
+    margin-top:10%;
+
+    
+}
+
+
+
+
+@media screen and (min-width:600px) {
+    button.bar, button.search {
+        display:none;
+    }
+    
+    
+}
+
+
+@media screen and (max-width:600px) {
+    .header li {
+        display:block;
+        text-align:left;
+        outline:none;
+        padding-top:10%;
+        padding-bottom:20%;
+        color:white;
+        
+    
+    }
+    
+    .header a {
+        outline:none;
+        text-decoration:none;
+    }
+    
+    
+    .header li:hover {
+        border-bottom:2px solid white;
+        
+    }
+    
+    
+    .header ul {
+        position:absolute ;
+        height:0vh;
+        top:0%;
+        width:80%;
+        padding-left:10%;
+        padding-right:10%;
+        
+   background:rgba(0,0,0,0.9);
+   transition:height 0.3s;
+   
+   
+   
+}
+
+
+}
+
+
+.icons i {
+    color:white;
+    font-size:15px;
+    display:block;
+    margin-bottom:100%;
+
+}
+
+.icons {
+    position:absolute ;
+    right:5%;
+    
+}
+
+
+.it {
+    padding:3%;
+    background:transparent ;
+    border-radius:25px 25px;
+    border:2px solid white;
+    position:absolute;
+    top:8%;
+    right:20%;
+    outline:none;
+
+    color:white;
+    
+}
+
+.searchbox {
+    display:none;
+}
+
+.about {
+    width:85%;
+    margin-left:7.5%;
+    padding-right:7.5%;
+}
+
+.about p{
+    line-height:30px;
+    font-size:18px;
+    font-family:arial;
+    color:gray;
+}
+
+.about h1 {
+    font-family:georgia;
+    font-size:40px;
+}
+
+
+.about i {
+    margin:1px;
+    padding:15px;  background:lightgray;
+    text-align:center;
+    transition:all 1s;
+}
+
+.about i:hover  {
+    background:gray;
+}
+
+
+.services {
+    background-image:url("https://files.catbox.moe/ly89gu.jpeg");
+    background-attachment:fixed;
+    background-size:cover;
+    background-color:rgba(0,0,0,0.7);
+    background-blend-mode:color;
+    overflow:auto;
+    width:100%;
+    text-align:center;
+    color:white;
+}
+
+.insurance {
+    float:left;
+    width:25%;
+    height:auto;
+    border:1px solid white;
+    margin-left:2%;
+    padding:2.5%;
+    color:white;
+    text-align:center;
+    margin-bottom:10%;
+    
+
+}
+
+
+
+
+
+
+@media screen and (max-width:600px) {
+    .insurance {
+        width:70%;
+        margin-left:5%;
+        padding:10%;
+        margin-bottom:10%;
+    }
+}
+
+
+.insurance p {
+
+    font-weight:lighter ;
+}
+
+
+
+.insurance button {
+    color:white;
+    padding:15px;
+    background:none;
+    border:1px solid white;
+    margin:1%;
+    transition:all 0.5s;
+    outline:none;
+    font-weight:bolder;
+    border-radius:0px 25px 0px 25px;
+}
+
+
+
+.insurance button:hover {
+    color:black;
+    background:white;
+}
+
+.insurance i {
+    font-size:50px;
+}
+
+
+.contact {
+    width:100%;
+      background-image:url("https://files.catbox.moe/tumqa7.jpeg");
+    background-attachment:fixed;
+    background-size:cover;
+    background-color:rgba(0,0,0,0.7);
+    background-blend-mode:color;
+    border:none;
+    
+}
+
+
+.contact2 {
+    background-color:rgba(0,0,0,0.5);
+    width:90%;
+    margin-left:5%;
+    border-left:3px olid white;
+    border-right:3px solid white;
+    border-radius:0px 25px 0px 25px;
+}
+
+.contact input, textarea {
+    
+    padding:20px;
+    margin-bottom:10%;
+    background:none;
+    border:none;
+    margin-left:5%;
+    border-bottom:2px solid white;
+    color:white;
+    outline:none;
+    width:50%;
+} 
+
+textarea {
+    height:50px;
+    margin-left:20%;
+}
+
+.contact i {
+    color:white;
+    margin-left:15%;
+    
+  }
+  
+  
+  .text {
+      color:white;
+      width:70%;
+      text-align:center;
+      font-weight:bold;
+      margin-left:15%;
+  }
+  
+  
+  .text p {
+      color:whitesmoke;
+  }
+  
+  .icon {
+      text-align:center;
+  }
+  
+  .icon i {
+       margin:4%;
+       text-align:center;
+  }
+  
+  
+  
+  .contact button {
+    color:white;
+    padding:15px;
+    background:none;
+    border:1px solid white;
+    margin:1%;
+    transition:all 0.5s;
+    outline:none;
+    width:40%;
+    font-weight:bolder;
+    border-radius:0px 25px 0px 25px;
+    margin-left:20%;
+}
+
+
+
+.contact button:hover {
+    color:black;
+    background:white;
+}
+
+
+.comments {
+    background:white;
+    overflow:auto;
+    width:100%;
+    height:auto;
+    text-align:center;
+    color:gray;
+
+}
+
+
+
 footer {
-  padding: 20px;
-  background: #1a1a1a;
-  text-align: center;
+    text-align:center;
+    background-image:url("https://files.catbox.moe/3qk7pi.jpeg");
+    background-attachment:fixed;
+    background-size:cover;
+    background-color:rgba(0,0,0,0.9);
+    background-blend-mode:color; 
+    border:none;
+    
 }
 
+footer i {
+    margin:1px;
+    padding:15px;  background:lightgray;
+    text-align:center;
+    transition:all 1s;
+
+}
+
+footer i:hover  {
+    background:gray;
+    
+}
 footer h1 {
-  color: #fff;
-  font-family: 'Georgia', serif;
+    color:white;
+    font-family:georgia;
 }
 
 footer p {
-  color: lightgray;
-  font-size: 0.9rem;
-  line-height: 1.8;
+    color:gray;
+    line-height:30px;
+    font-size:15px;
 }
 
-/* Clients */
-.client1,
-.client2,
-.client3 {
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+
+.client1, .client2, .client3{
+    background-color:lightgray;
+    float:left;
+    width:25%;
+    height:auto;
+    border-top:1px solid black;
+    box-shadow:0px 0.5px 20px lightgray;
+    margin-left:2%;
+    padding:2.5%;
+    color:gray;
+    text-align:center;
+    margin-bottom:10%;
+    border-radius:40px 40px 40px 40px;
+    margin-top:10%;
+
+
 }
 
-/* Vidéos */
-video {
-  border-radius: 15px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 20px auto;
+
+
+.client1 {
+    display:block;
 }
-</style>
+
+
+
+.comments {
+    overflow-y:hidden;
+}
+
+@media screen and (max-width:600px) {
+  .client1, .client2, .client3
+          {
+        width:70%;
+        margin-left:5%;
+        padding:10%;
+        margin-bottom:10%;
+    }
     
-           
+    
+    
+   
+}
+
+
+
+
+.client1 p, .client2 p, .client3 p
+
+    {
+
+    font-weight:lighter ;
+}
+
+
+
+.comments img {
+    width:100px;
+    height:110px;
+    border-radius:50%;
+    
+}
+
+
+p {
+    font-size:15px;
+    font-weight:lighter;
+}
+
+   
+ .gallery {
+     text-align:center;
+     color:gray;
+     overflow:auto;
+     width:100%;
+     overflow-y:hidden;
+ }
+
+
+
+.images {
+    width:40%;
+    margin-left:5%;
+    margin-right:5%;
+    float:left;
+    height:20vh;
+    margin-bottom:5%;
   
-              <div class="container" style="border-radius:30px">
+    }
+
+.images img {
+    width:100%;
+    height:100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+            </style>
+
+    
+    
+    <!-- Header
+        begins
+        here
+    -->
+  
+    
+    <div class="header">
+    
+
+    
+            <form class="searchbox"
+            action="https://www.google.com/search" method="get">
+   <input  type="text" name="q" class="it"   placeholder="recherche" style="color:white">
+<br>
+<br>
+<button type="submit" 
+style="  width:55px;height:35px;border-radius:40px;border:none;display:flex;align-items:center;justify-content: center;color:black;border-radius: 50%;  width: 50px; height: 50px; cursor: pointer; background :gray"  >
+                <svg focusable="false" viewBox="0 0 24 24" style="   fill: white;">
+                    <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+
+</button>
+
+    </form>
+
+ 
+ 
+   
+             <button class="search" onclick="openSearch()"><i class="fa fa-search"></i></button>
+             
+      
+
+    
+    <button class="bar" onclick="openMenu()"><i class="fa fa-bars"></i></button>   
+    
+    <div class="navbar" onclick="closeMenu()">
+    
+            <ul>
+        
+     
+        
+            <a href="#"><li><i class="fa fa-home"></i>Home</li></a>
+            
+            <a href="#about"><li><i class="fas fa-users"></i>About </li></a>
+            <a href="#contact"><li><i class="fas fa-envelope"></i>Contact</li></a>
+            <a href="#services"><li><i class="fas fa-handshake"></i>Services</li></a>
+            
+       <a href="#gallery"><li><i class="fas fa-camera"></i>Gallery</li></a>
                   
-                     
-                         
-                  <div style="border-radius:55px">
-                     <div style="border-radius:50px">
-         <h1 class="col text-center" style="font-size: 10px; padding: 10px;text-align:center">𝐶𝑂𝑀𝑃𝑇𝐸 𝐹𝐴𝐶𝐸𝐵𝑂𝑂𝐾 𝐷𝐸 𝐿'𝐴𝑈𝑇𝐸𝑈𝑅</h1>
+            
+            
+            
+            
+        </ul>
+    </div>
+    
+    
+    
+    
+    
+    <div class="cancel"  onclick="closeSearch()">
         
-       <img width="290px" height="200px" src="https://i.imgur.com/rhOtF1u.jpeg" style="border-radius:100px; position :center">
-    </div>  
+       <br><br> <br><br><br><br><br>
+    </div>
+    
+    
+    
+    <div>
+    <div class="headertext">
+        <h1>𝑁𝑂𝑆 𝑆𝐸𝑅𝑉𝐼𝐶𝐸𝑆</h1>
+          <p><code>nos services sont disponibles pour vous, vous besoins et vos désirs</code></p>
+       
+
+        <br><br><br>
+            <br><br>
+   
+            
+            
+            
+     </div>
+        
+      </div>
+    <br><br>
+        
+            
+<div class="icons">
+
+<br><br>
+        
+         <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-github"></i>
+        
+        <i class="social-icon fab fa-reddit"></i>
+        
+        <i class="social-icon fab fa-google"></i>
+        
+        </div>          <br><br>
+        
+            
+    </div>
+    
+    
+     <!-- About
+        begins
+        here
+        
+    
+    -->
+    
+    
+    
+    <div class="about" id="about" data-aos="fade-bottom">
+    <br>
+    <h1>notre entreprise</h1>
+    
+    
+        <p>
+        <b>notre entreprise est un service dont vous pouvez nous contacter et nous informer sur le projet dont vous avez et, nous ferions de notre mieux pour vous aider à le faire grâce à l'informatique</b>
+        </p>
+        <p>
+        <code> vous pouvez nous dire ce dont vous voulez faire comme par exemple :<m>un site web,</p>
+        <p> un logo, 
+        <p>une application,</p>
+        <p>ou soit vous désirez en apprendre davantage sur l'informatique </p>
+        <p>ou bien vous voulez apprendre à créer des IA via WHATSAPP ou Facebook</p>
+        <p> cela vous est libre des choix et vous pouvez proposer ce dont vous voulez créer</p>
+        </code>
+<br><br>
+
+<i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-github"></i>
+        
+        <i class="social-icon fab fa-reddit"></i>
+        
+       <br><br><br>
+        
+        
+    </div>
+    
+    <div style="text-align:center">
+    <i class="fas fa-shield-alt" style="font-size:100px;position:relative;z-index:20;top:50px;color:gray"></i>
+    </div>
+    
+    
+     <!-- Services
+        begins
+        here
+        
+    
+    -->    
+    
+    
+    <div class="services" id="services">
+    
+    <br><br><br>
+        <h1>service client</h1>
+        
+        <br><br>
+    
+    
+   <div class="insurance" data-aos="fade-right">  
+   
+   
+   <i class="fas fa-user-shield"></i>
+   <br>
+   <h2><b>l'informatique</b></h2>
+   
+       <p>grâce à l'informatique,</p>
+       <p>nous pouvons vous venir en aide et satisfaire à vos besoins</p>
        <br>
+ <a href="index3.html"><button>en apprendre plus </button></a>
+   </div>
+        
 
-<a href="https://www.facebook.com/MetoushelaWalker" target="_blank">
-   <button type="button" style="width:200px; background :linear-gradient(skyblue,blue);border-radius:40px">mon compte Facebook </button>
-</a>
-</div>
-
-</div>
-
-<br>
-  <div>
-       <section id='hero'>
-    <div class='content'>
-      <p style="text-align:center">je vous souhaite la bienvenue dans mon site web</p>
-  <p style="text-align:center">je suis un débutant en informatique<p>    
-    <p style="text-align:center">j'ai débuté il y a quelques mois environ</p>  
-    <p style="text-align:center">et je compte m'arrêter jusqu'à ce que j'aurai un niveau dont je me considérai suffisant</p>     
+<div class="insurance" data-aos="fade-up"> 
    
-    <img src="https://i.imgur.com/GkiVTYv.jpeg" style="border-radius:15px;width:135px">
-    
-  </section>
- </div>
-    <br>
-    <br>
- <div>
-  <section id='how-work' class='section-margin'>
-    <div>
-     <h4>j'évolue aux langages suivants :</h4>
-    
-     <p style="text-align:center">HTML</p>
-     <p style="text-align:center">CSS</p>
-     <p style="text-align:center">JAVASCRIPT</p>
+   <i class="fas fa-shield-alt"></i>
+   <br>
    
-     <p style="text-align:center">actuellement j'en apprends davantage sur JavaScript</p>
-     <p style="text-align:center">je maîtrise peu des langages actuellement ,</p>
-     <p style="text-align:center">mais je compte évoluer et en apprendre d'autres !</p>
-    </div>
-  </section>
-  </div>
-  <br>
-    <br>
-  <div>
-  <section>
-  <section>
-
-
- <h4 style="text-align:center">l'horloge ci-dessous fut mon projet projet il y a environ 5 ou 6 mois</h4>
-
-   <p>┍──━─┙◆┕─━──┑</p>    
-    <a href="horloge.html" class="button" style="width:110px;height:20px;text-align:center">horloge</a>        <p>╚─━━━░★░━━━─╝</p>
+   <h2><b>vous pouvez apprendre l'informatique</b></h2>
+       <p>grâce à nos services,</p>
+       <p>vous pouvez devenir un développeur web si vous voulez en devenir </p>
+       <p>avec le temps et les efforts vous le pourriez </p>
+       <br>
+       
+ <a href="index4.html">    <button>en apprendre plus</button></a>
+       
+   </div>
+   
+ 
+   <div class="insurance" data-aos="fade-left"> 
+   <i class="fas fa-shield-alt"></i>
+   <br>
+   <h2><b>vos besoins</b></h2>
+   
+       <p>vous pouvez nous faire signe de ce dont vous voulez faire</p>
+       <br>
+       
+ <a href="index5.html"  ><button>en apprendre plus</button></a>
+       
+   </div>
+   
+   
+   <br><br><br>
+   </div>
+   
+   
+   <!-- Gallery
+        begins
+        here
         
-         <h5 style="text-align:center">ce projet fut mon tout premier site web
-         au début je ne connaissais pas vraiment grand chose
-        et c'est après quelques temps que je l'ai stylisé de ma propre manière</h5>
-        <h5>puis celui-ci est le deuxième</h5>
+    
+    -->
+   
+   <div class="gallery" id="gallery">
+       
+      <br><br>
+      <div style="width:70%;padding-left:15%;padding-right:15%">
+      
+      <br><br><br>
+      <h1>apprendre quelques notions sur l'informatique</h1> 
+      
+      <p>vous pouvez en apprendre davantage sur l'informatique </p>
+      <p>soit devenir un développeur web</p>
+       
+       </div>
+       <br>
+      <div class="images" data-aos="fade-up">
+      <img src="https://files.catbox.moe/2mpikv.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">    
+        </div>
+       
+       
+           <div class="images" data-aos="fade-up">
+      <img src="https://files.catbox.moe/6b8vvo.jpeg">    
+        </div>
+       
+       
+          <div class="images" data-aos="fade-up">
+      <img src="https://files.catbox.moe/dd85gm.jpeg">    
+        </div>
+       
+       
+       
+       <div class="images" data-aos="fade-up">
+      <img src="https://files.catbox.moe/w07jca.jpeg">    
+        </div>
         
-        <p >┍──━─┙◆┕─━──┑</p>
         
-      <a href="horloge2.html"class="button" style="width:110px;height:20px;text-align:center;font-size:10px">deuxième horloge</a>
-       <p >╚─━━━░★░━━━─╝</p>
-        <img src="https://i.imgur.com/4bladYC.jpeg" width="200px" height="180px"
-   style="border-radius:25px">
-  
-  
- </section>
- </div>
+
+        
+        
+        
+        
+        
+      
+   
+   
+   
+   
+   
+   
+    <!-- Contact
+        begins
+        here
+        
+    
+    -->
+   
+   
+   
+   <div class="contact" id="contact">
+   <br><br><br>
+   <div class="text">
+   <h2>contactez nous</h2>
+   <p></p>
+   </div>
+   <br>
+   
+   
+   
+    <form class="contact2" data-aos="zoom-in">
+      <br><br><br><br><br>
+  <a href="https://www.facebook.com/profile.php?id=61570013834872" class="button">contacter via Facebook</a>
  <br>
- <div>
-     <div>
- <section>
- <p>après cela, j'ai réalisé quelques projets étant calculatrices comme celui-ci :</p>
-
- <p>┯━━━━━━━━━━━┯</p>
-
-    <a href="calculatrice.html" class="button"style="width:110px;height:20px;font-size:13px">calculatrice</a> <p>╚═══════════╝</p>
-     
-    <p style="text-align:center">celle-ci est la première calculatrice dont j'ai réalisé </p>
-
-    <img src="https://files.catbox.moe/w07jca.jpeg" style="width:200px; height:100px" style="border-radius:25px">
-  </section>
-  </div>
-  </div>
-  <br>
-<div>
-  <div>
-  <section id='perfect' class='section-margin'>
-    <h4>puis, j'ai créé un  site web qui est la création dont je suis toujours aussi fière : </h4>
-  
-    <p>┯━━━━━━━━━━━━┯</p>
-    <a href="social.html" class="button" style="width:110px;text-align:center;font-size:10px">social service</a>
-     <p>╚════════════╝</p>
-     <br>
-     
-        <img src="https://i.imgur.com/R04tvyA.jpeg"  style="border-radius:25px;width:200px;heigth:100px">
-        </section>
-        </div>
-        </div>
-        <br>
-        <br>
-      <div> 
-          <div>
-      <div>  
-        <h4 style="text-align:center">puis pour finir, ma dernière création</h4>
-        <h4 style="text-align:center">celui dont je suis heureux d'en avoir conçu !</h4>
-    
-        <p>┯━━━━━━━━━━━┯</p>
-      <a href="chatbot.html" class="button" style="width:100px;font-size:8px;text-align:center;height:20px">𝑀𝐸𝑆𝑆𝐼𝐸 𝐶𝐻𝐴𝐵𝑂𝑇</a>
-          <p>╚═══════════╝</p>
-          </div>
-            </div>
-            </div>
-     <br>
-      <div>
-          <div>
-              <div>
-            <p style="text-align:center">et ensuite j'ai fait une réplique Google</p>
-        <p>┯━━━━━━━━━┯</p>
-      
-      <a href="Google.html" class="button" style="width:85px;text-align:center;font-size:8px">mini Google</a>
-          <p>╚═════════╝</p>
-          
-  <br>
-  <br>
-      <img src="https://i.imgur.com/ePz6GlG.jpeg" width="200px" height="180px"
-style="border-radius:25px">
-</div>
-</div>
-</div>
-
-</section>
-<br>
-<br><section>
-    <div>
-        <div>
-      <p style="text-align:center">pour l'instant ce sont mes seuls projets déjà réalisés</p>
-      <p style="text-align:center">j'en ai d'autres mais malheureusement, je leurs ai mis en suspens pour l'instant<br> que je m'améliore</p>
-     
-<img src="https://i.imgur.com/tx6D8KF.jpeg" width="200px" height="200px" style="border-radius:25px">
-</div>
-</div>
-<br>
-<div>
-    <div>
-<h4>je continue mon parcours en évoluant</h4>      
-<h4>jusqu'à ce que je me considérai suffisant</h4>
-<h4>peut importe les critiques actuelles</h4>
-  <video height="1000px" src='https://i.imgur.com/6tvn7ec.mp4' controls " style="border-radius:10px;height:100px;width:1000px">
+ <br>
+ <div class="icon">
+ 
+     <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-github"></i>
         
-    </video>
-    </div>
-    </div>
-  </section>
-  
-  
-          <section id="contact" class="animated-section section-margin">
-              
-    
-     <form class="contactForm" id="contactForm">
-        <div>
-          <label for="name"></label>
-          <input type="text" id="name" placeholder="Your Name">
-        </div>
-        <br>
+        <i class="social-icon fab fa-reddit"></i>
         
-        <div>
-          <label for="email"></label>
-          <input type="email" id="email" placeholder="ton e-mail">
+        <i class="social-icon fab fa-google"></i>
         </div>
-        <br>
-      
-        <div>
-          <input type="tel" placeholder="Your Phone"><br>
-        </div>
-        <br>
-        
-        <div>
-          <label for="message"></label>
-          <textarea id="message" rows="4" placeholder="Your Message"></textarea>
-        </div>
-        <br>
-        <br>
-        <button type="submit" style="width:180px">envoyer</button>
-      </form>
-  
-   </form>
-  </section>
-  </footer>
-</main>
-
-
-<script src="script.js">    </script>
-  
+        <br><br>
+     </form>
+       
+     <br><br><br>   
+   </div>
+   
    
 
-</body>
-    </html>
+<!-- Comments 
+    section 
     
+    -->
+
+
+  <div class="comments">
+    
+   <br><br><br>
+   <h1>informations supplémentaires</h1>
+    
+   
+      <div class="client1" data-aos="fade-up-right">
+      
+      <br>
+      
+    <img src="https://files.catbox.moe/dd85gm.jpeg">
+   <i class="fas fa-user-shield"></i>
+   <br>
+   <h2><b>nous sommes là </b></h2>
+   
+       <p>nous sommes là pour vous aider</p>
+       <br>
+       
+       
+   </div>
+        
+   <div class="client2" data-aos="fade-up">
+   <br>
+    <img src="https://files.catbox.moe/cniss4.jpeg">
+   <i class="fas fa-shield-alt"></i>
+   <br>
+   
+   <h2><b>information supplémentaire</b></h2>
+       <p>nos services vous sont donnés à bas prix alors n'hésitez pas à nous contacter</p>
+       <br>
+       
+       
+       
+   </div>
+   
+  <div class="client3" data-aos="fade-up-left">
+   
+   <br>
+   
+   <img src="https://files.catbox.moe/plpd64.jpeg">
+   
+   <i class="fas fa-shield-alt"></i>
+   <h2><b>nous contacter via WhatsApp</b></h2>
+   
+    <a href="https://chat.whatsapp.com/EhgEi6JkkA05bxkEN9HnrX" class="button">contacter</a>
+       <br>
+       
+       
+       
+   </div>
+ 
+       
+       
+     <br><br><br>   
+   </div> 
+  
+  <!-- Footer
+        begins
+        here
+        
+    
+    -->
+  
+  
+     <div style="text-align:center">
+    <i class="fas fa-shield-alt" style="font-size:60px;position:relative;z-index:20;top:30px;color:gray"></i>
+    </div>
+    
+    
+     
+    
+    <footer>
+    
+    
+    
+    <div style="padding:15%" data-aos="fade-up">
+        <br>
+        <h1>social service</h1>
+        <br>
+         <p>le numéro pour les transactions :</p>
+    <p> 
+        <p>orange money</p>
+          <strong style="color:skyblue">+243 897520168</strong></p>
+          <p>airtel money</p>
+         <p><strong style="color:skyblue">+243 982106421</strong></p>
+        
+        
+        <i class="social-icon fab fa-facebook-f"></i>
+        <i class="social-icon fab fa-instagram"></i>
+        <i class="social-icon fab fa-twitter"></i>
+        <i class="social-icon fab fa-github"></i>
+        
+        <i class="social-icon fab fa-reddit"></i>
+        <br><br><br>
+        
+        <p>social service <b style="color:white">pour vous aider</b></p>
+        
+         <a href="#" style="outline:none"><i class="
+fa fa-angle-up" style="position:absolute;bottom:2%;right:5%;padding:15px;font-size:30px;color:white;background:black;"></i></a>
+
+        
+        
+        </div>
+    </footer>
+
+       
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+        
+    </script>
+    
+    <script> 
+AOS.init({
+    easing: 'ease-out',
+    duration: 500, 
+    
+    
+}); 
+
+
+//Nav bar Mobile
+
+function openMenu() {
+    
+    var open = document.querySelector("ul");
+    
+open.style.height="100vh";
+
+
+};
+
+
+function closeMenu() {
+
+    var close = document.querySelector("ul");
+
+    close.style.height="0vh";   
+    
+};
+
+
+//Search Bar mobile
+
+function openSearch() {
+
+    var openSearch = document.querySelector(".searchbox");
+    
+    
+    
+    openSearch.style.display= "block";
+    
+    
+    document.querySelector(".search").style.display="none";
+      
+}
+
+
+function closeSearch() {
+
+    var closeSearch = document.querySelector(".searchbox")
+    closeSearch.style.display= "none";
+           document.querySelector(".search").style.display="block";
+      
+};
+
+
+
+
+
+
+</script>
+      </body>
+                                                                                    </html>
+
+   
