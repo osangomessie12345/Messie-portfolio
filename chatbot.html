@@ -1,87 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Messie Chatbot</title>
+    <title>Metoushela AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Lien vers AOS CSS -->
     <style>
-        /* Style global */
-        body {
-            font-family: 'Georgia', serif;
-            animation: backgroundAnimation 10s infinite alternate;
+        * {
             margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: linear-gradient(90deg, #ff9a9e, #fad0c4);
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia;
         }
 
-        @keyframes backgroundAnimation {
-            0% { background: linear-gradient(90deg, #ff9a9e, #fad0c4); }
-            50% { background: linear-gradient(90deg, #a1c4fd, #c2e9fb); }
-            100% { background: linear-gradient(90deg, #ffecd2, #fcb69f); }
-        }
-
-        /* Conteneur principal */
-        .container {
-            width: 800px;
-            height: 600px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+        body {
+            background: #f2f3f5;
             display: flex;
             flex-direction: column;
-            animation: fadeIn 1s ease-out;
+            height: 100vh;
+            background:linear-gradient(135deg, white,gray);
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #6a40fc, #bc48fc);
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: blueviolet;
             color: white;
             padding: 20px;
-            text-align: center;
-            font-size: 1.8em;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header .button {
-            background: white;
-            color: #6a40fc;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 0.9em;
-            border-radius: 20px;
-            transition: background-color 0.3s ease;
+        .logo img {
+            width: 40px;
+        }
+          
+
+
+        .title p {
+            font-size: 14px;
+            opacity: 0.8;
         }
 
-        .header .button:hover {
-            background: #f3e8fd;
+        .icons {
+            display: flex;
+            gap: 15px;
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        /* Zone de chat */
-        .chat-box {
+        main {
             flex: 1;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            animation: slide-in-left 0.6s ease-out;
             overflow-y: auto;
-            background: linear-gradient(to bottom, #e4ecf1, #ffffff);
         }
 
-        .chat-box .message-container {
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            max-height: calc(100vh - 180px); /* Ajustement pour éviter le chevauchement avec le footer */
+            padding-bottom: 80px; /* Espace pour le footer */
+        }
+
+        .user-message, .bot-message {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        .user-message {
+            align-self: flex-end;
+            background: #9b30ff;
+            color: white;
+            animation: messageFadeIn 0.5s ease-out;
+        }
+
+        .bot-message {
             background-color: #6a40fc;
             color: white;
             padding: 10px 15px;
@@ -90,11 +96,6 @@
             max-width: 70%;
             word-wrap: break-word;
             animation: messageFadeIn 0.5s ease-out;
-        }
-
-        .chat-box .user-message .message-container {
-            background-color: #4caf50;
-            align-self: flex-end;
         }
 
         @keyframes messageFadeIn {
@@ -108,45 +109,50 @@
             }
         }
 
-        /* Barre d'entrée */
-        .input-container {
+        footer {
             display: flex;
-            padding: 10px;
-            background: #f4f4f4;
+            align-items: center;
+            background:white;
+            padding: 15px;
             border-top: 1px solid #ddd;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px; /* Hauteur du footer */
         }
 
-        .input-container input[type="text"] {
+        footer input {
             flex: 1;
-            padding: 10px;
-            font-size: 1em;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            margin-right: 10px;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: #f0f0f0;
             outline: none;
             transition: border-color 0.3s ease;
         }
 
-        .input-container input[type="text"]:focus {
-            border-color: #6a40fc;
+        footer input:focus {
+            border-color: #9b30ff;
         }
 
-        .input-container button {
-            background: #6a40fc;
+        footer button {
+            background: #9b30ff;
             color: white;
-            padding: 10px 20px;
-            font-size: 1em;
             border: none;
-            border-radius: 20px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-left: 15px;
+            font-size: 24px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
-        .input-container button:hover {
+        footer button:hover {
             background: #8b5cf6;
         }
 
-        /* Indicateur de saisie */
         .typing-indicator {
             display: flex;
             align-items: center;
@@ -169,20 +175,88 @@
             0%, 80%, 100% { opacity: 0; }
             40% { opacity: 1; }
         }
+
+        @keyframes slide-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .logo .button {
+            background: white;
+            color: #6a40fc;
+         position:center;
+         text-align:center;
+  margin:60px;
+            padding: 10px 30px ;
+           justify-content: center;
+            text-decoration: none;
+            font-size: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo .button:hover {
+            background: #f3e8fd;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo .button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button">Auteur</a>
-            <h4>Messie Chatbot</h4>
+
+    <header data-aos="fade-down">
+     
+        
+             <br>
+             <br>
+             <br>
+       <div class="logo">
+       
+    
+      
+                      <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button">Auteur</a>
+                      
+                  
+                     <br>
+            <h1 style="margin:30px"> messie chatbot</h1>
+        
         </div>
-        <div class="chat-box" id="chat-box"></div>
-        <div class="input-container">
-            <input type="text" id="user-input" placeholder="Écrivez votre question...">
-            <button id="send-btn">Envoyer</button>
+    </header>
+
+    <main data-aos="fade-left">
+        <div class="chat-container" id="chat-box">
+            <!-- Messages will appear here -->
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <input type="text" id="user-input" placeholder="écrivez votre question. . .">
+        <button id="send-btn">➤</button>
+    </footer>
 
     <script type="importmap">
         {
@@ -191,6 +265,7 @@
             }
         }
     </script>
+
     <script type="module">
         import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
         import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -200,7 +275,7 @@
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
         function filterResponse(text) {
-            text = text.replace(/Gemini/gi, "Ai");
+            text = text.replace(/Gemini/gi, "AI");
             const inappropriateWords = ["idota", "badword2"];
             for (let word of inappropriateWords) {
                 const regex = new RegExp(`\\b${word}\\b`, "gi");
@@ -209,30 +284,36 @@
             return text;
         }
 
+        function appendMessage(content, sender) {
+            const message = document.createElement("div");
+            message.classList.add(sender === "user" ? "user-message" : "bot-message");
+            message.innerHTML = `<div class="message-container">${marked.parse(content)}</div>`;
+
+            document.getElementById("chat-box").appendChild(message);
+            document.getElementById("chat-box").scrollTop = document.getElementById("chat-box").scrollHeight;
+        }
+
         async function run() {
             const prompt = document.getElementById("user-input").value.trim().toLowerCase();
+            if (!prompt) return;
+
+            appendMessage(prompt, "user");
 
             const typingIndicator = document.createElement("div");
             typingIndicator.classList.add("bot-message");
-            typingIndicator.innerHTML = `
-                <div class="message-container typing-indicator">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            `;
+            typingIndicator.innerHTML = `<div class="message-container">veillez patienter . . .</div>`;
             document.getElementById("chat-box").appendChild(typingIndicator);
 
             let responseText;
 
-            if (prompt === "𝑆𝐴𝐿𝑈𝑇 𝐶𝑂𝑀𝑀𝐸𝑁𝑇 𝑉𝐴𝑆-𝑇𝑈 ?") {
+            if (prompt === "salut, comment vas-tu ?") {
                 responseText = "Bonjour";
             } else if (prompt === "bonjour, comment vas-tu ?") {
-                responseText = "Salut";
-            } else if (prompt.includes("comment vas-tu ?") || prompt.includes("qui es-tu")) {
-                responseText = "je suis l'intelligence artificielle créé par messie osango !";
+                responseText = "je vais bien et toi ?";
+            } else if (prompt.includes("comment vas-tu ?") || prompt.includes("qui es-tu ?")) {
+                responseText = "Je suis une intelligence artificielle créée par Messie Osango !";
             } else if (prompt.includes("créateur")) {
-                responseText = "Mon créateur est messie osango";
+                responseText = "Mon créateur est Messie Osango.";
             } else {
                 const result = await model.generateContent(prompt);
                 const response = await result.response;
@@ -241,32 +322,22 @@
             }
 
             document.getElementById("chat-box").removeChild(typingIndicator);
-
-            if (!responseText.trim()) {
-                responseText = "Désolé, je ne peux pas répondre à ça.";
-            }
-
-            const botMessage = document.createElement("div");
-            botMessage.classList.add("bot-message");
-            botMessage.innerHTML = `
-                <div class="message-container">
-                    ${marked.parse(responseText)}
-                </div>
-            `;
-            document.getElementById("chat-box").appendChild(botMessage);
+            appendMessage(responseText || "Désolé, je ne peux pas répondre à ça.", "bot");
             document.getElementById("user-input").value = "";
         }
 
-        document.getElementById("send-btn").addEventListener("click", async () => {
-            const userMessage = document.createElement("div");
-            userMessage.classList.add("user-message");
-            userMessage.innerHTML = `
-                <div class="message-container">
-                    ${document.getElementById("user-input").value}
-                </div>
-            `;
-            document.getElementById("chat-box").appendChild(userMessage);
-            await run();
+        document.getElementById("send-btn").addEventListener("click", run);
+        document.getElementById("user-input").addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                run();
+            }
+        });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800
         });
     </script>
 </body>
