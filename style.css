@@ -6,7 +6,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   font-family: georgia;
-  background: linear-gradient(355deg,blue,red,purple,orange,green);
+  background:linear-gradient(black,blue);
   background-size: 400% 400%;
   background-attachment: fixed;
   color: #333;
@@ -49,8 +49,8 @@ section,div {
   max-width: 700px;
   margin: 0 auto;
   padding: 30px;
-  background: linear-gradient(135deg, #4a4a9e, #ff5757);
-  border-radius: 10px;
+  background:linear-gradient(135deg, #4a4a9e, #ff5757);
+  border-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   animation: fadeIn 1.5s ease-in-out;
 }
@@ -254,4 +254,7 @@ footer p {
   display: block;
 }
 
-  
+
+
+
+        
