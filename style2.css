@@ -1,0 +1,190 @@
+     /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Formulaire */
+        form {
+            width: 70%;
+            max-width: 300px;
+            margin: 50px auto;
+  background: linear-gradient(135deg, #4a4a9e, #ff5757);
+            padding: 30px;
+            font-size:10px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out 4s forwards;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Style des labels */
+        label {
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Inputs et textareas */
+        input,
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border 0.3s ease, background 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #6a40fc;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Boutons */
+        button {
+            background: linear-gradient(135deg, #6a40fc, #ff3e3e);
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #bc48fc, #6a40fc);
+        }
+
+        /* Conteneur principal */
+        main {
+            font-family: georgia;
+            color: black;
+            background: #121212;
+            padding: 20px;
+            line-height: 1.6;
+            border-radius:30px;
+        }
+
+        /* Section hero */
+        #hero {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        #hero h1, 
+        #hero h2, 
+        #hero h3, 
+        #hero h4 {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        /* Images stylisées */
+        img {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        .section-margin {
+            margin: 40px 0;
+        }
+
+        .section-margin h4 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        p {
+        text-align:center;
+}
+        /* Liens */
+        a.button {
+            
+            background: linear-gradient(135deg,red,purple);
+            color: white;
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 10px;
+         
+            font-size: 10px;
+            
+            text-transform: uppercase;
+            transition: background 0.3s ease, transform 0.3s ease;
+           
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+        }
+
+        a.button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #bc48fc, #ff3e3e);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: #1a1a1a;
+            text-align: center;
+        }
+
+        footer h1 {
+            color: #fff;
+            font-family: 'Georgia', serif;
+        }
+
+        footer p {
+            color: lightgray;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        /* Clients */
+        .client1,
+        .client2,
+        .client3 {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vidéos */
+        video {
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        p,h1,h3 {
+            text-align:center;
+            font-size:georgia;
+        }
+        
+          
