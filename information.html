@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerte Moderne Rapide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+                
+        }
+
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+                    border: 2px solid rgba(0, 217, 255, 0.2);
+        }
+
+        section h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #00d9ff;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: #00d9ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: #00b3cc;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" data-aos="fade-up">
+        <h1>À Propos de moi</h1>
+        <section id='hero'>    
+        <p>Je vous souhaite la bienvenue dans mon site web.</p>    
+        <p>Je suis un débutant en informatique.</p>    
+        <p>J'ai débuté il y a quelques mois environ.</p>      
+        <p>Et je compte m'arrêter jusqu'à ce que j'ai un niveau dont je me considérerai suffisant.</p>         
+
+    </section>    
+</div>    
+
+    <div data-aos="fade-left" class="container">
+     <section id='how-work' class='section-margin'>   
+        <p>J'évolue aux langages suivants :</p>    
+        <p>HTML</p>    
+        <p>CSS</p>    
+        <p>JAVASCRIPT</p>    
+        <p>Actuellement, j'en apprends davantage sur JavaScript.</p>    
+        <p>Je maîtrise peu des langages actuellement,</p>    
+        <p>mais je compte évoluer et en apprendre d'autres !</p>    
+    </section>    
+</div>    
+
+        <button class="btn" onclick="window.location.href='index2.html'">Voir mes projets</button>
+    </div>
+
+    <footer>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800 });
+        </script>
+    </footer>
+</body>
+</html>
