@@ -2,87 +2,226 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Titre de la page</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horloge Universelle </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: georgia;
+            background: radial-gradient(circle, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientShift 10s infinite alternate ease-in-out;
+            color: #0ff;
+            text-align: center;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 700px;
+        
+            padding: 20px;
+            
+            border-radius: 35px;
+       
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            background: black;
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+          
+            z-index: -1;
+            filter: blur(12px);
+            opacity: 0.3;
+        }
+
+
+        #local-time {
+            font-size: 2.5em;
+            font-weight: bold;
+}
+
+        button {
+            background: linear-gradient(90deg, #ff0080, #ff8000);
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2em;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.8);
+            transition: transform 0.2s ease-in-out;
+        }
+                button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 255, 255, 0.2);
+            transition: left 0.3s ease-in-out;
+        }
+
+        button:hover::before {
+            left: 100%;
+        }
+
+        button:hover {
+            background: #0ff;
+            color: #000;
+            box-shadow: 0 0 15px #0ff;
+        }
+
+        .hidden {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .region {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 15px;
+        
+            opacity: 0;
+            transition: opacity 0.5s ease;
+                      background: rgba(255, 255, 255, 0.1);
+            margin: 15px auto;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .region.show {
+            opacity: 1;
+        }
+
+        .date, .time {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #d0d0d0;
+        }
+    </style>
 </head>
-
 <body>
+
+    <div class="container" data-aos="fade-up">
+        <h1> Horloge Universelle </h1>
+        <h2>Heure Locale :</h2>
+        <div id="local-time">00:00:00</div>
+        <button onclick="toggleRegions()">VOIR LES HEURES RÉGIONALES</button>
+        <div id="regions" class="hidden"></div>
+    </div>
+
     <script>
-         
-function updateClock() {
-    const now = new Date();
-    const utcHours = now.getUTCHours().toString().padStart(2, '0');
-    const utcMinutes = now.getUTCMinutes().toString().padStart(2, '0');
-    const utcSeconds = now.getUTCSeconds().toString().padStart(2, '0');
+        function updateTime() {
+            document.getElementById("local-time").textContent = new Date().toLocaleTimeString();
 
-    const timeString = `${utcHours}:${utcMinutes}:${utcSeconds}`;
-    document.getElementById('time').textContent = timeString;
-}
+            document.querySelectorAll(".region").forEach(region => {
+                const timezone = region.querySelector(".time").getAttribute("data-timezone");
+                const date = new Date().toLocaleDateString("fr-FR", { timeZone: timezone });
+                const time = new Date().toLocaleTimeString("fr-FR", { timeZone: timezone });
 
-setInterval(updateClock, 1000);
-updateClock(); // Appel initial pour afficher l'heure Immédiatement  
-</script>
-    <style>
-    
+                region.querySelector(".date").textContent = "Date: " + date;
+                region.querySelector(".time").textContent = "Heure: " + time;
+            });
+        }
 
-body {
-  animation: colorChange 5s infinite;
-  font-family:georgia;
-}
+        function toggleRegions() {
+            const regions = document.getElementById("regions");
+            regions.classList.toggle("hidden");
 
-@keyframes colorChange {
-  0% { background: linear-gradient(90deg, red, orange); }
-  25% { background: linear-gradient(500deg, blue, purple); }
-  50% { background: linear-gradient(90deg, green, yellow); }
-  75% { background: linear-gradient(90deg, blue,red); }
-  100% { background: linear-gradient(90deg, red, orange); }
-}
-.
+            if (!regions.classList.contains("hidden")) {
+                regions.style.maxHeight = regions.scrollHeight + "px";
+                setTimeout(() => {
+                    document.querySelectorAll(".region").forEach((region, index) => {
+                        region.classList.add("show");
+                        region.setAttribute("data-aos", "flip-up");
+                        region.setAttribute("data-aos-delay", index * 100); // Délai basé sur l'index
+                    });
+                    AOS.refresh(); // Rafraîchir AOS après avoir ajouté les régions
+                }, 200);
+            } else {
+                regions.style.maxHeight = "0";
+                document.querySelectorAll(".region").forEach(region => {
+                    region.classList.remove("show");
+                });
+            }
+        }
 
-.clock {
-    text-align: center;
-    boder-radius:55px;
-}
+        const africanCountries = [
+            { name: "Alger, Algérie", timezone: "Africa/Algiers" },
+            { name: "Luanda, Angola", timezone: "Africa/Luanda" },
+            { name: "Porto-Novo, Bénin", timezone: "Africa/Porto-Novo" },
+            { name: "Gaborone, Botswana", timezone: "Africa/Gaborone" },
+            { name: "Ouagadougou, Burkina Faso", timezone: "Africa/Ouagadougou" },
+            { name: "Bujumbura, Burundi", timezone: "Africa/Bujumbura" },
+            { name: "Yaoundé, Cameroun", timezone: "Africa/Douala" },
+            { name: "Bangui, Centrafrique", timezone: "Africa/Bangui" },
+            { name: "Ndjamena, Tchad", timezone: "Africa/Ndjamena" },
+            { name: "Moroni, Comores", timezone: "Indian/Comoro" },
+            { name: "Kinshasa, République Démocratique du Congo", timezone: "Africa/Kinshasa" },
+            { name: "Brazzaville, République du Congo", timezone: "Africa/Brazzaville" },
+            { name: "Djibouti, Djibouti", timezone: "Africa/Djibouti" },
+            { name: "Le Caire, Égypte", timezone: "Africa/Cairo" },
+            { name: "Asmara, Érythrée", timezone: "Africa/Asmara" },
+            { name: "Addis-Abeba, Éthiopie", timezone: "Africa/Addis_Ababa" },
+            { name: "Libreville, Gabon", timezone: "Africa/Libreville" },
+            { name: "Accra, Ghana", timezone: "Africa/Accra" },
+            { name: "Conakry, Guinée", timezone: "Africa/Conakry" },
+            { name: "Bissau, Guinée-Bissau", timezone: "Africa/Bissau" },
+            { name: "Malabo, Guinée équatoriale", timezone: "Africa/Malabo" },
+            { name: "Nairobi, Kenya", timezone: "Africa/Nairobi" },
+            { name: "Maseru, Lesotho", timezone: "Africa/Maseru" },
+            { name: "Monrovia, Libéria", timezone: "Africa/Monrovia" },
+            { name: "Antananarivo, Madagascar", timezone: "Indian/Antananarivo" },
+            { name: "Lilongwe, Malawi", timezone: "Africa/Blantyre" },
+            { name: "Lagos, Nigéria", timezone: "Africa/Lagos" },
+            { name: "Kigali, Rwanda", timezone: "Africa/Kigali" },
+            { name: "São Tomé, São Tomé et Príncipe", timezone: "Africa/Sao_Tome" },
+            { name: "Dakar, Sénégal", timezone: "Africa/Dakar" },
+            { name: "Freetown, Sierra Leone", timezone: "Africa/Freetown" },
+            { name: "Mogadiscio, Somalie", timezone: "Africa/Mogadishu" },
+            { name: "Juba, Soudan du Sud", timezone: "Africa/Juba" },
+            { name: "Khartoum, Soudan", timezone: "Africa/Khartoum" },
+            { name: "Dodoma, Tanzanie", timezone: "Africa/Blantyre" },
+            { name: "Lomé, Togo", timezone: "Africa/Lome" },
+            { name: "Tunisie, Tunisie", timezone: "Africa/Tunis" },
+            { name: "Kampala, Ouganda", timezone: "Africa/Kampala" },
+            { name: "Loubomo, République du Congo", timezone: "Africa/Brazzaville" },
+            { name: "Harare, Zimbabwe", timezone: "Africa/Harare" }
+        ];
 
-#time {
-    font-size: 48px;
-    margin-top: 20px;
-}
-    </style>
-    <style>
-        body{
-   display : flex;
-   justify-content:center;
- align-items: center;
-height:100vh;
-background-color:#282c34;
-color: white;
-font-family: arial,sans-serif; 
-}
+        africanCountries.forEach(country => {
+            const regionDiv = document.createElement("div");
+            regionDiv.classList.add("region");
+            regionDiv.setAttribute("data-aos", "fade-up"); // Attribuer l'animation AOS de manière uniforme
+            regionDiv.innerHTML = `
+                <div class="name">${country.name}</div>
+                <div class="date" data-timezone="${country.timezone}">Date: </div>
+                <div class="time" data-timezone="${country.timezone}">Heure: </div>
+            `;
+            document.getElementById("regions").appendChild(regionDiv);
+        });
 
-.cloc{
-text-align:center;
-border:2px solid    #61dafb;
-border-radius: 10px;
-padding: 20px;
-background-color: #20232a;
-}
-
-.time{
-  font-zize : 48px;
-  margin-bottom : 10px;
-  
-}
-.timezone{
-    font-zize : 24px;
-    color: #51dafb;
-}
-    </style>
-  <div class="cloc">
-      <div class="time"id="time"></div>
-      <div class="timezone" id="timezone"></div>
-        <img src="https://i.imgur.com/2fkv28c.jpeg" width="300" height="300" style="border-radius:5555px">
-  </div> 
-
+        setInterval(updateTime, 1000);
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
