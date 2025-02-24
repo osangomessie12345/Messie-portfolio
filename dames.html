@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>  
+<html lang="fr">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>DAMES CYBERPUNK PRO</title>  
+    <style>  
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');  body {  
+        font-family: 'Orbitron', sans-serif;  
+        text-align: center;  
+        background: linear-gradient(#0d1117, #1a1a2e);  
+        color: #00d9ff;  
+        min-height: 100vh;  
+        margin: 0;  
+        padding: 20px;  
+        display: flex;  
+        flex-direction: column;  
+        justify-content: center;  
+        align-items: center;  
+    }  
+
+
+
+    h1 {  
+        margin-bottom: 30px;  
+        font-size: 3em;  
+        text-shadow: 0 0 15px #00d9ff;  
+        letter-spacing: 3px;  
+    }  
+
+    #game-board {  
+        display: grid;  
+        grid-template-columns: repeat(8, 1fr);  
+        gap: 2px;  
+        max-width: 800px;  
+        min-width: 800px;  
+        margin: 0 auto;  
+        background: linear-gradient(145deg, #1f2937, #374151);  
+        padding: 25px;  
+        border-radius: 15px;  
+        border: 3px solid #00d9ff;  
+        box-shadow: 0 0 30px rgba(0, 217, 255, 0.4);  
+        position: relative;  
+        overflow: hidden;  
+    }  
+
+    .cell {  
+        aspect-ratio: 1;  
+        display: flex;  
+        align-items: center;  
+        justify-content: center;  
+        position: relative;  
+        right: 6px;  
+        width: 37px;  
+        transition: all 0.3s ease;  
+    }  
+
+    .dark {  
+        background: linear-gradient(145deg, #1a1a2e, #2d2d44);  
+        border: 1px solid rgba(0, 217, 255, 0.2);  
+    }  
+
+    .light {  
+        background: #21262d;  
+    }  
+
+    .piece {  
+        width: 85%;  
+        height: 85%;  
+        border-radius: 50%;  
+        cursor: pointer;  
+        transition: all 0.3s ease;  
+        position: relative;  
+        border: 3px solid #00d9ff;  
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);  
+    }  
+
+    .white {  
+        background: linear-gradient(145deg, #ffffff, #00d9ff);  
+    }  
+
+    .black {  
+        background: linear-gradient(145deg, #000000, #e74c3c);  
+    }  
+
+    .selected {  
+        outline: 4px solid #00d9ff;  
+        box-shadow: 0 0 30px #00d9ff;  
+        animation: pulse 0.8s infinite;  
+    }  
+
+    @keyframes pulse {  
+        0% { transform: scale(1); }  
+        50% { transform: scale(1.05); }  
+        100% { transform: scale(1); }  
+    }
+
+  @media (max-width: 768px) {  
+        nav {  
+            top: 20px;  
+            left: 100%;  
+            transform: translateX(-50%);  
+            width: 90%;  
+            text-align:center;  
+        }  
+          
+        nav ul {  
+            flex-direction: row;  
+            flex-wrap: wrap;  
+            justify-content: center;  
+        }  
+
+    
+
+        #game-board {  
+            max-width: 9vw;  
+            min-width: 87vw;  
+            padding: 15px;  
+            right: 15px;  
+            min-height: 40vw;  
+        }  
+          
+        h1 {  
+            font-size: 2em;  
+        }  
+    }  
+      
+    /* Barre de navigation */  
+    nav {  
+        position: fixed;  
+        top: 20px;  
+        left: 50%;  
+        transform: translateX(-50%);  
+        width: 90%;  
+        margin:10px;  
+        padding:30px;  
+        max-width: 1100px;  
+        background: rgba(255, 255, 255, 0.1);  
+        backdrop-filter: blur(12px);  
+        border-radius: 15px;  
+        padding: 15px 30px;  
+        display: flex;  
+        justify-content: space-between;  
+        align-items: center;  
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);  
+        transition: all 0.3s ease-in-out;  
+        z-index: 1000;  
+    }  
+
+    /* Effet de réduction au scroll */  
+    .scrolled {  
+        transform: translate(-50%, -10px) scale(0.95);  
+        opacity: 0.9;  
+        background: rgba(255, 255, 255, 0.05);  
+        box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);  
+    }  
+
+    .logo {  
+        font-size: 1.6rem;  
+        font-weight: bold;  
+        text-transform: uppercase;  
+        color: #00aaff;  
+        text-shadow: 0 0 15px #00aaff;  
+        transition: all 0.3s ease-in-out;  
+    }  
+
+    /* NAV LINKS */  
+    .nav-links {  
+        list-style: none;  
+        display: flex;  
+    }  
+
+    .nav-links li {  
+        margin: 0 20px;  
+    }  
+
+    .nav-links a {  
+        text-decoration: none;  
+        color: white;  
+        font-size: 1rem;  
+        transition: 0.3s;  
+        padding: 10px 15px;  
+        border-radius: 10px;  
+        position: relative;  
+    }  
+
+    /* Effet glitch */  
+    .nav-links a::after {  
+        content: "";  
+        position: absolute;  
+        width: 100%;  
+        height: 3px;  
+        background: #00aaff;  
+        bottom: -5px;  
+        left: 0;  
+        transform: scaleX(0);  
+        transition: transform 0.3s ease-in-out;  
+    }  
+
+    .nav-links a:hover {  
+        color: #00aaff;  
+        text-shadow: 0 0 15px #00aaff, 0 0 30px #00aaff;  
+        animation: glitch 0.5s infinite alternate;  
+    }  
+
+    @keyframes glitch {  
+        0% { text-shadow: 2px 2px 5px #00aaff, -2px -2px 5px #ff0077; }  
+        100% { text-shadow: -2px -2px 5px #00aaff, 2px 2px 5px #ff0077; }  
+    }  
+
+    .nav-links a:hover::after {  
+        transform: scaleX(1);  
+    }  
+
+    /* MENU BURGER */  
+    .menu-toggle {  
+        font-size: 2rem;  
+        cursor: pointer;  
+        display: none;  
+        color: #00aaff;  
+    }  
+
+    @media (max-width: 768px) {  
+        .nav-links {  
+            display: none;  
+            flex-direction: column;  
+            position: absolute;  
+            top: 100%;  
+            left: 0;  
+            width: 100%;  
+            background: rgba(255, 255, 255, 0.1);  
+            backdrop-filter: blur(10px);  
+            text-align: center;  
+            border-radius: 0 0 15px 15px;  
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.5);  
+            opacity: 0;  
+            transform: translateY(-10px);  
+            transition: all 0.3s ease-in-out;  
+        }  
+
+        .nav-links.active {  
+            display: flex;  
+            opacity: 1;  
+            transform: translateY(0);  
+        }  
+
+        .nav-links li {  
+            padding: 15px 0;  
+        }  
+
+        .menu-toggle {  
+            display: block;  
+        }  
+    }  
+
+    /* EFFET PARTICULES */  
+    .particle {  
+        position: fixed;  
+        width: 3px;  
+        height: 3px;  
+        background: #00aaff;  
+        border-radius: 50%;  
+        opacity: 0;  
+        animation: floatParticles linear infinite;  
+    }  
+
+    @keyframes floatParticles {  
+        0% {  
+            transform: translateY(0);  
+            opacity: 1;  
+        }  
+        100% {  
+            transform: translateY(-100vh);  
+            opacity: 0;  
+        }  
+    }  
+</style>
+<style>
+    #turn-indicator {
+        margin: 20px auto; /* Centrage horizontal avec espacement */
+        padding: 15px 30px;
+        background: rgba(0, 217, 255, 0.2);
+        border: 2px solid #00d9ff;
+        border-radius: 15px;
+        font-size: 1.5em;
+        color: #00d9ff;
+        text-shadow: 0 0 10px #00d9ff;
+        box-shadow: 0 0 15px rgba(0, 217, 255, 0.4);
+        max-width: fit-content; /* Adaptation à la largeur du contenu */
+    }
+
+    @media (max-width: 768px) {
+        #turn-indicator {
+            margin: 15px auto; /* Maintien du centrage mobile */
+            font-size: 1.2em;
+            padding: 10px 20px;
+            position: relative; /* Suppression du positionnement absolu */
+            transform: none; /* Réinitialisation de la transformation */
+            top: auto;
+            right: auto;
+        }
+    }
+</style>
+
+</head>  
+<body>  
+    <nav>  
+        <div class="logo">DAMES game</div>  
+        <ul class="nav-links">  
+            <li><a href="https://social-service-12-dun.vercel.app/">Social Service</a></li>  
+            <li><a href="https://messie-chatbot.vercel.app/">Messie Chatbot</a></li>  
+            <li><a href="https://www.facebook.com/profile.php?id=61564382117276">Auteur</a></li>  
+            <li><a href="https://messie-chat-gpt.vercel.app/">Messie GPT</a></li>  
+        </ul>  
+        <div class="menu-toggle">☰</div>  
+    </nav>  <div id="game-board"></div>  
+<div id="turn-indicator">Tour : Joueur Blanc</div>  
+<script>  
+    const board = document.getElementById("game-board");  
+    const rows = 8;  
+    const cols = 8;  
+    let selectedPiece = null;  
+    let turn = "white";  
+
+    function createBoard() {  
+        board.innerHTML = "";  
+        for (let row = 0; row < rows; row++) {  
+            for (let col = 0; col < cols; col++) {  
+                const cell = document.createElement("div");  
+                cell.classList.add("cell");  
+                cell.dataset.row = row;  
+                cell.dataset.col = col;  
+                if ((row + col) % 2 === 1) {  
+                    cell.classList.add("dark");  
+                    if (row < 3) addPiece(cell, "black");  
+                    if (row > 4) addPiece(cell, "white");  
+                } else {  
+                    cell.classList.add("light");  
+                }  
+                board.appendChild(cell);  
+            }  
+        }  
+    }  
+
+    function addPiece(cell, color) {  
+        const piece = document.createElement("div");  
+        piece.classList.add("piece", color);  
+        piece.dataset.color = color;  
+        piece.dataset.king = "false";  
+        piece.addEventListener("click", selectPiece);  
+        cell.appendChild(piece);  
+    }  
+
+    function selectPiece(event) {  
+        const piece = event.target;  
+        if (piece.dataset.color !== turn) return;  
+
+        if (selectedPiece) selectedPiece.classList.remove("selected");  
+        selectedPiece = piece;  
+        piece.classList.add("selected");  
+    }  
+
+    function updateTurnIndicator() {  
+        const turnIndicator = document.getElementById("turn-indicator");  
+        turnIndicator.textContent = `Tour : Joueur ${turn === "white" ? "bleu" : "rouge"}`;  
+    }  
+
+    board.addEventListener("click", (event) => {  
+        const cell = event.target;  
+        if (!cell.classList.contains("cell") || cell.firstChild) return;  
+
+        if (selectedPiece) {  
+            const startRow = parseInt(selectedPiece.parentElement.dataset.row);  
+            const startCol = parseInt(selectedPiece.parentElement.dataset.col);  
+            const endRow = parseInt(cell.dataset.row);  
+            const endCol = parseInt(cell.dataset.col);  
+
+            if (isValidMove(startRow, startCol, endRow, endCol, selectedPiece.dataset.color)) {  
+                cell.appendChild(selectedPiece);  
+                selectedPiece.classList.remove("selected");  
+                selectedPiece = null;  
+                turn = turn === "white" ? "black" : "white";  
+                updateTurnIndicator();  
+            }  
+        }  
+    });  
+
+    function isValidMove(startRow, startCol, endRow, endCol, color) {  
+        const rowDiff = endRow - startRow;  
+        const colDiff = Math.abs(endCol - startCol);  
+
+        if (colDiff !== 1 || Math.abs(rowDiff) !== 1) return false;  
+        if (color === "white" && rowDiff !== -1) return false;  
+        if (color === "black" && rowDiff !== 1) return false;  
+
+        return true;  
+    }  
+
+    createBoard();  
+    updateTurnIndicator();  
+</script>  
+  
+<script>  
+    const menuToggle = document.querySelector('.menu-toggle');  
+    const navLinks = document.querySelector('.nav-links');  
+    const navbar = document.querySelector('nav');  
+
+    // Gestion du menu burger  
+    menuToggle.addEventListener('click', () => {  
+        menuToggle.classList.toggle('active');  
+        navLinks.classList.toggle('active');  
+    });  
+
+    // Fermeture du menu au clic externe  
+    document.addEventListener('click', (e) => {  
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {  
+            menuToggle.classList.remove('active');  
+            navLinks.classList.remove('active');  
+        }  
+    });  
+
+    // Effet de scroll sur la navbar  
+    window.addEventListener('scroll', () => {  
+        if (window.scrollY > 50) {  
+            navbar.classList.add('scrolled');  
+        } else {  
+            navbar.classList.remove('scrolled');  
+        }  
+    });  
+
+    // Génération de particules dynamiques  
+    function createParticles() {  
+        for (let i = 0; i < 30; i++) {  
+            const particle = document.createElement('div');  
+            particle.classList.add('particle');  
+            particle.style.left = `${Math.random() * 100}vw`;  
+            particle.style.top = `${Math.random() * 100}vh`;  
+            particle.style.animationDuration = `${Math.random() * 5 + 3}s`;  
+            document.body.appendChild(particle);  
+        }  
+    }  
+
+    createParticles();  
+</script>
+
+</body>  
+  </html>
+  
