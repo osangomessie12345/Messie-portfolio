@@ -1,260 +1,106 @@
-
-
-        /* Corps principal */
-/* Corps principal */
 body {
-  margin: 0 auto;
-  padding: 20px;
-  font-family: georgia;
-  background:linear-gradient(black,blue);
-  background-size: 400% 400%;
-  background-attachment: fixed;
-  color: #333;
-  animation: gradient 15s ease infinite;
+    font-family: 'Orbitron', sans-serif;
+    background: #0d1117;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
 }
 
-
-/* Animation de gradient */
-@keyframes gradient {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+h1 {
+    color: skyblue;
 }
 
-/* Vagues */
-.wave {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 1000% 1000% 0 0;
-  position: fixed;
-  width: 200%;
-  height: 12em;
-  opacity: 0.8;
-  animation: wave 10s linear infinite;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+.container {
+    background: linear-gradient(135deg, #1f2937, #374151);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 217, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 400px;
+    margin: 4px 0;
 }
 
-.wave:nth-of-type(2) { bottom: -1.25em; animation-duration: 18s; }
-.wave:nth-of-type(3) { bottom: -2.5em; animation-duration: 20s; }
-
-/* Animation de vagues */
-@keyframes wave {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(-50%); }
+.btn {
+    padding: 12px 20px;
+    background: #00d9ff;
+    color: #0d1117;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    outline: none;
+    display: inline-block;
+    text-decoration: none;
+    margin: 10px 5px;
 }
 
-/* Conteneurs */
-section,div {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 30px;
-  background:linear-gradient(135deg, #4a4a9e, #ff5757);
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 1.5s ease-in-out;
+.btn:hover {
+    background: #00b3cc;
+    transform: scale(1.05);
 }
 
-form {
-  max-width: 90px;
-  margin: 0 auto;
-  padding: 30px;
-  background: linear-gradient(135deg, #4a4a9e, #ff5757);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: fadeIn 1.5s ease-in-out;
+/* ---- Images stylisées ---- */
+img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 15px;
+    margin-top: 15px;
+    box-shadow: 0 4px 10px rgba(0, 217, 255, 0.3);
+    transition: transform 0.3s ease;
 }
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+img:hover {
+    transform: scale(1.05);
 }
 
-/* Formulaire */
-textarea {
-  width: 500px;
-  min-height: 150px;
-  padding: 10px;
-  border: 1px solid #00ffff;
-  border-radius: 5px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-  resize: none;
-  color: #000;
-    animation: fadeIn 8s ease-in-out;
+/* ---- Alerte ---- */
+.overlay {    
+    position: fixed;    
+    top: 0;    
+    left: 0;    
+    width: 100%;    
+    height: 100%;    
+    background: rgba(0, 0, 0, 0.4);    
+    backdrop-filter: blur(5px);    
+    display: flex;    
+    justify-content: center;    
+    align-items: center;    
+    z-index: 10;    
+}    
 
+.alert-box {    
+    background: linear-gradient(135deg, #1f2937, #374151);    
+    color: #ffffff;    
+    padding: 25px;    
+    border-radius: 20px;    
+    text-align: center;    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);    
+    max-width: 90%;    
+    width: 320px;    
+}    
 
-@keyframes fadeIn {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+.alert-box h2 {    
+    margin-bottom: 8px;    
+    font-size: 22px;    
+    font-weight: 700;    
+}    
 
-}
+.alert-box p {    
+    font-size: 16px;    
+    font-style: italic;    
+    color: #b0bec5;    
+    margin-bottom: 20px;    
+}    
 
-textarea:placeholder {
-  text-align: center;
-  color: red;
-  width:200000px;
-}
-
-button {
-  background-color: #00ff00;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  padding: 10px 20px;
-  transition: background-color 3s ease, transform 0.3s ease;
-}
-
-button:hover {
-  background-color: #007b00;
-  transform: scale(1.05);
-}
-
-/* Pied de page */
-.footer {
-  background-color: #222;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.footer p { margin: 0; }  
-
-
-
-
-
-
-
-      /* Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Formulaire */
-form,section {
- 
-  width: 260px;
-  margin: 50px auto;
-  background:linear-gradient(350deg,blueviolet,red);
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-  opacity: 0; /* Cache le formulaire au début */
-  animation: fadeIn 1s ease-in-out 4s forwards; /* Animation après 3 secondes */
-  backdrop-filter: blur(10px); /* Effet de flou en arrière-plan */
-       border-bottom-left-radius: 10px;
-    border-top-right-radius:10px;
-}
-
-/* Style des labels */
-label {
-  margin-bottom: 10px;
-  display: block;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.8); /* Texte blanc légèrement transparent */
-  font-size: 0.95rem;
-  text-transform: uppercase;
-       border-bottom-left-radius: 5px;
-    border-top-right-radius:5px;
-}
-
-/* Style des inputs et textareas */
-input,
-textarea {
-  width: 100%;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.5); /* Fond sombre et transparent */
-  color: #ffffff;
-  font-size: 1rem;
-  box-sizing: border-box;
-  transition: border 0.3s ease, background 0.3s ease;
-       border-bottom-left-radius: 10px;
-    border-top-right-radius:10px;
-}
-
-
-
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border: 1px solid rgba(106, 64, 252, 0.8); /* Bordure violette */
-  background: rgba(0, 0, 0, 0.7);
-}
-
-/* Boutons */
-button {
-  background: linear-gradient(135deg, #6a40fc, #ff3e3e); /* Dégradé moderne */
-  padding: 12px 20px;
-  border: none;
-  border-radius: 10px;
-  width:200px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
-  text-transform: uppercase;
-}
-
-button:hover {
-  transform: translateY(-3px); /* Effet de soulèvement */
-  background: linear-gradient(135deg, #bc48fc, #6a40fc);
-}
-
-/* Footer */
-footer i:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-footer h1 {
-  color: white;
-  font-family: 'Georgia', serif;
-}
-
-footer p {
-  color: lightgray;
-  line-height: 1.8;
-  font-size: 15px;
-}
-
-/* Clients */
-.client1,
-.client2,
-.client3 {
-  float: left;
-  width: 100%;
-  height: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-left-radius:55px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  margin: 20px 0;
-  padding: 20px;
-  color: rgba(255, 255, 255, 0.8); /* Texte blanc avec transparence */
-  text-align: center;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.5); /* Fond sombre et transparent */
-  backdrop-filter: blur(5px); /* Effet de flou */
-}
-
-.client1 {
-  display: block;
-}
-
-
-
-
-        
+/* Caché au début */
+#content {
+    display: none;
+        }
