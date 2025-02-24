@@ -1,190 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">   
-<link rel="stylesheet" href="style2.css"> 
+    <title>mon portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    
-    <style>
-           
-           </style>
-            
-   
-    <main>
-    <div class="container" style="border-radius:30px" data-aos="fade-up">
-        <div style="border-radius:55px" data-aos="fade-down">
-            <div style="border-radius:50px" data-aos="zoom-in">
-                <h1 class="col text-center" style="font-size: 10px; padding: 10px;text-align:center">𝐶𝑂𝑀𝑃𝑇𝐸 𝐹𝐴𝐶𝐸𝐵𝑂𝑂𝐾 𝐷𝐸 𝐿'𝐴𝑈𝑇𝐸𝑈𝑅</h1>
-                <img width="290px" height="200px" src="https://i.imgur.com/rhOtF1u.jpeg" style="border-radius:100px; position :center" data-aos="flip-left">
-            </div>  
-            <br>
-            <a href="https://www.facebook.com/profile.php?id=61564382117276" target="_blank">
-                <button type="button" style="width:170px; background :linear-gradient(skyblue,blue);border-radius:20px">mon compte Facebook </button>
-            </a>
+
+    <!-- ✅ ALERTE AUTOMATIQUE -->
+    <div class="overlay" id="overlay">
+        <div class="alert-box" data-aos="slide-up">
+            <h2>Bienvenue !</h2>
+            <p>Merci de visiter mon site. Explorez mes projets et contactez-moi si besoin !</p>
+            <button class="btn" onclick="closeAlert()">D'accord</button>
         </div>
     </div>
 
-    <br>
-    <div data-aos="fade-right">
-        <section id='hero'>
-            <div class='content'>
-                <p style="text-align:center">je vous souhaite la bienvenue dans mon site web</p>
-                <p style="text-align:center">je suis un débutant en informatique<p>    
-                <p style="text-align:center">j'ai débuté il y a quelques mois environ</p>  
-                <p style="text-align:center">et je compte m'arrêter jusqu'à ce que j'aurai un niveau dont je me considérai suffisant</p>     
-                <img src="https://i.imgur.com/GkiVTYv.jpeg" style="border-radius:15px;width:135px" data-aos="flip-right">
-            </div>
-        </section>
-    </div>
+    <!-- ✅ CONTENU MASQUÉ AU DÉBUT -->
+    <div id="content">
+        <div data-aos="slide-up">
+            <h1>Bienvenue sur mon site web</h1>
+            <p>Ceci est mon portfolio.</p>
+            <p>Visitez-le en cliquant sur les boutons ci-dessous.</p>
+        </div>
+        <br>
 
-    <br>
-    <br>
-    <div data-aos="fade-left">
-        <section id='how-work' class='section-margin'>
-            <div>
-                <p>j'évolue aux langages suivants :</p>
-                <p style="text-align:center">HTML</p>
-                <p style="text-align:center">CSS</p>
-                <p style="text-align:center">JAVASCRIPT</p>
-                <p style="text-align:center">actuellement j'en apprends davantage sur JavaScript</p>
-                <p style="text-align:center">je maîtrise peu des langages actuellement ,</p>
-                <p style="text-align:center">mais je compte évoluer et en apprendre d'autres !</p>
-            </div>
-        </section>
-    </div>
+        <div class="container" data-aos="fade-up">
+            <a href="projet.html" class="btn">Voir mes projets</a>
+            <p>En voyant mes projets, vous saurez ce que je peux faire actuellement.</p>
+            <img src="https://files.catbox.moe/ly89gu.jpeg" alt="Projets">
+        </div>
+        <br>
 
-    <br>
-    <div data-aos="fade-up">
-        <section>
-            <p style="text-align:center">l'horloge ci-dessous fut mon projet il y a environ 5 ou 6 mois</p>
-            <p>┍──━─┙◆┕─━──┑</p>    
-            <a href="horloge.html" class="button" >horloge</a>        
-            <p>╚─━━━░★░━━━─╝</p>
-            <p style="text-align:center">ce projet fut mon tout premier site web</p>
-            <p>puis celui-ci est le deuxième</p>
-            <p>┍──━─┙◆┕─━──┑</p>
-            <a href="horloge2.html" class="button" >deuxième horloge</a>
-            <p>╚─━━━░★░━━━─╝</p>
-            <img src="https://i.imgur.com/4bladYC.jpeg" width="200px" height="180px" style="border-radius:25px" data-aos="zoom-in">
-        </section>
-    </div>
+        <div class="container" data-aos="fade-left">
+            <a href="contact.html" class="btn">Contacter</a>
+            <p>En me contactant, vous pourrez mieux me connaître et discuter avec moi.</p>
+            <img src="https://files.catbox.moe/tumqa7.jpeg" alt="Contact">
+        </div>
+        <br>
 
-    <br>
-    <div data-aos="fade-down">
-        <section>
-            <p>après cela, j'ai réalisé quelques projets étant calculatrices comme celui-ci :</p>
-            <p>┯━━━━━━━━━━━┯</p>
-            <a href="calculatrice.html" class="button" >calculatrice</a> 
-            <p>╚═══════════╝</p>
-            <p style="text-align:center">celle-ci est la première calculatrice dont j'ai réalisé</p>
-            <img src="https://files.catbox.moe/w07jca.jpeg" style="width:200px; height:100px; border-radius:25px" data-aos="flip-up">
-        </section>
-    </div>
-
-    <br>
-    <div data-aos="fade-right">
-        <section id='perfect' class='section-margin'>
-            <p>puis, j'ai créé un site web qui est la création dont je suis toujours aussi fière : </p>
-            <p>┯━━━━━━━━━━━━┯</p>
-            <a href="social.html" class="button" >socal service</a>
-            <p>╚════════════╝</p>
-            <br>
-            <img src="https://i.imgur.com/R04tvyA.jpeg" style="border-radius:25px;width:200px;height:100px" data-aos="flip-down">
-        </section>
-    </div>
-
-    <br>
-    <br>
-    <div data-aos="fade-left">
-        <div>
-            <p style="text-align:center">puis pour finir, ma dernière création</p>
-            <p style="text-align:center">celui dont je suis heureux d'en avoir conçu !</p>
-            <p>┯━━━━━━━━━━━┯</p>
-            <a href="chatbot.html" class="button" >𝑀𝐸𝑆𝑆𝐼𝐸 𝐶𝐻𝐴𝐵𝑂𝑇</a>
-            <p>╚═══════════╝</p>
+        <div class="container" data-aos="fade-up">
+            <a href="index.html" class="btn">Mes informations</a>
+            <p>Informez-vous davantage sur moi, si vous le voulez bien sûr.</p>
+            <img src="https://files.catbox.moe/hewj08.jpeg" alt="Informations">
         </div>
     </div>
 
-    <br>
-    <div data-aos="fade-up">
-        <div>
-            <p style="text-align:center">et ensuite j'ai fait une réplique Google</p>
-            <p>┯━━━━━━━━━┯</p>
-            <a href="Google.html" class="button" >mini Google</a>
-            <p>╚═════════╝</p>
-            <br>
-            <br>
-            <img src="https://i.imgur.com/ePz6GlG.jpeg" width="200px" height="180px" style="border-radius:25px" data-aos="zoom-out">
-        </div>
-    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 
-    <br>
-    <br>
-    <section data-aos="fade-down">
-        <div>
-            <p style="text-align:center">pour l'instant ce sont mes seuls projets déjà réalisés</p>
-            <p style="text-align:center">j'en ai d'autres mais malheureusement, je leurs ai mis en suspens pour l'instant<br> que je m'améliore</p>
-            <img src="https://i.imgur.com/tx6D8KF.jpeg" width="200px" height="200px" style="border-radius:25px" data-aos="flip-left">
-        </div>
-    </section>
-
-    <br>
-    <div data-aos="fade-right">
-        <div>
-            <p>je continue mon parcours en évoluant</p>      
-            <p>jusqu'à ce que je me considérai suffisant</p>
-            <p>peu importe les critiques actuelles</p>
-            <video height="1000px" src='https://i.imgur.com/6tvn7ec.mp4' controls style="border-radius:10px;height:100px;width:1000px" data-aos="zoom-in"></video>
-        </div>
-    </div>
-<section id="contact" class="animated-section section-margin" data-aos="fade-left">
-   
-    <form class="contactForm" id="contactForm">
-      
-            <div>
-                <label for="name" style="font-size:10px"></label>
-                <input type="text" id="name" placeholder="Your Name" style="font-size:10px">
-            </div>
-            <br>
-           <div>
-                <label for="email"></label>
-                <input type="email" id="email" placeholder="ton e-mail" style="font-size:10px">
-           </div>
-            <br>
-            <div>
-                <input type="tel" placeholder="Your Phone" style="font-size:10px">
-                  
-            
-            </div>
-            <br>
-            <br>
-            <div>
-            
-                <label for="message"></label>
-                <textarea id="message" rows="4" placeholder="Your Message" style="font-size:10px"></textarea>
-            </div>
-            <br>
-            <br>
-            <button type="submit" style="width:150px">envoyer</button>
-        </form>
-        
-    </section>
-
-    <footer>
-        <script src="script.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({
-                duration: 800
-            });
-        </script>
-    </footer>
 </body>
 </html>
