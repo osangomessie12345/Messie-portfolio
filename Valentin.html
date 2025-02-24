@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Valentin</title>
+    
+    <!-- Styles & Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link href="style.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
+    <style>
+  
+        /* Conteneur des cœurs */
+        #heartsContainer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        /* Animation des cœurs */
+        .heart {
+            position: absolute;
+            opacity: 0.8;
+            animation: floatHeart linear infinite, rotateHeart linear infinite;
+            transform-origin: center;
+        }
+
+        /* Mouvement flottant aléatoire */
+        @keyframes floatHeart {
+            from {
+                transform: translate(0, 0) scale(0.5);
+            }
+            50% {
+                transform: translate(calc(-10px + 20px * var(--dirX)), calc(-10px + 20px * var(--dirY))) scale(1);
+            }
+            to {
+                transform: translate(0, 0) scale(0.5);
+            }
+        }
+
+        /* Rotation continue */
+        @keyframes rotateHeart {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Amélioration de la section Poèmes */
+        .poeme-container {
+            background-color:#483D8B;
+            padding: 2rem;
+            color:black;
+            text-align:center;
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 10; /* Assure que les poèmes sont au-dessus des cœurs */
+        }
+
+        .poeme-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .poeme-text {
+            color: #d1d5db;
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .poeme-container p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            font-size: 50px;
+            font-weight: 700;
+            background: linear-gradient(to right, #4c6ef5, #7b72fe);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        /* Section Accueil */
+        #accueil {
+            position: relative;
+            text-align: center;
+          
+        }
+
+        /* Animation de l'image */
+        .about__img {
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            
+            max-width: 400px;  /* Taille réduite */
+            margin: 0 auto;
+            border-radius: 45px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about__img img {
+            width: 10000%;
+            height: 200px;
+           
+            border-radius: 40px;
+            transition: transform 0.5s ease;
+        }
+
+        .about__img:hover img {
+            transform: scale(1.1);
+        }
+
+        .about__img:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            transform: scale(1.05);
+        }  
+             img {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 50px;
+            height: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }    
+    </style>
+</head>
+
+<body class="font-['Space_Grotesk'] bg-gray-900 text-white" data-aos="slide-left">
+
+    <!-- Section Accueil -->
+    <section id="accueil" class="pt-32 pb-20 md:pt-40 text-center relative" style="font-family:georgia;">
+        <div class="max-w-screen-xl mx-auto px-8"> 
+ 
+            <div data-aos="flip-right" data-aos-duration="1000" class="space-y-8">
+
+        
+        <br>
+        <div class="about_img"  data-aos="flip-left">
+       
+                <h1 class="section-title">
+                    Quelques poèmes pour la
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                        Saint-Valentin 
+                    </span>
+                </h1>
+            </div>
+            </div>
+                                                          <div class="about__img" data-aos="flip-up"  style="padding:30px">
+            <img src="https://i.imgur.com/yi4Uz8g.jpeg" alt="Image de Saint-Valentin" style="border-radius:50px">
+            <br>
+<a href="https://www.facebook.com/profile.php?id=61564382117276" style="padding:10px;width:100px;margin:30px" 
+   class="px-8 py-4 w-100 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg transition-all">
+   auteur 
+</a>                    
+        </div>
+
+        </div>
+        <!-- Conteneur de l'image -->
+
+    </section>
+    <div id="heartsContainer"></div>
+
+    <!-- Section Poèmes -->
+    <section id="projets" class="py-32 bg-gray-800" style="font-family:georgia;color:black">
+
+               <div class="container mx-auto px-4" data-aos="zoom-in">     
+            <div class="poeme-container">
+                <div class="poeme-text">
+                    <p>J'aimerais bien que tu sois une fleur,
+                    Pour que je te porte dans mon cœur,</p>
+                    <p>Que chaque pétale soit une caresse,
+                    Et que ton parfum chasse ma tristesse.</p>
+
+                    <p>J'aimerais bien que tu sois une étoile,
+                  Pour que je te contemple sans égale,</p>
+                    <p>Brillant dans l'infini de mes pensées,</p>
+                    <p>Illuminant mes nuits apaisées.</p>
+
+                    <p>J'aimerais bien que tu sois un rêve,</p>
+                    <p>Que je puisse te suivre sans trêve,</p>
+                    <p>Dans ce monde où tout est possible,</p>
+                    <p>Et où ton amour est inaltérable.</p>
+                </div>
+            </div>
+
+            </div>
+            <br>
+            <br>
+                           <div class="container mx-auto px-4" data-aos="flip-left">
+       <div class="poeme-container" fata-aos="flip-left">
+           <div class="poeme-text">
+    <p>J'aimerais bien que tu sois une fleur,</p>
+    <p>Pour que je te porte dans mon cœur,
+    Pure qui soupire, douce et légère,</p>
+    <p>Un parfum d'amour dans l'atmosphère.
+
+   Que chaque pétale soit une caresse,</p>
+    <p>Que ton éclat chasse toute ma tristesse,
+    Dans ton parfum, je trouve la paix,</p>
+    <p>Et mon cœur s'ouvre, enfin apaisé.
+
+   J'aimerais bien que tu sois une étoile,</p>
+    <p>Brillante dans l'immensité sans égale,
+    Eclairant mes nuits, guidant mes pas,</p>
+    <p>Toujours présente, même dans l'au-delà.
+    Que ton rayon éclaire mes pensées,</p>
+    <p>Et dans chaque rêve, tu sois ma vérité,
+    J'aimerais te voir dans chaque rayon,
+    Comme une lumière, douce émotion.</p>
+
+    <p>J'aimerais bien que tu sois un rêve,
+    Où je pourrais m'endormir sans trêve,</p>
+    <p>Dans ce monde infini, doux et serein,
+    Où ton amour est mon seul chemin.</p>
+</div> 
+    </div>
+    </div>
+    <br>
+    <br>
+                               <div class="container mx-auto px-4" data-aos="fade-up">
+     <div class="poeme-container">
+         <div class="poeme-text">
+    <p>Dans le silence de la nuit étoilée,
+    Je cherche ton regard, doux et apaisé,</p>
+    <p>Comme une lueur au fond de l’obscurité,
+    Qui guide mes pas, vers l’infinité.</p>
+
+    <p>Les étoiles murmurent ton nom si clair,
+    Tissant des rêves dans l’air léger,</p>
+    <p>Et sous leur voile, je me perds,
+    Dans l’écho de ton amour à partager.</p>
+
+    <p>La brise caresse mes pensées secrètes,
+    M’emportant vers des horizons discrets,</p>
+    <p>Où ton sourire brille comme une promesse,
+    Dans l'univers de nos vies en tendresse.</p>
+
+    <p>Là où les rêves fusionnent et s’élancent,
+    J’espère que ton cœur danse,</p>
+    <p>Sous les rythmes doux de notre poésie,
+    Légère comme l'aube qui se déploie à l'infini.</p>
+</div>  
+</div>
+</div> 
+<br>
+<br>
+<div class="container mx-auto px-4" data-aos="flip-left">
+     <div class="poeme-container">
+         <div class="poeme-text">
+             
+    <p>Sous le ciel bleu, ton visage rayonne,</p>
+    <p>Comme une étoile que le vent frissonne,</p>
+    <p>Ton rire est une mélodie douce,</p>
+    <p>Qui réchauffe mon cœur et me pousse.</p>
+
+    <p>Dans tes yeux, je vois l'univers,</p>
+    <p>Un monde infini de rêves et d'univers,</p>
+    <p>Chaque regard est une promesse,</p>
+    <p>Un voyage au-delà de la tendresse.</p>
+
+    <p>Les fleurs dansent sous ton souffle léger,</p>
+    <p>Comme des souvenirs à jamais gravés,</p>
+    <p>Et dans ton souffle, je trouve ma paix,</p>
+    <p>Mon amour pour toi, jamais n'est effacé.</p>
+
+    <p>L'horizon lointain semble à portée de main,</p>
+    <p>Avec toi, tout devient chemin,</p>
+    <p>Chaque instant passé à tes côtés,</p>
+    <p>Rend mon existence plus illuminée.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container mx-auto px-4" data-aos="fade-right">
+     
+ <div class="poeme-container">
+             <div class="poeme-text">
+    <p>Le vent souffle et danse sur la mer,</p>
+    <p>Il murmure des secrets à l’univers,</p>
+    <p>Les vagues chantent leur mélodie,</p>
+    <p>Écho d’une éternelle harmonie.</p>
+
+    <p>Les nuages flottent comme des rêves,</p>
+    <p>Portés par le souffle de la trêve,</p>
+    <p>Dans leur blancheur, je me perds,</p>
+    <p>Un voyage dans l'infini de l'univers.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container mx-auto px-4" data-aos="fade-down">
+     <div class="poeme-container">
+         <div class="poeme-text">
+            
+    <p>Ton sourire éclaire mes jours sombres,</p>
+    <p>Comme le soleil qui chasse les ombres,</p>
+    <p>Dans tes bras, je trouve la paix,</p>
+    <p>Un refuge où mon cœur se plaît.</p>
+
+    <p>Les étoiles brillent quand tu es près,</p>
+    <p>Et chaque instant avec toi est un secret,</p>
+    <p>Un souffle de tendresse infinie,</p>
+    <p>Qui rend chaque moment infini.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<div class="container mx-auto px-4" data-aos="fade-right">
+     <div class="poeme-container">
+         <div class="poeme-text">
+            
+    <p>La lune veille sur nos rêves,</p>
+    <p>Elle éclaire la nuit et sans trêve,</p>
+    <p>Elle guide les âmes perdues,</p>
+    <p>Et les ramène à la lumière, ingénue.</p>
+
+    <p>Les arbres murmurent des histoires anciennes,</p>
+    <p>Chantant des airs d'une époque lointaine,</p>
+    <p>Et moi, je t’écoute en silence,</p>
+    <p>Laissant mon cœur flotter dans la romance.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div class="container mx-auto px-4" data-aos="flip-right">
+     <div class="poeme-container">
+         <div class="poeme-text">
+    <p>Dans ton regard, je vois la mer,</p>
+    <p>Un océan calme, sans guerre,</p>
+    <p>Chaque vague caresse mon âme,</p>
+    <p>Éveillant en moi une douce flamme.</p>
+
+    <p>Le vent souffle et porte tes mots,</p>
+    <p>Comme des promesses à l’infini,</p>
+    <p>Et chaque souffle que tu prends,</p>
+    <p>Est une mélodie que je comprends.</p>
+</div>
+</div>
+</div>
+<br>
+<br>
+    </section>
+
+    <!-- Conteneur pour les cœurs -->
+    
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Variable pour vérifier si la section "accueil" est visible
+        let heartsVisible = false;
+
+        function createHeart() {
+            const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            heart.setAttribute('class', 'heart');
+            heart.setAttribute('viewBox', '0 0 24 24');
+
+            // Positionnement aléatoire
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+
+            // Vérifier si la position se trouve dans la section #projets
+            const projetsSection = document.getElementById('projets');
+            const rectProjets = projetsSection.getBoundingClientRect();
+            if (posX > rectProjets.left && posX < rectProjets.right && posY > rectProjets.top && posY < rectProjets.bottom) {
+                return; // Si la position est dans la section #projets, ne pas créer de cœur
+            }
+
+            heart.style.position = 'absolute';
+            heart.style.left = `${posX}px`;
+            heart.style.top = `${posY}px`;
+
+            // Taille aléatoire
+            const size = Math.random() * 30 + 20;
+            heart.style.width = `${size}px`;
+
+            // Couleur aléatoire
+            heart.style.fill = getRandomColor();
+
+            // Rotation initiale aléatoire
+            const rotation = Math.random() * 360;
+            heart.style.transform = `rotate(${rotation}deg)`;
+
+            // Direction aléatoire pour l'effet de flottement
+            heart.style.setProperty('--dirX', Math.random() > 0.5 ? 1 : -1);
+            heart.style.setProperty('--dirY', Math.random() > 0.5 ? 1 : -1);
+
+            // Durée d'animation aléatoire
+            const duration = Math.random() * 4 + 3;
+            heart.style.animation = `floatHeart ${duration}s ease-in-out infinite, rotateHeart ${duration}s linear infinite`;
+
+            // Contenu SVG du cœur
+            heart.innerHTML = `
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            `;
+
+            heart.addEventListener('animationend', () => heart.remove());
+
+            document.getElementById('heartsContainer').appendChild(heart);
+        }
+
+        function getRandomColor() {
+            return `hsl(${Math.random() * 360}, 70%, 65%)`;
+        }
+
+        // Fonction pour détecter la visibilité de la section "accueil"
+        function checkVisibility() {
+            const accueilSection = document.getElementById('accueil');
+            const rect = accueilSection.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                if (!heartsVisible) {
+                    // Activer la génération des cœurs uniquement si la section est visible
+                    heartsVisible = true;
+                    setInterval(() => {
+                        createHeart();
+                        if (Math.random() > 0.5) createHeart();
+                    }, 300);
+                }
+            }
+        }
+
+        // Vérifier la visibilité à chaque défilement
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility(); // Vérifie dès le début si la section est visible
+    </script>
+</body>
+</html>
