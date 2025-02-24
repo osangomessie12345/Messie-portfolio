@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendrier 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .calendar-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1600px;
+            padding: 20px;
+        }
+
+        .month-container {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: translateY(10px);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideIn 0.6s ease-out forwards;
+            min-width: 300px;
+            min-height:200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .month-title {
+            text-align: center;
+            color: #00d9ff;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px; /* Réduction de l’espacement */
+            flex-grow: 1;
+        }
+
+        .day-name, .date-item {
+            padding: 2px 3px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 1em; /* Réduction de la taille du texte */
+            transition: all 0.3s ease;
+            min-width: 35px; /* Réduction de la largeur */
+            min-height: 10px; /* Garde une bonne hauteur */
+        }
+
+        .day-name {
+            background: #00d9ff;
+            color: #0d1117;
+            font-weight: bold;
+        }
+
+        .date-item {
+            background: #21262d;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .date-item:hover {
+            background: #00d9ff;
+            color: #0d1117;
+            transform: scale(1.1);
+        }
+
+        .current-day {
+            background: #e74c3c !important;
+            color: white !important;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .calendar-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 728px) {
+            .calendar-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .month-container {
+                padding: 20px;
+                min-height: 50px;
+                min-width:280px;
+            }
+            
+            .day-name, .date-item {
+                padding: 8px 2px;
+                font-size: 0.9em;
+                min-width: 30px;
+                min-height: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .month-title {
+                font-size: 1.3em;
+            }
+            
+            .days-grid {
+                gap: 4px;
+            }
+            
+            .day-name, .date-item {
+                padding: 7px 2px;
+                font-size: 0.85em;
+                min-width: 28px;
+                min-height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container" id="calendar"></div>
+
+    <script>
+        const months = [
+            'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+            'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+        ];
+
+        const days = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
+        const today = new Date();
+
+        function createCalendar(year) {
+            const container = document.getElementById('calendar');
+            
+            months.forEach((month, index) => {
+                const monthDiv = document.createElement('div');
+                monthDiv.className = 'month-container';
+                monthDiv.style.animationDelay = `${index * 0.1}s`;
+                
+                const title = document.createElement('h2');
+                title.className = 'month-title';
+                title.textContent = `${month} ${year}`;
+                
+                const daysGrid = document.createElement('div');
+                daysGrid.className = 'days-grid';
+                
+                days.forEach(day => {
+                    const dayElement = document.createElement('div');
+                    dayElement.className = 'day-name';
+                    dayElement.textContent = day;
+                    daysGrid.appendChild(dayElement);
+                });
+
+                const firstDay = new Date(year, index, 1);
+                const totalDays = new Date(year, index + 1, 0).getDate();
+                const startDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+
+                for(let i = 0; i < startDay; i++) {
+                    daysGrid.appendChild(document.createElement('div')).className = 'date-item';
+                }
+
+                for(let day = 1; day <= totalDays; day++) {
+                    const dateElement = document.createElement('div');
+                    dateElement.className = 'date-item';
+                    dateElement.textContent = day;
+                    
+                    if (today.getFullYear() === year && 
+                        today.getMonth() === index && 
+                        today.getDate() === day) {
+                        dateElement.classList.add('current-day');
+                    }
+                    
+                    daysGrid.appendChild(dateElement);
+                }
+
+                monthDiv.append(title, daysGrid);
+                container.appendChild(monthDiv);
+            });
+        }
+
+        createCalendar(2025);
+    </script>
+</body>
+</html>
