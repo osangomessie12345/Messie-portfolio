@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 250px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: #00d9ff;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            background: #00d9ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            display: inline-block;
+            margin: 10px 5px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #00b3cc;
+            transform: scale(1.05);
+        }
+
+        .contactForm div {
+            margin-bottom: 15px;
+        }
+
+        .contactForm label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00d9ff;
+            display: block;
+            text-align: center;
+            
+            margin-bottom: 5px;
+        }
+
+        .contactForm input, .contactForm textarea {
+            padding: 12px;
+            width: 80%;
+            border: 2px solid #00d9ff;
+            border-radius: 8px;
+            font-size: 14px;
+            background: #1f2937;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.3s, transform 0.2s ease-in-out;
+        }
+
+        .contactForm input:focus, .contactForm textarea:focus {
+            border-color: #00b3cc;
+            transform: scale(1.02);
+        }
+
+        .whatsapp-link {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .whatsapp-link img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contactez-moi</h1>
+    <p>Vous pouvez me joindre via WhatsApp ou remplir le formulaire ci-dessous.</p>
+
+    <div class="container" data-aos="fade-up" data-aos-once="true">
+        <h2>Me Contacter</h2>
+        <form class="contactForm" id="contactForm">
+            <div>
+                <label for="name">Nom</label>
+                <input type="text" id="name" placeholder="Votre Nom" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Votre e-mail" required>
+            </div>
+            <div>
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" placeholder="Votre Téléphone">
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Votre Message" required></textarea>
+            </div>
+            <button type="submit" class="btn">WhatsApp</button>
+        </form>
+
+        <div class="whatsapp-link">
+      
+<a href="https://www.facebook.com/profile.php?id=61564382117276" class="btn">Facebook </a>
+        </div>
+
+        <a href="index2.html" class="btn">Retour</a>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true });
+     document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Collect form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // WhatsApp API URL
+      const phoneNumber = '+243897520168'; // Replace with your WhatsApp number
+           const whatsappURL = `https://wa.me/${phoneNumber}?text=%0AMessage:%20${encodeURIComponent(message)}`;
+      
+      // Redirect user to WhatsApp chat
+      window.open(whatsappURL, '_blank');
+    });
+    </script>
+</body>
+                  </html>
