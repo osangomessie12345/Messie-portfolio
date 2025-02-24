@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake messie</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: radial-gradient(circle at center, #0d0d24, #1a1a3a);
+        color: #fff;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    h1 {
+        font-weight: 600;
+        color: #00eaff;
+        text-shadow: 0 0 10px #00eaff, 0 0 20px #00bfff;
+    }
+
+    #game-container {
+        position: relative;
+        width: 350px;
+        height: 420px;
+        background: linear-gradient(135deg, #111133, #222255);
+        border-radius: 10px;
+        box-shadow: 0 0 20px #00eaff, 0 0 40px #0077ff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .game-canvas {
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .keys {
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .keys div {
+        display: flex;
+        gap: 10px;
+    }
+
+    .keys a {
+        font-size: 24px;
+        color: cyan;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        transition: all 0.3s ease-in-out;
+        background: rgba(0, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .keys a:hover {
+        background: cyan;
+        color: #111;
+        box-shadow: 0 0 15px cyan;
+    }
+
+    .scoreboard {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00eaff;
+        margin-top: 15px;
+        text-shadow: 0 0 8px cyan;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Snake messie</h1>
+
+  <div id="game-container">
+    <canvas id="gc" class="game-canvas" width="350" height="400"></canvas>
+  </div>
+
+  <div class="keys">
+    <a class="up arr" onclick="Snake.action('up')">▲</a>
+    <div>
+      <a class="left arr" onclick="Snake.action('left')">◀</a>
+      <a class="down arr" onclick="Snake.action('down')">▼</a>
+      <a class="right arr" onclick="Snake.action('right')">▶</a>
+    </div>
+  </div>
+
+  <div class="scoreboard">
+    Score: <span id="score">0</span> | Record: <span id="highscore">0</span>
+  </div>
+
+  <script>
+    var Snake = (function () {
+      const INITIAL_TAIL = 4;
+      var tileCount = 10;
+      var gridSize = 400 / tileCount;
+      var velocity = { x: 0, y: 0 };
+      var player = { x: Math.floor(tileCount / 2), y: Math.floor(tileCount / 2) };
+      var fruit = { x: 1, y: 1 };
+      var trail = [];
+      var tail = INITIAL_TAIL;
+      var points = 0, pointsMax = 0;
+      var lastAction = 'none';
+
+      function setup() {
+        canv = document.getElementById('gc');
+        ctx = canv.getContext('2d');
+        game.reset();
+      }
+
+      var game = {
+        reset: function () {
+          ctx.fillStyle = 'black';
+          ctx.fillRect(0, 0, canv.width, canv.height);
+          tail = INITIAL_TAIL;
+          points = 0;
+          velocity.x = 0;
+          velocity.y = 0;
+          player.x = Math.floor(tileCount / 2);
+          player.y = Math.floor(tileCount / 2);
+          trail = [{ x: player.x, y: player.y }];
+          document.getElementById('score').textContent = points;
+        },
+
+        action: {
+          up: function () { if (lastAction !== 'down') { velocity.x = 0; velocity.y = -1; } },
+          down: function () { if (lastAction !== 'up') { velocity.x = 0; velocity.y = 1; } },
+          left: function () { if (lastAction !== 'right') { velocity.x = -1; velocity.y = 0; } },
+          right: function () { if (lastAction !== 'left') { velocity.x = 1; velocity.y = 0; } }
+        },
+
+        randomFruit: function () {
+          fruit.x = Math.floor(Math.random() * tileCount);
+          fruit.y = Math.floor(Math.random() * tileCount);
+        },
+
+        loop: function () {
+          player.x += velocity.x;
+          player.y += velocity.y;
+
+          if (player.x < 0) player.x = tileCount - 1;
+          if (player.x >= tileCount) player.x = 0;
+          if (player.y < 0) player.y = tileCount - 1;
+          if (player.y >= tileCount) player.y = 0;
+
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+          ctx.fillRect(0, 0, canv.width, canv.height);
+
+          trail.push({ x: player.x, y: player.y });
+          while (trail.length > tail) trail.shift();
+
+          ctx.fillStyle = '#ff00ff';
+          for (var i = 0; i < trail.length - 1; i++) {
+            ctx.fillRect(trail[i].x * gridSize + 1, trail[i].y * gridSize + 1, gridSize - 2, gridSize - 2);
+            if (trail[i].x == player.x && trail[i].y == player.y) {
+              game.reset();
+            }
+          }
+
+          ctx.fillRect(trail[trail.length - 1].x * gridSize + 1, trail[trail.length - 1].y * gridSize + 1, gridSize - 2, gridSize - 2);
+
+          if (player.x == fruit.x && player.y == fruit.y) {
+            tail++;
+            points++;
+            if (points > pointsMax) pointsMax = points;
+            document.getElementById('score').textContent = points;
+            document.getElementById('highscore').textContent = pointsMax;
+            game.randomFruit();
+          }
+
+          ctx.fillStyle = 'cyan';
+          ctx.fillRect(fruit.x * gridSize + 1, fruit.y * gridSize + 1, gridSize - 2, gridSize - 2);
+        }
+      };
+
+      return { start: function () { window.onload = setup; setInterval(game.loop, 1000 / 8); }, action: function (act) { game.action[act](); } };
+    })();
+
+    Snake.start();
+  </script>
+
+</body>
+  </html>
+  
