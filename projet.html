@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerte Moderne Rapide</title>
+    <!-- Lien CSS de AOS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Orbitron', georgia;
+            background: #0d1117;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Ajouté pour éviter les problèmes de défilement */
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .alert-box {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: #ffffff;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 320px;
+        }
+
+        .alert-box h2 {
+            margin-bottom: 8px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .alert-box p {
+            font-size: 16px;
+            font-style: italic;
+            color: #b0bec5;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            background: #00d9ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            margin: 10px 0;
+        }
+
+        .btn:hover {
+            background: #00d9ff;
+            color: #0d1117;
+            transform: scale(1.05);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .container {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid rgba(0, 217, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            color: white;
+            margin: 10px 1px;
+        }
+
+        section {
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        section p {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            font-size: 300px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Styles pour le formulaire */
+        #contactForm {
+            margin-top: 20px;
+        }
+
+        #contactForm div {
+            margin-bottom: 15px;
+        }
+
+        #contactForm label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+
+        #contactForm input, #contactForm textarea {
+            padding: 10px;
+            width: 90%;
+            border: 2px solid #00d9ff;
+            border-radius: 5px;
+            font-size: 14px;
+            background: #1f2937;
+            color: #ffffff;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #contactForm input:focus, #contactForm textarea:focus {
+            border-color: #00d9ff;
+        }
+
+        #contactForm button {
+            padding: 10px 20px;
+            background: #00d9ff;
+            color: #0d1117;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        /* Media Queries */
+        @media (max-width: 480px) {
+            .container {
+                width: 150%;
+                padding: 15px;
+            }
+
+            .btn {
+                padding: 15px;
+                font-size: 1em;
+                text-decoration: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        <div class="alert-box" data-aos="slide-up">
+            <h2>Learn HTML</h2>
+            <p>Bienvenue dans l'apprentissage du HTML !</p>
+            <button class="btn" onclick="closeAlert()">Got it!</button>
+        </div>
+    </div>
+    <div class="container hidden" id="content" data-aos="fade-up" style="width:300px">
+        <div data-aos="fade-right">
+            
+        <div data-aos="fade-up">
+            <section>
+                <p>L'horloge ci-dessous fut mon projet il y a environ 5 ou 6 mois :</p>
+                <br>
+                <a href="horloge.html" class="btn">Horloge</a>
+                <br><br>
+                <p>Ce projet fut mon tout premier site web.</p>
+                <p>Puis celui-ci est le deuxième :</p>
+                <br><br><br>
+                <a href="horloge2.html" class="btn">Deuxième horloge</a>
+                <br><br><br>
+            </section>
+        </div>
+        <div data-aos="fade-down">
+            <section>
+                <p>Après cela, j'ai réalisé quelques projets, étant calculatrices comme celui-ci :</p>
+                <br><br><br>
+                <a href="calculatrice.html" class="btn">Calculatrice</a>
+                <br><br><br>
+                <p>Celle-ci est la première calculatrice dont j'ai réalisé.</p>
+            </section>
+        </div>
+
+        <div data-aos="fade-right">
+            <section id='perfect' class='section-margin'>
+                <p>Puis, j'ai créé un site web qui est la création dont je suis toujours aussi fier :</p>
+                <a href="social.html" class="btn">Social Service</a>
+                <br><br><br>
+            </section>
+        </div>
+
+        <div data-aos="fade-left">
+            <section>
+                <p>Puis pour finir, ma dernière création :</p>
+                <a href="chatbot.html" class="btn">𝑀𝐸𝑆𝑆𝐼𝐸 𝐶𝐻𝐴𝐵𝑂𝑇</a>
+                <br><br><br>
+            </section>
+                    
+        
+
+        <div data-aos="fade-up">
+            <section>
+                <p>Et ensuite j'ai fait une réplique Google :</p>
+                <a href="Google.html" class="btn">Mini Google</a>
+                <br>
+                <br>
+            </section>
+            <section data-aos="flip-left">
+                après cela j'ai créé  un chatbot dont le design est similaire à chat gpt :
+                <br>
+                <br>
+                <a href="https://messie-chat-gpt.vercel.app/" class="btn">messie chat gpt</a>
+                <br>
+          <br>
+            </section>
+       
+       
+        <section data-aos="flip-up">
+           mon projet pour web clash :
+           <br>
+           <br>
+           <a href="https://cheik-amir-la-fraude.vercel.app/" class="btn">cheik amlr la fraude </a>
+           <br>
+         
+           <br>
+        </section>
+       
+       
+        <section data-aos="flip-up">
+            un projet pour la Saint-Valentin :
+            <br>
+            <br> <a href="Valentin.html" class="btn">saint Valentin </a>
+            <br>
+            <br>
+        </section>
+      
+      
+        <section data-aos="flip-down">
+            le jeu des dames que j'ai réalisé :
+            <br>
+            <br>
+            <a class="btn" href="dames.html">jeu des dames</a>
+            <br>
+            <br>
+        </section>
+    
+        <section data-aos="slide-up">
+            le jeu snake dont j'ai réalisé :
+            <br>
+          
+            <br>
+            <a href="Snake.html" class="btn">messie snake</a>
+            <br>
+            <br>
+        </section>
+       
+       
+        <section data-aos="slide-down">
+            Subway surfers :
+            <br>
+            <br>
+            <a href="Subway.html" class="btn">Subway surfers</a>
+            <br>
+            
+            <br>
+        </section>
+        
+       
+        <section data-aos="slide-up">
+            un site web pour vérifier le degré C° ou soit, la température ou le climat de votre ville :
+           <br>
+            <br>
+            <a href="Météo.html" class="btn"> messie Météo </a>
+            <br>
+            <br>
+        </section>
+      
+       
+        <section data-aos="fade-up">
+            un calendrier 2025 :
+            <br>
+            <br>
+            <a href="Calendrier.html" class="btn">calendrier 2025 </a>
+            <br>
+            <br>
+        </section>
+        
+        <section data-aos="fade-down">
+            <div>
+                <p>Pour l'instant, ce sont mes seuls projets déjà réalisés.</p>
+                <p>J'en ai d'autres, mais malheureusement, je les ai mis en suspens pour l'instant jusqu'à ce que je m'améliore.</p>
+            </div>
+        </section>
+
+
+
+    
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialisation de AOS
+        AOS.init({ duration: 1000 });
+
+        function closeAlert() {
+            document.getElementById("overlay").style.display = "none";
+            let content = document.getElementById("content");
+            content.classList.remove("hidden");
+
+            setTimeout(() => {
+                AOS.refresh(); // Rafraîchit AOS après affichage
+            }, 50);
+
+            document.body.style.overflow = "auto"; // Réactive le défilement
+        }
+    </script>
+</body>
+  </html>
