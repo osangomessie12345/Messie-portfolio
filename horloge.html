@@ -2,74 +2,215 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>ℎ𝑜𝑟𝑙𝑜𝑔𝑒 𝕕𝕖 𝐌𝐄𝐒𝐒𝐈𝐄 𝕆𝕊𝔸ℕ𝔾𝕆</title>
-       <style>
-        body {
-        background-image: 
-        url('https://i.imgur.com/2fkv28c.jpeg');
-         
-             background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
-        font-family: Arial, sans-serif;
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mon portfolio</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-        .container {
-            background-color: #55c1ff;
-            border-radius:300px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            padding: 50px;
-            text-align: center;
-        }
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #1f2937;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    transition: background 0.3s, color 0.3s;
+}
 
-        h1 {
-            color: #ff1554;
-        }
+.container {
+    position: relative;
+    text-align: center;
+    color: black;
+}
 
-        .clock {
-            font-size: 50px;
-            color: #ffd26a;
-            margin: 5px 0;
-        }
+.horloge-analogique {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background:#1f2937;
+    border: black;
+    box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .date {
-            font-size: 10px;
-            color: #5cff40;
-        }
+.centre {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ff4444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff4444;
+    z-index: 4;
+}
+
+.aiguille {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 5px;
+    transition: transform 0.2s ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.heure {
+    width: 8px;
+    height: 25%;
+    background: linear-gradient(180deg, #00ffff, #0044ff);
+    box-shadow: 0 0 10px #00ffff;
+    z-index: 3;
+}
+
+.minute {
+    width: 6px;
+    height: 35%;
+    background: linear-gradient(180deg, #ffffff, #888);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    z-index: 2;
+}
+
+.seconde {
+    width: 3px;
+    height: 40%;
+    background: linear-gradient(180deg, #ff4444, #880000);
+    box-shadow: 0 0 10px #ff4444;
+    z-index: 1;
+}
+
+.marqueur {
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    left: 50%;
+    transform-origin: bottom;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: background 0.3s;
+}
+
+.horloge-digitale {
+    margin-top: 30px;
+    font-size: 3em;
+    color: #00ffff;
+    text-shadow: 0 0 20px #00ffff, 0 0 10px #00ffff;
+    letter-spacing: 3px;
+    transition: color 0.3s;
+}
+
+.date {
+    font-size: 1.3em;
+    color: #888;
+    margin-top: 10px;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    transition: color 0.3s;
+}
+
+#toggleTheme {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family: 'Orbitron', sans-serif;
+    border: none;
+    cursor: pointer;
+    background: #00ffff;
+    color: #000;
+    box-shadow: 0 0 10px #00ffff;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+#toggleTheme:hover {
+    background: #0044ff;
+    box-shadow: 0 0 15px #0044ff;
+    color: white;
+}
+
+/* Mode clair */
+.light-mode {
+    background: white;
+}
+
+.light-mode .horloge-digitale {
+    color: #000;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.light-mode .date {
+    color: #333;
+}
+
+.light-mode .horloge-analogique {
+    background: radial-gradient(circle, #ddd, #fff);
+    box-shadow: 0 0 20px rgba(0, 0, 255, 0.5), inset 0 0 10px rgba(0, 0, 255, 0.2);
+}
+
+.light-mode .marqueur {
+    background: black !important;
+}
     </style>
-<head>
-<body>   
-   <body>
-<div class="container">
-    <h>𝐇𝐎𝐑𝐋𝐎𝐆𝐄 𝐔𝐍𝐈𝐕𝐄𝐑𝐒𝐈𝐓𝐀𝐈𝐑𝐄</h>
-    <h6>𝐇𝐎𝐑𝐋𝐎𝐆𝐄</h6>
-    <div id="clock" class="clock"></div>
-    <p id="date" class="date"></p>
-        <p>𝐜'𝐞𝐬𝐭 𝐥𝐚 𝐝𝐚𝐭𝐞 , 𝐥'𝐡𝐞𝐮𝐫𝐞 , 𝐥𝐚 𝐦𝐢𝐧𝐮𝐭𝐞 , 𝐥𝐞𝐬 𝐬𝐞𝐜𝐨𝐧𝐝𝐞𝐬 𝐚𝐜𝐭𝐮𝐞𝐥𝐥𝐞𝐬</p>
-            
-        <h2>𝐯𝐨𝐢𝐜𝐢 𝐥'𝐡𝐨𝐫𝐥𝐨𝐠𝐞</h2>
+</head>
+<body>
+    <button id="toggleTheme">Mode Clair</button>
+    <br>
 
+    <div class="container">
+        <div class="horloge-analogique">
+            <div class="aiguille heure"></div>
+            <div class="aiguille minute"></div>
+            <div class="aiguille seconde"></div>
+            <div class="centre"></div>
+        </div>
+        <div class="horloge-digitale"></div>
+        <div class="date"></div>
+    </div>
 
-   <script>
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
+    <script>
+        const heureAiguille = document.querySelector('.heure');
+        const minuteAiguille = document.querySelector('.minute');
+        const secondeAiguille = document.querySelector('.seconde');
+        const horlogeDigitale = document.querySelector('.horloge-digitale');
+        const dateElement = document.querySelector('.date');
+        const horlogeAnalogique = document.querySelector('.horloge-analogique');
+        const body = document.body;
+        const toggleThemeBtn = document.getElementById('toggleTheme');
 
-            const currentTime = `${hours}:${minutes}:${seconds}`;
-            document.getElementById('clock').textContent = currentTime;
+        function mettreAJourHorloge() {
+            const maintenant = new Date();
+            const secondes = maintenant.getSeconds();
+            const secondesDeg = ((secondes / 60) * 360) + 90;
+            secondeAiguille.style.transform = `rotate(${secondesDeg}deg)`;
 
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const currentDate = now.toLocaleDateString('fr-FR', options);
-            document.getElementById('date').textContent = currentDate;
+            const minutes = maintenant.getMinutes();
+            const minutesDeg = ((minutes / 60) * 360) + ((secondes / 60) * 6) + 90;
+            minuteAiguille.style.transform = `rotate(${minutesDeg}deg)`;
+
+            const heures = maintenant.getHours();
+            const heuresDeg = ((heures / 12) * 360) + ((minutes / 60) * 30) + 90;
+            heureAiguille.style.transform = `rotate(${heuresDeg}deg)`;
+
+            horlogeDigitale.textContent = maintenant.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+            dateElement.textContent = maintenant.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         }
 
-        setInterval(updateClock, 1000);
-        updateClock(); // Appel initial pour afficher l'heure immédiatement
+        for (let i = 0; i < 60; i++) {
+            const marqueur = document.createElement('div');
+            marqueur.className = 'marqueur';
+            marqueur.style.transform = `rotate(${i * 6}deg) translateY(${i % 5 === 0 ? '-125px' : '-135px'})`;
+            horlogeAnalogique.appendChild(marqueur);
+        }
+
+        setInterval(mettreAJourHorloge, 1000);
+        mettreAJourHorloge();
+
+        toggleThemeBtn.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            toggleThemeBtn.textContent = body.classList.contains('light-mode') ? 'Mode Sombre' : 'Mode Clair';
+        });
     </script>
-      
 </body>
 </html>
-  
