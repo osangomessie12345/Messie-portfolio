@@ -1,76 +1,74 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Calendrier 2025</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier 2025 </title>
+    
+    <!-- Importation de la police Orbitron -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
 
+    <style>
+        /* Style global */
         body {
             font-family: 'Orbitron', sans-serif;
             background: #0d1117;
             color: #ffffff;
             margin: 0;
-            padding: 40px 20px;
+            padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
+        /* Conteneur du calendrier */
         .calendar-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            width: 100%;
-            max-width: 1600px;
-            padding: 20px;
+            grid-template-columns: repeat(3, 1fr);
+                     
+            gap: 30px;
+            max-width: 1200px;
         }
 
+        /* Style des mois */
         .month-container {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 10%, transparent 50%);
             background: linear-gradient(135deg, #1f2937, #374151);
-            padding: 25px;
-            border-radius: 20px;
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transform: translateY(10px);
-            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-            position: relative;
-            overflow: hidden;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            animation: slideIn 0.5s ease-out forwards;
             opacity: 0;
-            animation: slideIn 0.6s ease-out forwards;
-            min-width: 300px;
-            min-height:200px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+        }
+
+        .month-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
         .month-title {
             text-align: center;
             color: #00d9ff;
             margin-bottom: 15px;
-            font-size: 1.5em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1.4em;
         }
 
+        /* Grille des jours */
         .days-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 5px; /* Réduction de l’espacement */
-            flex-grow: 1;
+            gap: 5px;
         }
 
         .day-name, .date-item {
-            padding: 2px 3px;
+            padding: 7px;
             text-align: center;
             border-radius: 5px;
-            font-size: 1em; /* Réduction de la taille du texte */
+            font-size: 1em;
             transition: all 0.3s ease;
-            min-width: 35px; /* Réduction de la largeur */
-            min-height: 10px; /* Garde une bonne hauteur */
         }
 
         .day-name {
@@ -83,6 +81,7 @@
             background: #21262d;
             color: #ffffff;
             cursor: pointer;
+            transition: all 0.3s ease-in-out;
         }
 
         .date-item:hover {
@@ -97,6 +96,7 @@
             box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
         }
 
+        /* Animation d'apparition */
         @keyframes slideIn {
             from {
                 opacity: 0;
@@ -108,47 +108,11 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        /* Responsive */
+        @media (max-width: 50000px) {
             .calendar-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 728px) {
-            .calendar-container {
+        height:1900px;
                 grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .month-container {
-                padding: 20px;
-                min-height: 50px;
-                min-width:280px;
-            }
-            
-            .day-name, .date-item {
-                padding: 8px 2px;
-                font-size: 0.9em;
-                min-width: 30px;
-                min-height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .month-title {
-                font-size: 1.3em;
-            }
-            
-            .days-grid {
-                gap: 4px;
-            }
-            
-            .day-name, .date-item {
-                padding: 7px 2px;
-                font-size: 0.85em;
-                min-width: 28px;
-                min-height: 40px;
             }
         }
     </style>
@@ -163,7 +127,6 @@
         ];
 
         const days = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
-        const today = new Date();
 
         function createCalendar(year) {
             const container = document.getElementById('calendar');
@@ -180,6 +143,7 @@
                 const daysGrid = document.createElement('div');
                 daysGrid.className = 'days-grid';
                 
+                // Ajout des noms de jours
                 days.forEach(day => {
                     const dayElement = document.createElement('div');
                     dayElement.className = 'day-name';
@@ -187,33 +151,40 @@
                     daysGrid.appendChild(dayElement);
                 });
 
+                // Calcul des dates
                 const firstDay = new Date(year, index, 1);
                 const totalDays = new Date(year, index + 1, 0).getDate();
                 const startDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
 
-                for(let i = 0; i < startDay; i++) {
-                    daysGrid.appendChild(document.createElement('div')).className = 'date-item';
+                // Ajout des cases vides
+                for (let i = 0; i < startDay; i++) {
+                    const empty = document.createElement('div');
+                    empty.className = 'date-item';
+                    daysGrid.appendChild(empty);
                 }
 
-                for(let day = 1; day <= totalDays; day++) {
+                // Ajout des dates
+                for (let day = 1; day <= totalDays; day++) {
                     const dateElement = document.createElement('div');
                     dateElement.className = 'date-item';
                     dateElement.textContent = day;
                     
-                    if (today.getFullYear() === year && 
-                        today.getMonth() === index && 
-                        today.getDate() === day) {
+                    // Marquer la date du jour actuel
+                    const today = new Date();
+                    if (today.getFullYear() === year && today.getMonth() === index && today.getDate() === day) {
                         dateElement.classList.add('current-day');
                     }
-                    
+
                     daysGrid.appendChild(dateElement);
                 }
 
-                monthDiv.append(title, daysGrid);
+                monthDiv.appendChild(title);
+                monthDiv.appendChild(daysGrid);
                 container.appendChild(monthDiv);
             });
         }
 
+        // Générer le calendrier pour 2025
         createCalendar(2025);
     </script>
 </body>
