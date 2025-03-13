@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio </title>
-    <!-- Lien CSS de AOS -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <style>
@@ -17,8 +17,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden; /* Ajouté pour éviter les problèmes de défilement */
+                    width:320px;
+                    
+                overflow: hidden; 
         }
 
         .overlay {
@@ -73,33 +74,40 @@
         }
 
         .btn:hover {
-            background: #00d9ff;
-            color: #0d1117;
+                background: linear-gradient(135deg, #00b3cc, #00d9ff);
             transform: scale(1.05);
-        }
-
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+            }
         .hidden {
             display: none;
         }
 
         .container {
-            background: linear-gradient(135deg, #1f2937, #374151);
-            padding: 25px;
+            background:             padding: 25px;
             border-radius: 20px;
             border: 2px solid rgba(0, 217, 255, 0.2);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        justify-content:center;
+        align-items:center;
+            left:400;
+            overflow:hidden;
             color: white;
-            margin: 10px 1px;
+            margin: 100px 1px;
         }
 
         section {
             margin: 10px 0;
             padding: 15px;
             border-radius: 10px;
-            background: rgba(255, 255, 255, 0.1);
+            background: #1f2937;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
+                section:hover {
+                 transform: scale(1.06);
+            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
+                         background:#1f2937;
+                  }
 
         section p {
             font-size: 14px;
@@ -158,7 +166,7 @@
         /* Media Queries */
         @media (max-width: 480px) {
             .container {
-                width: 150%;
+                width: 1500%;
                 padding: 15px;
             }
 
@@ -185,21 +193,24 @@
             <section>
                 <p>L'horloge ci-dessous fut mon projet il y a environ 5 ou 6 mois :</p>
                 <br>
-                <a href="horloge.html" class="btn">Horloge</a>
-                <br><br>
+                <a href="horloge2.html" class="btn">Horloge</a>
+                <br>
+                <br>
                 <p>Ce projet fut mon tout premier site web.</p>
-                <p>Puis celui-ci est le deuxième :</p>
-                <br><br><br>
-                <a href="horloge2.html" class="btn">Deuxième horloge</a>
-                <br><br><br>
+                </section>
+                <section>
+                      <p>Puis celui-ci est le deuxième :</p>
+                <br><br>
+                <a href="horloge.html" class="btn">Deuxième horloge</a>
+                <br><br>
             </section>
         </div>
         <div data-aos="fade-down">
             <section>
                 <p>Après cela, j'ai réalisé quelques projets, étant calculatrices comme celui-ci :</p>
-                <br><br><br>
+                <br>
                 <a href="calculatrice.html" class="btn">Calculatrice</a>
-                <br><br><br>
+                <br><br>
                 <p>Celle-ci est la première calculatrice dont j'ai réalisé.</p>
             </section>
         </div>
@@ -252,7 +263,7 @@
         <section data-aos="flip-up">
             un projet pour la Saint-Valentin :
             <br>
-            <br> <a href="https://messie-saint-valentin.vercel.app/" class="btn">saint Valentin </a>
+            <br> <a href="Valentin.html" class="btn">saint Valentin </a>
             <br>
             <br>
         </section>
@@ -306,8 +317,42 @@
             <a href="Calendrier.html" class="btn">calendrier 2025 </a>
             <br>
             <br>
+  
         </section>
         
+  
+                  <section data-aos="slide-down">
+                un générateur de carte pour otaku :
+                <br>
+                <br>
+                <a class="btn" href="https://messie-carte-otaku.vercel.app/"> carte d'identité otaku </a>
+ <br>
+<br>
+            </section>
+        <section data-aos="slide-left">
+            un chatbot ayant un style cyberpunk et une sauvegarde :
+            <br>
+            <br>
+            <a href="https://messie-chatbot-cyberpunk.vercel.app/" class="btn"> chatbot cyberpunk </a>
+            <br>
+            <br>
+        </section>
+        <section data-aos="fade-down">
+            l'analyseur du pourcentage de la batterie :
+            <br>
+            <br>
+            <a href="batterie.html" class="btn">batterie </a>
+            <br>
+            <br>
+        </section>
+        <section data-aos="slide">
+            un traducteur des langues :
+            <br>
+            <br>
+            <a href="translate.html" class="btn"> messie translate</a>
+            <br>
+            <br>
+        </section>
         <section data-aos="fade-down">
             <div>
                 <p>Pour l'instant, ce sont mes seuls projets déjà réalisés.</p>
@@ -337,4 +382,5 @@
         }
     </script>
 </body>
-  </html>
+            </html>
+            
