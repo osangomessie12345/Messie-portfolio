@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mon portfolio</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .battery-container {
+            display: flex;
+            align-items: center;
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .battery-text {
+            margin-right: 20px;
+        }
+
+        .battery-text p {
+            margin: 0;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        .battery-text h1 {
+            margin: 5px 0 0;
+            font-size: 32px;
+        }
+
+        .battery {
+            width: 50px;
+            height: 100px;
+            border-radius: 25px;
+            background: #333;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .battery-fill {
+            width: 100%;
+            height: 37%;
+            background: linear-gradient(to top, #ff8000, #ffaa00);
+            border-radius: 0 0 25px 25px;
+            transition: height 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="battery-container">
+        <div class="battery-text">
+            <p> batterie</p>
+            <h1 id="battery-level">--%</h1>
+        </div>
+        <div class="battery">
+            <div class="battery-fill" id="battery-fill"></div>
+        </div>
+    </div>
+
+    <script>
+        if ('getBattery' in navigator) {
+            navigator.getBattery().then(battery => {
+                function updateBatteryInfo() {
+                    let level = Math.round(battery.level * 100);
+                    document.getElementById("battery-level").textContent = level + "%";
+                    document.getElementById("battery-fill").style.height = level + "%";
+
+                    let fill = document.getElementById("battery-fill");
+                    if (level > 50) {
+                        fill.style.background = "linear-gradient(to top, #00ff00, #66ff66)";
+                    } else if (level > 20) {
+                        fill.style.background = "linear-gradient(to top, #ff8000, #ffaa00)";
+                    } else {
+                        fill.style.background = "linear-gradient(to top, #ff0000, #ff5555)";
+                    }
+                }
+
+                updateBatteryInfo();
+                battery.addEventListener("levelchange", updateBatteryInfo);
+            });
+        } 
+    </script>
+</body>
+</html>
+
