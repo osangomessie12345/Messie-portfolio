@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio </title>
-
+    <title>mon portfolio</title>
+    <!-- Lien CSS de AOS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
     <style>
@@ -17,9 +17,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-                    width:320px;
-                    
-                overflow: hidden; 
+            width: 320px;
+            overflow: hidden;
         }
 
         .overlay {
@@ -74,25 +73,43 @@
         }
 
         .btn:hover {
-                background: linear-gradient(135deg, #00b3cc, #00d9ff);
+            background: linear-gradient(135deg, #00b3cc, #00d9ff);
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-            }
+        }
+
         .hidden {
             display: none;
         }
 
         .container {
-            background:             padding: 25px;
+            padding: 25px;
             border-radius: 20px;
-            border: 2px solid rgba(0, 217, 255, 0.2);
+                       border: 2px solid rgba(0, 217, 255, 0.2);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        justify-content:center;
-        align-items:center;
-            left:400;
-            overflow:hidden;
+            
+             justify-content: center;
+            align-items: center;
+            overflow: hidden;
             color: white;
-            margin: 100px 1px;
+            margin: 10px 1px;
+        }
+
+        img {
+         margin:0px;
+            padding: 1px;
+            border-radius: 10px;
+     width:235px;
+    border-top-left-radius:20px;
+    border-bottom-right-radius:20px;
+     height:200px;
+   
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
         }
 
         section {
@@ -103,11 +120,11 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
-                section:hover {
-                 transform: scale(1.06);
-            box-shadow: 0 0 15px rgba(0, 217, 255, 0.5);
-                         background:#1f2937;
-                  }
+
+        section:hover {
+            transform: scale(1.06);
+                  background: #1f2937;
+        }
 
         section p {
             font-size: 14px;
@@ -115,74 +132,21 @@
         }
 
         h1 {
-            font-size: 300px;
+            font-size: 30px;
             text-align: center;
             margin-bottom: 15px;
         }
-
-        /* Styles pour le formulaire */
-        #contactForm {
-            margin-top: 20px;
-        }
-
-        #contactForm div {
-            margin-bottom: 15px;
-        }
-
-        #contactForm label {
-            font-size: 14px;
-            font-weight: bold;
-            color: #00d9ff;
-        }
-
-        #contactForm input, #contactForm textarea {
-            padding: 10px;
-            width: 90%;
-            border: 2px solid #00d9ff;
-            border-radius: 5px;
-            font-size: 14px;
-            background: #1f2937;
-            color: #ffffff;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        #contactForm input:focus, #contactForm textarea:focus {
-            border-color: #00d9ff;
-        }
-
-        #contactForm button {
-            padding: 10px 20px;
-            background: #00d9ff;
-            color: #0d1117;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        /* Media Queries */
-        @media (max-width: 480px) {
-            .container {
-                width: 1500%;
-                padding: 15px;
-            }
-
-            .btn {
-                padding: 15px;
-                font-size: 1em;
-                text-decoration: none;
-            }
+        a {
+            text-decoration:none;
         }
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay">
+ <div class="overlay" id="overlay">
         <div class="alert-box" data-aos="slide-up">
             <h2>soyez le bienvenue</h2>
             <p>Bienvenue dans la page où sont présentés mes projets </p>
+    
             <button class="btn" onclick="closeAlert()">ok</button>
         </div>
     </div>
@@ -191,15 +155,18 @@
             
         <div data-aos="fade-up">
             <section>
-                <p>L'horloge ci-dessous fut mon projet il y a environ 5 ou 6 mois :</p>
-                <br>
+                <img src="https://i.imgur.com/fWxBQ7X.jpeg">
+                          <p>une horloge précisant l'heure de divers régions  :</p>
+                
                 <a href="horloge2.html" class="btn">Horloge</a>
                 <br>
                 <br>
                 <p>Ce projet fut mon tout premier site web.</p>
                 </section>
                 <section>
-                      <p>Puis celui-ci est le deuxième :</p>
+                          <img src="https://i.imgur.com/rjTmXSD.jpeg">
+                          
+                      <p>Puis celui-ci est le deuxième avec un design bien plus futuriste et moderne :</p>
                 <br><br>
                 <a href="horloge.html" class="btn">Deuxième horloge</a>
                 <br><br>
@@ -207,17 +174,19 @@
         </div>
         <div data-aos="fade-down">
             <section>
-                <p>Après cela, j'ai réalisé quelques projets, étant calculatrices comme celui-ci :</p>
+                <img src="https://i.imgur.com/iJmvq8y.jpeg">
+                <p>une calculatrice ayant un style classique  :</p>
                 <br>
                 <a href="calculatrice.html" class="btn">Calculatrice</a>
                 <br><br>
-                <p>Celle-ci est la première calculatrice dont j'ai réalisé.</p>
+                
             </section>
         </div>
 
         <div data-aos="fade-right">
             <section id='perfect' class='section-margin'>
-                <p>Puis, j'ai créé un site web qui est la création dont je suis toujours aussi fier :</p>
+                <img src="https://i.imgur.com/ZCPL3eB.jpeg">
+                <p>le site indiquant mon entreprise  :</p>
                 <a href="social.html" class="btn">Social Service</a>
                 <br><br><br>
             </section>
@@ -225,31 +194,37 @@
 
         <div data-aos="fade-left">
             <section>
-                <p>Puis pour finir, ma dernière création :</p>
+                <img src="https://i.imgur.com/WTAw7sl.jpeg">
+                <p>mon premier chatbot ayant un design présentable  :</p>
                 <a href="chatbot.html" class="btn">𝑀𝐸𝑆𝑆𝐼𝐸 𝐶𝐻𝐴𝐵𝑂𝑇</a>
                 <br><br><br>
             </section>
-                    
+         </div >         
         
-
-        <div data-aos="fade-up">
+<div data-aos="fade-up">
+        
             <section>
-                <p>Et ensuite j'ai fait une réplique Google :</p>
+                <img src="https://i.imgur.com/2a1Xztt.jpeg">
+                <p> une réplique Google :</p>
                 <a href="Google.html" class="btn">Mini Google</a>
                 <br>
                 <br>
             </section>
-            <section data-aos="flip-left">
-                après cela j'ai créé  un chatbot dont le design est similaire à chat gpt :
+            <div data-aos="flip-left">
+            <section>
+                <img src="https://i.imgur.com/VNCrGhZ.jpeg">
+                après cela j'ai fait un chatbot dont le design est similaire à chat gpt :
                 <br>
                 <br>
                 <a href="https://messie-chat-gpt.vercel.app/" class="btn">messie chat gpt</a>
                 <br>
           <br>
             </section>
+            </div>
+       <div data-aos="flip-left">
        
-       
-        <section data-aos="flip-up">
+        <section>
+            <img src="https://i.imgur.com/JFmeWjE.jpeg">
            mon projet pour web clash :
            <br>
            <br>
@@ -258,18 +233,20 @@
          
            <br>
         </section>
-       
-       
-        <section data-aos="flip-up">
+       </div>
+        <div data-aos="flip-up">
+        <section>
+            <img src="https://i.imgur.com/az7BwFP.jpeg">
             un projet pour la Saint-Valentin :
             <br>
-            <br> <a href="Valentin.html" class="btn">saint Valentin </a>
+            <br> <a href="https://messie-saint-valentin.vercel.app/" class="btn">saint Valentin </a>
             <br>
             <br>
         </section>
+      <div data-aos="slide-down">
       
-      
-        <section data-aos="flip-down">
+        <section>
+            <img src="https://i.imgur.com/Y82IhMw.jpeg">
             le jeu des dames que j'ai réalisé :
             <br>
             <br>
@@ -277,9 +254,11 @@
             <br>
             <br>
         </section>
-    
-        <section data-aos="slide-up">
-            le jeu snake dont j'ai réalisé :
+    </div>
+    <div data-aos="slide-up">
+        <section>
+            <img src="https://i.imgur.com/OUbGRNR.jpeg">
+          le jeu snake dont j'ai réalisé :
             <br>
           
             <br>
@@ -287,9 +266,10 @@
             <br>
             <br>
         </section>
-       
-       
-        <section data-aos="slide-down">
+       </div>
+       <div data-aos="slide-down">
+        <section>
+           <img src="https://i.imgur.com/PogzQ09.jpeg"> 
             Subway surfers :
             <br>
             <br>
@@ -298,9 +278,10 @@
             
             <br>
         </section>
-        
-       
-        <section data-aos="slide-up">
+        </div>
+       <div data-aos="slide-up">
+        <section>
+            <img src="https://i.imgur.com/N85BCMr.jpeg">
             un site web pour vérifier le degré C° ou soit, la température ou le climat de votre ville :
            <br>
             <br>
@@ -308,9 +289,10 @@
             <br>
             <br>
         </section>
-      
-       
-        <section data-aos="fade-up">
+      </div>
+       <div data-aos="fade-up">
+        <section>
+            <img src="https://i.imgur.com/NqCxtBT.jpeg">
             un calendrier 2025 :
             <br>
             <br>
@@ -319,9 +301,10 @@
             <br>
   
         </section>
-        
-  
-                  <section data-aos="slide-down">
+        </div>
+  <div data-aos="slide-down">
+                  <section>
+                      <img src="https://i.imgur.com/LCDEloO.jpeg">
                 un générateur de carte pour otaku :
                 <br>
                 <br>
@@ -329,7 +312,10 @@
  <br>
 <br>
             </section>
-        <section data-aos="slide-left">
+            </div>
+            <div data-aos="slide-left">
+        <section>
+            <img src="https://i.imgur.com/llAIHTW.jpeg">
             un chatbot ayant un style cyberpunk et une sauvegarde :
             <br>
             <br>
@@ -337,7 +323,10 @@
             <br>
             <br>
         </section>
-        <section data-aos="fade-down">
+        </div>
+        <div data-aos="fade-down">
+        <section>
+            <img src="https://i.imgur.com/IbJ6mP5.jpeg">
             l'analyseur du pourcentage de la batterie :
             <br>
             <br>
@@ -345,7 +334,10 @@
             <br>
             <br>
         </section>
-        <section data-aos="slide">
+        </div>
+        <div data-aos="slide-up">
+        <section>
+            <img src="https://i.imgur.com/9EJPdUI.jpeg">
             un traducteur des langues :
             <br>
             <br>
@@ -353,11 +345,13 @@
             <br>
             <br>
         </section>
-        <section data-aos="fade-down">
-            <div>
+        </div>
+        <div data-aos="fade-down">
+        <section>
+            
                 <p>Pour l'instant, ce sont mes seuls projets déjà réalisés.</p>
                 <p>J'en ai d'autres, mais malheureusement, je les ai mis en suspens pour l'instant jusqu'à ce que je m'améliore.</p>
-            </div>
+            
         </section>
 
 
@@ -366,7 +360,6 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
-        // Initialisation de AOS
         AOS.init({ duration: 1000 });
 
         function closeAlert() {
@@ -375,12 +368,14 @@
             content.classList.remove("hidden");
 
             setTimeout(() => {
-                AOS.refresh(); // Rafraîchit AOS après affichage
+                AOS.refresh(); 
             }, 50);
 
-            document.body.style.overflow = "auto"; // Réactive le défilement
+            document.body.style.overflow = "auto";
         }
     </script>
+    
+   
 </body>
-            </html>
-            
+    </html>
+    
