@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mon portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>  
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');  body {  
         font-family: 'Orbitron', sans-serif;  
         text-align: center;  
@@ -85,7 +84,7 @@
     }  
 
     .selected {  
-        outline: 4px solid #00d9ff;  
+       
         box-shadow: 0 0 30px #00d9ff;  
         animation: pulse 0.8s infinite;  
     }  
@@ -153,8 +152,7 @@
         transform: translate(-50%, -10px) scale(0.95);  
         opacity: 0.9;  
         background: rgba(255, 255, 255, 0.05);  
-        box-shadow: 0 0 20px rgba(0, 170, 255, 0.4);  
-    }  
+   }  
 
     .logo {  
         font-size: 1.6rem;  
@@ -321,7 +319,7 @@
 .player1 {  
     background: linear-gradient(145deg, #000000, #e74c3c); /* IA */  
 }
-</style>
+    </style>
 </head>
 <body>
 
@@ -334,14 +332,12 @@
             <li><a href="https://messie-chat-gpt.vercel.app/">Messie GPT</a></li>  
         </ul>  
         <div class="menu-toggle">☰</div>  
-    </nav>  <div id="game-board"></div>
+    </nav> 
 
+<div id="turn-indicator">Tour du Joueur 2 (Rouge)</div>
 <button id="restart">Recommencer</button>
-<br>
-    <br>
-    
-    <div id="board"></div>
-<div id="turn-indicator">Tour du joueur rouge</div>
+<div id="board"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const board = document.getElementById("board");
@@ -349,7 +345,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const restartButton = document.getElementById("restart");
 
     let selectedPiece = null;
-    let currentPlayer = 2; // 1 = IA (noir), 2 = Joueur (rouge)
+    let currentPlayer = 2; // 1 = IA (Noir), 2 = Joueur (Rouge)
 
     function createBoard() {
         board.innerHTML = "";
@@ -374,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function handleCellClick(row, col) {
-        if (currentPlayer !== 2) return; // Le joueur ne peut jouer que quand c'est son tour
+        if (currentPlayer !== 2) return;
 
         const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
         const piece = cell.querySelector(".piece");
@@ -394,49 +390,95 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function movePiece(piece, row, col) {
         const fromCell = piece.parentElement;
+        const fromRow = parseInt(fromCell.dataset.row);
+        const fromCol = parseInt(fromCell.dataset.col);
+
         const toCell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
+
         if (!toCell.innerHTML) {
-            fromCell.innerHTML = "";
-            toCell.appendChild(piece);
+            const rowDiff = row - fromRow;
+            const colDiff = col - fromCol;
+
+            // Vérifier si c'est une capture
+            if (Math.abs(rowDiff) === 2 && Math.abs(colDiff) === 2) {
+                const middleRow = fromRow + rowDiff / 2;
+                const middleCol = fromCol + colDiff / 2;
+                const middleCell = document.querySelector(`.cell[data-row="${middleRow}"][data-col="${middleCol}"]`);
+                const middlePiece = middleCell.querySelector(".piece");
+
+                if (middlePiece && parseInt(middlePiece.dataset.player) !== currentPlayer) {
+                    middleCell.innerHTML = ""; // Supprime le pion capturé
+                    fromCell.innerHTML = "";
+                    toCell.appendChild(piece);
+                    return;
+                }
+            } else if (Math.abs(rowDiff) === 1 && Math.abs(colDiff) === 1) {
+                fromCell.innerHTML = "";
+                toCell.appendChild(piece);
+            }
         }
     }
 
     function playAI() {
         let pieces = Array.from(document.querySelectorAll(".piece.player1"));
-        let validMoves = [];
+        let possibleMoves = [];
 
         pieces.forEach(piece => {
-            let row = parseInt(piece.parentElement.dataset.row);
-            let col = parseInt(piece.parentElement.dataset.col);
+            let fromCell = piece.parentElement;
+            let fromRow = parseInt(fromCell.dataset.row);
+            let fromCol = parseInt(fromCell.dataset.col);
 
-            let moves = [
-                { r: row + 1, c: col - 1 },
-                { r: row + 1, c: col + 1 }
+            // Déplacements normaux
+            let possiblePositions = [
+                { row: fromRow + 1, col: fromCol - 1 },
+                { row: fromRow + 1, col: fromCol + 1 }
             ];
 
-            moves.forEach(move => {
-                let targetCell = document.querySelector(`.cell[data-row="${move.r}"][data-col="${move.c}"]`);
-                if (targetCell && !targetCell.innerHTML) {
-                    validMoves.push({ piece, move });
+            // Vérifier si on peut capturer un pion adverse
+            possiblePositions.forEach(pos => {
+                let toCell = document.querySelector(`.cell[data-row="${pos.row}"][data-col="${pos.col}"]`);
+                if (toCell && !toCell.innerHTML) {
+                    possibleMoves.push({ piece, row: pos.row, col: pos.col });
+                }
+            });
+
+            // Capture de pions
+            let capturePositions = [
+                { row: fromRow + 2, col: fromCol - 2, midRow: fromRow + 1, midCol: fromCol - 1 },
+                { row: fromRow + 2, col: fromCol + 2, midRow: fromRow + 1, midCol: fromCol + 1 }
+            ];
+
+            capturePositions.forEach(pos => {
+                let midCell = document.querySelector(`.cell[data-row="${pos.midRow}"][data-col="${pos.midCol}"]`);
+                let toCell = document.querySelector(`.cell[data-row="${pos.row}"][data-col="${pos.col}"]`);
+
+                if (midCell && toCell && !toCell.innerHTML) {
+                    let midPiece = midCell.querySelector(".piece");
+                    if (midPiece && parseInt(midPiece.dataset.player) === 2) {
+                        possibleMoves.push({ piece, row: pos.row, col: pos.col, capture: true, midCell });
+                    }
                 }
             });
         });
 
-        if (validMoves.length > 0) {
-            let choice = validMoves[Math.floor(Math.random() * validMoves.length)];
-            movePiece(choice.piece, choice.move.r, choice.move.c);
+        if (possibleMoves.length > 0) {
+            let move = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+
+            if (move.capture) {
+                move.midCell.innerHTML = ""; // Supprime le pion capturé
+            }
+
+            movePiece(move.piece, move.row, move.col);
         }
 
         currentPlayer = 2;
-        turnIndicator.textContent = "Tour du joueur rouge";
+        turnIndicator.textContent = "Tour du Joueur Rouge";
     }
 
     restartButton.addEventListener("click", createBoard);
     createBoard();
 });
 </script>
-
-
 
 
 <script>  
@@ -481,11 +523,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createParticles();  
 </script>
-
-
-
-
-
-
 </body>
-</html>
+    </html>
