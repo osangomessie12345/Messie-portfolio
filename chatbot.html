@@ -1,12 +1,11 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>messie chatnot</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <!-- Lien vers AOS CSS -->
+    <title>messie chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -20,7 +19,7 @@
             display: flex;
             flex-direction: column;
             height: 100vh;
-            background:linear-gradient(135deg, white,gray);
+            background: linear-gradient(135deg, white, gray);
         }
 
         header {
@@ -36,8 +35,6 @@
         .logo img {
             width: 40px;
         }
-          
-
 
         .title p {
             font-size: 14px;
@@ -64,8 +61,8 @@
             display: flex;
             flex-direction: column;
             overflow-y: auto;
-            max-height: calc(100vh - 180px); /* Ajustement pour éviter le chevauchement avec le footer */
-            padding-bottom: 80px; /* Espace pour le footer */
+            max-height: calc(100vh - 180px);
+            padding-bottom: 80px;
         }
 
         .user-message, .bot-message {
@@ -112,14 +109,14 @@
         footer {
             display: flex;
             align-items: center;
-            background:white;
+            background: white;
             padding: 15px;
             border-top: 1px solid #ddd;
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 80px; /* Hauteur du footer */
+            height: 80px;
         }
 
         footer input {
@@ -190,15 +187,14 @@
         .logo .button {
             background: white;
             color: #6a40fc;
-         position:center;
-         text-align:center;
-  margin:60px;
-            padding: 10px 30px ;
-           justify-content: center;
+            position: center;
+            text-align: center;
+            margin: 60px;
+            padding: 10px 30px;
+            justify-content: center;
             text-decoration: none;
             font-size: 30px;
             border-radius: 20px;
-            text-align: center;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
@@ -227,30 +223,16 @@
     </style>
 </head>
 <body>
-
     <header data-aos="fade-down">
-     
-        
-             <br>
-             <br>
-             <br>
-       <div class="logo">
-       
-    
-      
-                      <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button">Auteur</a>
-                      
-                  
-                     <br>
+        <div class="logo">
+            <a href="https://www.facebook.com/profile.php?id=61564382117276" class="button">Auteur</a>
+            <br>
             <h1 style="margin:30px"> messie chatbot</h1>
-        
         </div>
     </header>
 
     <main data-aos="fade-left">
-        <div class="chat-container" id="chat-box">
-            <!-- Messages will appear here -->
-        </div>
+        <div class="chat-container" id="chat-box"></div>
     </main>
 
     <footer>
@@ -266,13 +248,18 @@
         }
     </script>
 
-    <script type="module">
+    <script type="module" src="script.js">
         import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
         import { GoogleGenerativeAI } from "@google/generative-ai";
 
-        const API_KEY = "AIzaSyBUkLeLsQtfEcCGqWxeG1y7e4TVcq9olSc";
+        const API_KEY = "AIzaSyBQeZVi4QdrnGKPEfXXx1tdIqlMM8iqvZw";
+        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+
         const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const model = genAI.getGenerativeModel({
+            model: "gemini-2.0-flash",
+            apiUrl: API_URL
+        });
 
         function filterResponse(text) {
             text = text.replace(/Gemini/gi, "AI");
