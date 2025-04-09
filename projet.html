@@ -3,261 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mon portfolio</title>
-    <!-- Lien CSS de AOS -->
+    <title> mon portfolio </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="messie.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
-    <style>
-        body {
-            font-family: 'Orbitron', georgia;
-            background: #0d1117;
-            color: #ffffff;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 320px;
-            overflow: hidden;
-        }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(5px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-        }
 
-        .alert-box {
-            background: linear-gradient(135deg, #1f2937, #374151);
-            color: #ffffff;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            width: 320px;
-        }
+<style>
+</style>
 
-        .alert-box h2 {
-            margin-bottom: 8px;
-            font-size: 22px;
-            font-weight: 700;
-        }
 
-        .alert-box p {
-            font-size: 16px;
-            font-style: italic;
-            color: #b0bec5;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            padding: 12px 20px;
-            background: #00d9ff;
-            color: #0d1117;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            outline: none;
-            margin: 10px 0;
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #00b3cc, #00d9ff);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .container {
-            padding: 25px;
-            border-radius: 20px;
-                       border: 2px solid rgba(0, 217, 255, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            
-             justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-            margin: 10px 1px;
-        }
-
-        img {
-         margin:0px;
-            padding: 1px;
-            border-radius: 10px;
-     width:235px;
-    border-top-left-radius:20px;
-    border-bottom-right-radius:20px;
-     height:200px;
-   
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
-        }
-
-        section {
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 10px;
-            background: #1f2937;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-        }
-
-        section:hover {
-            transform: scale(1.06);
-                  background: #1f2937;
-        }
-
-        section p {
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        h1 {
-            font-size: 30px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        a {
-            text-decoration:none;
-        }
-    </style>
 </head>
 <body>
- <div class="overlay" id="overlay">
-        <div class="alert-box" data-aos="slide-up">
-            <h2>soyez le bienvenue</h2>
-            <p>Bienvenue dans la page où sont présentés mes projets </p>
-    
-            <button class="btn" onclick="closeAlert()">ok</button>
-        </div>
-    </div>
-    <div class="container hidden" id="content" data-aos="fade-up" style="width:300px">
-        <div data-aos="fade-right">
-            
-        <div data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
+      
+        <section id='hero'>    
+                  <div data-aos="fade-up">
             <section>
                 <img src="https://i.imgur.com/fWxBQ7X.jpeg">
                           <p>une horloge précisant l'heure de divers régions  :</p>
+                          <br>
                 
                 <a href="horloge2.html" class="btn">Horloge</a>
+              
                 <br>
-                <br>
-                <p>Ce projet fut mon tout premier site web.</p>
+          <br>
+          <br>
                 </section>
-                <section>
+                </div>
+
+    </section>    
+</div>    
+
+    <div data-aos="fade-left" class="container">
+     <section id='how-work' class='section-margin'>  
+             <section>
                           <img src="https://i.imgur.com/rjTmXSD.jpeg">
                           
                       <p>Puis celui-ci est le deuxième avec un design bien plus futuriste et moderne :</p>
-                <br><br>
+                <br>
+                <br>
+                
                 <a href="horloge.html" class="btn">Deuxième horloge</a>
                 <br><br>
             </section>
-        </div>
-        <div data-aos="fade-down">
-            <section>
-                <img src="https://i.imgur.com/iJmvq8y.jpeg">
+        
+    </section>    
+</div>
+
+    <div data-aos="fade-left" class="container">
+     <section id='how-work' class='section-margin'>  
+             <section>
+          <img src="https://i.imgur.com/iJmvq8y.jpeg">
                 <p>une calculatrice ayant un style classique  :</p>
                 <br>
                 <a href="calculatrice.html" class="btn">Calculatrice</a>
                 <br><br>
                 
+ 
             </section>
-        </div>
-
-        <div data-aos="fade-right">
-            <section id='perfect' class='section-margin'>
-                <img src="https://i.imgur.com/ZCPL3eB.jpeg">
+        
+    </section>    
+</div>
+    <div data-aos="fade-right" class="container">
+     <section id='how-work' class='section-margin'>  
+             <section>
+   
+          <img src="https://i.imgur.com/ZCPL3eB.jpeg">
                 <p>le site indiquant mon entreprise  :</p>
                 <a href="social.html" class="btn">Social Service</a>
                 <br><br><br>
+                      
+ 
             </section>
-        </div>
-
-        <div data-aos="fade-left">
-            <section>
-                <img src="https://i.imgur.com/WTAw7sl.jpeg">
+        
+    </section>    
+</div>
+    <div data-aos="fade-right" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+    <img src="https://i.imgur.com/WTAw7sl.jpeg">
                 <p>mon premier chatbot ayant un design présentable  :</p>
                 <a href="chatbot.html" class="btn">𝑀𝐸𝑆𝑆𝐼𝐸 𝐶𝐻𝐴𝐵𝑂𝑇</a>
                 <br><br><br>
+                                
+ 
             </section>
-         </div >         
         
-<div data-aos="fade-up">
-        
-            <section>
-                <img src="https://i.imgur.com/2a1Xztt.jpeg">
+    </section>    
+</div>    
+
+</div>
+    <div data-aos="fade-up" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+<img src="https://i.imgur.com/2a1Xztt.jpeg">
                 <p> une réplique Google :</p>
                 <a href="Google.html" class="btn">Mini Google</a>
                 <br>
                 <br>
+          
+                                
+ 
             </section>
-            <div data-aos="flip-left">
-            <section>
-                <img src="https://i.imgur.com/VNCrGhZ.jpeg">
+        
+    </section>    
+</div>
+    <div data-aos="flip-down" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+<img src="https://i.imgur.com/VNCrGhZ.jpeg">
                 après cela j'ai fait un chatbot dont le design est similaire à chat gpt :
                 <br>
                 <br>
                 <a href="https://messie-chat-gpt.vercel.app/" class="btn">messie chat gpt</a>
                 <br>
           <br>
+                        
+ 
             </section>
-            </div>
-       <div data-aos="flip-left">
-       
-        <section>
-            <img src="https://i.imgur.com/JFmeWjE.jpeg">
+        
+    </section>    
+</div>
+</div>
+    <div data-aos="flip-right" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+<img src="https://i.imgur.com/JFmeWjE.jpeg">
            mon projet pour web clash :
            <br>
            <br>
-           <a href="https://cheik-amir-la-fraude.vercel.app/" class="btn">cheik amlr la fraude </a>
+           <a href="https://cheik-amir-la-fraude.vercel.app/" class="btn">cheik la fraude </a>
            <br>
          
            <br>
-        </section>
-       </div>
-        <div data-aos="flip-up">
-        <section>
-            <img src="https://i.imgur.com/az7BwFP.jpeg">
+           
+                        
+ 
+            </section>
+        
+    </section>    
+</div>
+   <div data-aos="flip-up" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+          <img src="https://i.imgur.com/az7BwFP.jpeg">
             un projet pour la Saint-Valentin :
             <br>
             <br> <a href="https://messie-saint-valentin.vercel.app/" class="btn">saint Valentin </a>
             <br>
             <br>
-        </section>
-      <div data-aos="slide-down">
-      
-        <section>
-            <img src="https://i.imgur.com/Y82IhMw.jpeg">
+            
+ 
+            </section>
+        
+    </section>    
+</div>
+   <div data-aos="slide-down" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+  <img src="https://i.imgur.com/Y82IhMw.jpeg">
             le jeu des dames que j'ai réalisé :
             <br>
             <br>
             <a class="btn" href="dames.html">jeu des dames</a>
             <br>
             <br>
-        </section>
-    </div>
-    <div data-aos="slide-up">
-        <section>
-            <img src="https://i.imgur.com/OUbGRNR.jpeg">
+ 
+            
+ 
+            </section>
+   </section>     
+        
+</div>    
+   <div data-aos="slide-down" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+ <img src="https://i.imgur.com/OUbGRNR.jpeg">
           le jeu snake dont j'ai réalisé :
             <br>
           
@@ -265,10 +187,20 @@
             <a href="Snake.html" class="btn">messie snake</a>
             <br>
             <br>
-        </section>
-       </div>
-       <div data-aos="slide-down">
-        <section>
+            
+            
+ 
+            
+ 
+            </section>
+   </section>     
+        
+</div>
+</div>    
+   <div data-aos="fade-down" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+ 
            <img src="https://i.imgur.com/PogzQ09.jpeg"> 
             Subway surfers :
             <br>
@@ -277,105 +209,159 @@
             <br>
             
             <br>
-        </section>
-        </div>
-       <div data-aos="slide-up">
-        <section>
-            <img src="https://i.imgur.com/N85BCMr.jpeg">
+   
+            
+ 
+            
+ 
+            </section>
+   </section>     
+        
+</div>
+   <div data-aos="fade-up" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   
+ <img src="https://i.imgur.com/N85BCMr.jpeg">
             un site web pour vérifier le degré C° ou soit, la température ou le climat de votre ville :
            <br>
             <br>
             <a href="Météo.html" class="btn"> messie Météo </a>
             <br>
             <br>
-        </section>
-      </div>
-       <div data-aos="fade-up">
-        <section>
-            <img src="https://i.imgur.com/NqCxtBT.jpeg">
+ 
+
+   
+            
+            </section>
+   </section>     
+        
+</div>    
+<div data-aos="fade-up" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+   <img src="https://i.imgur.com/NqCxtBT.jpeg">
             un calendrier 2025 :
             <br>
             <br>
             <a href="Calendrier.html" class="btn">calendrier 2025 </a>
             <br>
             <br>
-  
-        </section>
-        </div>
-  <div data-aos="slide-down">
-                  <section>
-                      <img src="https://i.imgur.com/LCDEloO.jpeg">
+ 
+
+ 
+
+   
+            
+            </section>
+   </section>     
+        
+</div>
+     
+        
+</div>  
+<div data-aos="zoom-in" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+ <img src="https://i.imgur.com/LCDEloO.jpeg">
                 un générateur de carte pour otaku :
                 <br>
                 <br>
-                <a class="btn" href="https://messie-carte-otaku.vercel.app/"> carte d'identité otaku </a>
+                <a class="btn" href="https://messie-carte-otaku.vercel.app/"> carte otaku</a>
  <br>
 <br>
+
+           
+            
             </section>
-            </div>
-            <div data-aos="slide-left">
-        <section>
-            <img src="https://i.imgur.com/llAIHTW.jpeg">
+   </section>     
+        
+</div>
+<div data-aos="slide-left" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+                 
+                 <img src="https://i.imgur.com/llAIHTW.jpeg">
             un chatbot ayant un style cyberpunk et une sauvegarde :
             <br>
             <br>
-            <a href="https://messie-chatbot-cyberpunk.vercel.app/" class="btn"> chatbot cyberpunk </a>
+            <a href="https://messie-chatbot-cyberpunk.vercel.app/" class="btn">bot cyberpunk</a>
             <br>
             <br>
-        </section>
-        </div>
-        <div data-aos="fade-down">
-        <section>
-            <img src="https://i.imgur.com/IbJ6mP5.jpeg">
+            
+                 
+             </section>         
+           
+   </section>     
+        
+</div>
+<div data-aos="fade-down" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+                 
+ <img src="https://i.imgur.com/IbJ6mP5.jpeg">
             l'analyseur du pourcentage de la batterie :
             <br>
             <br>
             <a href="batterie.html" class="btn">batterie </a>
             <br>
             <br>
-        </section>
-        </div>
-        <div data-aos="slide-up">
-        <section>
-            <img src="https://i.imgur.com/9EJPdUI.jpeg">
+            
+ 
+            
+                 
+             </section>         
+           
+   </section>     
+        
+</div>    
+
+<div data-aos="zoom-in-left" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
+                 
+     
+     <img src="https://i.imgur.com/9EJPdUI.jpeg">
             un traducteur des langues :
             <br>
             <br>
             <a href="translate.html" class="btn"> messie translate</a>
             <br>
             <br>
-        </section>
-        </div>
-        <div data-aos="fade-down">
-        <section>
+ 
             
-                <p>Pour l'instant, ce sont mes seuls projets déjà réalisés.</p>
-                <p>J'en ai d'autres, mais malheureusement, je les ai mis en suspens pour l'instant jusqu'à ce que je m'améliore.</p>
-            
-        </section>
+                 
+             </section>         
+           
+   </section>     
+        
+</div>
 
 
 
-    
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000 });
-
-        function closeAlert() {
-            document.getElementById("overlay").style.display = "none";
-            let content = document.getElementById("content");
-            content.classList.remove("hidden");
-
-            setTimeout(() => {
-                AOS.refresh(); 
-            }, 50);
-
-            document.body.style.overflow = "auto";
-        }
-    </script>
-    
+    <div data-aos="flip-left" class="container">     <section id='how-work' class='section-margin'>  
+             <section>
    
+<img src="https://i.imgur.com/r9Z4PAX.jpeg">
+une autre version du générateur de carte d'identité pour otaku 
+<br>
+<br>
+<a href="https://otaku-card-generator.vercel.app/" class="btn">carte Otaku</a>
+<br>
+<br>
+                        
+ 
+            </section>
+        
+    </section>    
+</div>
+
+
+
+
+    
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({ duration: 800 });
+            
+        </script>
+          
+     
+    
 </body>
     </html>
     
