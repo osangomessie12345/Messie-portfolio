@@ -1,197 +1,66 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700" rel="stylesheet">
-    <style>
-        body {
-            font-family: serif ;
-            background: #0d1117;
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mon portfolio</title>
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700" rel="stylesheet">
 
-        .container,contactForm {
-            background: linear-gradient(135deg, #1f2937, #374151);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid rgba(0, 217, 255, 0.2);
-            box-shadow: 0 4px 15px #00000066;
-            width: 90%;
-            max-width: 250px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        h1, h2 {
-            color: #00d9ff;
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        p {
-            font-size: 14px;
-            opacity: .8;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .btn {
-            padding: 15px;
-            background: #00d9ff;
-            color: #0d1117;
-            border: 0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all .3s;
-            text-decoration: none;
-            display: inline-block;
-            margin: 2px;
-        }
-
-        .btn:hover {
-            background: #00b3cc;
-            transform: scale(1.05);
-            filter: drop-shadow(0 0 8px #00d9ff);
-        }
-
-     
-            
-        }
-
-        label {
-            
-            text-align:center;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: all 0.3s ease;
-            pointer-events: none;
-            opacity: 0.7;
-            font-size: 16px;
-            color: #00d9ff;
-        }
-
-        #contactForm input, #contactForm textarea {
-            padding: 10px;
-            width: 90%;
-            border: 2px solid #00d9ff;
-            border-radius: 5px;
-            font-size: 14px;
-            background: #1f2937;
-            color: #ffffff;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        #contactForm input:focus, #contactForm textarea:focus {
-            border-color: #00d9ff;
-        }
-
-        #contactForm button {
-            padding: 10px 20px;
-            background: #00d9ff;
-            color: #0d1117;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-
-        textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 15px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            background: linear-gradient(45deg, #00d9ff, #00b3cc);
-            position: relative;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        button[type="submit"]:hover {
-            background: linear-gradient(45deg, #00b3cc, #0099b3);
-            box-shadow: 0 0 25px #00d9ff66;
-        }
-
-        input:valid:not(:placeholder-shown),
-        textarea:valid:not(:placeholder-shown) {
-            border-color: #00ff8866;
-        }
-
-        input:invalid:not(:placeholder-shown),
-        textarea:invalid:not(:placeholder-shown) {
-            border-color: #ff005566;
-        }
-
-        .whatsapp-link {
-            margin-top: 15px;
-            display: flex;
-            gap: 8px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-    </style>
+  <style>
+      </style>
 </head>
+
 <body>
-    <h1 data-aos="zoom-in">Contactez-moi</h1>
-    <p data-aos="zoom-in" data-aos-delay="100">Joignez-moi via WhatsApp ou le formulaire</p>
-    
-    <div class="container" data-aos="fade-up">
-        <h2 data-aos="fade-right">Me Contacter</h2>
-        <form id="contactForm">
-            <div>         <label for="name">Nom</label>
-            
-                <input id="name" type="text" required placeholder=" ">
-                   </div>
-            <div>
-                 <label for="email">Email</label>
-                <input id="email" type="email" required placeholder=" ">
-               
-            </div>
-            <div>                <label for="phone">Téléphone</label>
-                <input id="phone" type="tel" placeholder=" ">
+  <h1 data-aos="zoom-in">Contactez-moi</h1>
+  <p data-aos="zoom-in" data-aos-delay="100">Joignez-moi via WhatsApp ou le formulaire</p>
 
-            </div>
-            <div>
-                <label for="message">message </label>
-                <textarea id="message" required placeholder=" "></textarea>
-                        </div>
-            <button type="submit" class="btn">Envoyer sur WhatsApp</button>
-        </form>
-        
-        <div class="whatsapp-link">
-            <a href="https://www.facebook.com/profile.php?id=61564382117276" class="btn">Facebook</a>
-            <a href="index2.html" class="btn" 
-         >Retour</a>
+  <div class="container" data-aos="fade-up">
+    <h2 data-aos="fade-right">Me Contacter</h2>
+
+    <form id="contactForm">
+      <section>
+        <div>
+          <label for="name">Nom</label>
+          <input id="name" name="name" type="text" required placeholder="Votre nom">
         </div>
-    </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="exemple@mail.com">
+        </div>
+        <div>
+          <label for="phone">Téléphone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Votre numéro">
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
+        </div>
+        <button type="submit" class="btn">Envoyer sur WhatsApp</button>
+      </section>
+    </form>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true });
-        
-        document.getElementById("contactForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            const message = encodeURIComponent(document.getElementById("message").value);
-            window.open(`https://wa.me/+243897520168?text=%0ANom: ${encodeURIComponent(document.getElementById("name").value)}%0AEmail: ${encodeURIComponent(document.getElementById("email").value)}%0ATéléphone: ${encodeURIComponent(document.getElementById("phone").value)}%0AMessage: ${message}`, "_blank");
-        });
-    </script>
+    <div class="whatsapp-link">
+      <a href="https://www.facebook.com/profile.php?id=61564382117276" class="btn">Facebook</a>
+      <a href="index2.html" class="btn">Retour</a>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true });
+
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById("name").value);
+      const email = encodeURIComponent(document.getElementById("email").value);
+      const phone = encodeURIComponent(document.getElementById("phone").value);
+      const message = encodeURIComponent(document.getElementById("message").value);
+
+      const whatsappUrl = `https://wa.me/+243897520168?text=Nom: ${name}%0AEmail: ${email}%0ATéléphone: ${phone}%0AMessage: ${message}`;
+      window.open(whatsappUrl, "_blank");
+    });
+  </script>
 </body>
 </html>
