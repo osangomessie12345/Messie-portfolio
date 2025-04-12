@@ -1,70 +1,93 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mon portfolio</title>
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
-    <style>
-       </style>
+<html lang="fr">    
+<head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>messie portfolio</title>    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">    
+    <link rel="stylesheet" href="style.css">    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style> 
+        </style>
 </head>
-<body>
-    <div class="overlay" id="overlay">
-        <div class="alert-box" data-aos="slide-up">
-            <section style="               border-right: 5px solid #00d9ff;">
-                <h2>Bienvenue !</h2>
-                <p>Merci de visiter mon site. Explorez mes projets et contactez-moi si besoin !</p>
-            </section>
-            <button class="btn" onclick="closeAlert()">D'accord</button>
-        </div>
-    </div>
+<body>    <header class="header" id="header">  
+    <nav class="nav messie">  
+       <div class="bien">   
+        <p class="naruto">messie       
+           portfolio</p>  
+      </div>  <div class="nav__satoru" id="satoru">  
+        <ul class="nav__sung">  
+            <li class="nav__gojo"><a href="#accueil" class=" nav__gojo ">Accueil</a></li>  
+            <li class="nav__gojo"><a href="#projets" class="nav__link">Projets</a></li>  
+            <li class="nav__gojo"><a href="#informations" class="nav__link">Informations</a></li>  
+            <li class="nav__gojo"><a href="#ia" class="nav__link">IA</a></li>  
+            <li class="nav__gojo"><a href="#contact" class="nav__link">Contact</a></li>  
+        </ul>  
+    </div>  
 
-    <div id="content">
-        <div data-aos="slide-up">
-            <h1>Bienvenue sur mon site web</h1>
-            <p>Ceci est mon portfolio.</p>
-            <p>Visitez-le en cliquant sur les boutons ci-dessous.</p>
-        </div>
+    <div class="nav__toggle" id="jinwoo">  
+        <i class='bx bx-menu'></i>  
+    </div>  
+</nav>
 
-<div class="container" data-aos="zoom-in">
-    
-              <section>
-                <a href="projet.html" class="btn">Voir mes projets</a>
-                <p>En voyant mes projets, vous saurez ce que je peux faire actuellement.</p>
-                <img src="https://i.imgur.com/06iQAZG.jpeg" alt="Projets">
-            </section>
-        </div>
+</header>  
+<br>  
+<br>  
+<br>   <div class="overlay" id="overlay">      
+        <div class="alert-box" data-aos="slide-up">      
+            <section style="border-right: 5px solid #00d9ff;">      
+                <h2>Bienvenue !</h2>      
+                <p>Merci de visiter mon site. Explorez mes projets et contactez-moi si besoin !</p>      
+                <button class="btn" onclick="closeAlert()">D'accord</button>      
+            </section>    
+        </div>      
+    </div>      <div id="content">    <div id="accueil" data-aos="slide-up">    
+    <h1>Bienvenue sur mon site web</h1>    
+    <p>Ceci est mon portfolio.</p>    
+    <p>Visitez-le en cliquant sur les boutons ci-dessous.</p>    
+</div>  
 
-<div class="container" data-aos="slide-left">
-    
-            <section>
-                <a href="contact.html" class="btn">Contacter</a>
-                <p>En me contactant, vous pourrez mieux me connaître et discuter avec moi.</p>
-                <img src="https://i.imgur.com/2fWFGz4.png" alt="Contact">
-            </section>
-        </div>
+<div class="container" id="projets" data-aos="zoom-in">    
+  <section>  
+    <a href="projet.html" class="btn">Voir mes projets</a>    
+    <p>En voyant mes projets, vous saurez ce que je peux faire actuellement.</p>    
+    <img src="https://i.imgur.com/06iQAZG.jpeg" alt="Projets">    
+    </section>  
+</div >  
 
-        <div class="container" data-aos="slide-right">
-            <section>
-                <a href="information.html" class="btn">Mes informations</a>
-                <p>Informez-vous davantage sur moi, si vous le voulez bien sûr.</p>
-                <img src="https://i.imgur.com/aYWw6WG.jpeg" alt="Informations">
-            </section>
-        </div>
+  
+<div class="container" id="informations" data-aos="slide-right">   
+    <section>   
+    <a href="information.html" class="btn">Mes informations</a>    
+    <p>Informez-vous davantage sur moi, si vous le voulez bien sûr.</p>    
+    <img src="https://i.imgur.com/aYWw6WG.jpeg" alt="Informations">   
+    </section>   
+</div>    
+  
 
-        <div class="container" data-aos="zoom-in">
-            <section>
-                <a href="IA.html" class="btn">Consulter l'IA</a>
-                <p>Vous pouvez discuter avec l'IA et lui poser des questions sur plusieurs sujets.</p>
-                <img src="https://i.imgur.com/TUVdxSR.jpeg" alt="IA">
-            </section>
-        </div>
-    </div>
+<div class="container" id="ia" data-aos="zoom-in-down">  
+    <section>    
+    <a href="IA.html" class="btn">Consulter l'IA</a>    
+    <p>Vous pouvez discuter avec l'IA et lui poser des questions sur plusieurs sujets.</p>    
+    <img src="https://i.imgur.com/TUVdxSR.jpeg" alt="IA">    
+    </section>  
+</div>   
+<div class="container" id="contact" data-aos="slide-left">   
+   <section>   
+    <a href="contact.html" class="btn">Contacter</a>    
+    <p>En me contactant, vous pourrez mieux me connaître et discuter avec moi.</p>    
+    <img src="https://i.imgur.com/2fWFGz4.png" alt="Contact">   
+    </section>   
+</div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</div>    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js">
-            </script>
+      
+    </script>  <script src="messie.js">  
+ 
+  
+</script>
+  <!-- messie portfolio-->  
 </body>
 </html>
