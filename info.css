@@ -150,3 +150,33 @@
       }
     }
  
+    .language-card.html {
+       
+      clip-path: polygon(50% 0%, 95% 20%, 85% 100%, 15% 100%, 5% 20%);
+    }
+
+    .language-card.css {
+      
+      clip-path: polygon(50% 0%, 95% 20%, 85% 100%, 15% 100%, 5% 20%);
+    }
+
+    .language-card.js {
+      
+            clip-path: circle(45% at 50% 50%);
+    }
+
+    .language-card.node {
+     
+      
+      clip-path: ellipse(50% 60% at 50% 50%);
+    }
+
+    .language-card.php {
+      
+      clip-path: ellipse(50% 40% at 50% 50%);
+    }
+
+    .language-card.python {
+       
+      clip-path: polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+      }
