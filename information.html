@@ -2,21 +2,29 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="info.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="info.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-     </style>
+      </style>
 </head>
 <body>
+  <div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
   <div class="container" data-aos="fade-up">
     <h1>À Propos de moi</h1>
     <section id='hero'>
-      <p>Je me nomme messie </p>
+      <p>Je me nomme messie</p>
       <p>Je suis un développeur web.</p>
       <p>J'évolue et je continue à progresser successivement.</p>
     </section>
@@ -24,15 +32,15 @@
 
   <div data-aos="fade-left" class="container">
     <section id='how-work'>
-      <p>mes compétences  :</p>
+      <p>mes compétences :</p>
 
       <div class="langages">
-        <div class="language-card"><i class="fab fa-html5"></i><p>HTML</p></div>
-        <div class="language-card"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-        <div class="language-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
-        <div class="language-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
-        <div class="language-card"><i class="fab fa-php"></i><p>PHP</p></div>
-        <div class="language-card"><i class="fab fa-python"></i><p>Python</p></div>
+        <div class="language-card html"><i class="fab fa-html5"></i><p>HTML</p></div>
+        <div class="language-card css"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+        <div class="language-card js"><i class="fab fa-js"></i><p>JavaScript</p></div>
+        <div class="language-card node"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+        <div class="language-card php"><i class="fab fa-php"></i><p>PHP</p></div>
+        <div class="language-card python"><i class="fab fa-python"></i><p>Python</p></div>
       </div>
 
       <p style="margin-top: 20px;">Les deux derniers langages sont en cours d'apprentissage !</p>
@@ -42,6 +50,6 @@
   <a class="btn" href='index.html'>retour</a>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 50000 });</script>
+  <script>AOS.init({ duration: 5000 });</script>
 </body>
 </html>
