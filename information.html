@@ -1,164 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> mon portfolio </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="info.css">
+  <title>Mon Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-
-<style>
-* {
-  box-sizing: border-box;
-  max-width: 100vw;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-body {
-  font-family: 'Orbitron', sans-serif;
-  background: linear-gradient(135deg, #0d1117 0%, #1a1f27 100%);
-  color: #00d9ff;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding: 30px 0;
-}
-
-/* Containers */
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 30px 0;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(0, 217, 255, 0.2);
-  backdrop-filter: blur(5px);
-}
-
-/* Sections */
-section {
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 5px solid #00d9ff;
-  transition: background 0.3s ease;
-}
-
-section:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-section h3 {
-  font-size: 22px;
-  color: #00d9ff;
-  margin-bottom: 12px;
-}
-
-/* Paragraphs */
-section p {
-  font-size: 17px;
-  line-height: 1.6;
-  margin: 10px 0;
-  color: #e0e0e0;
-}
-
-/* Button */
-.btn {
-  padding: 14px 30px;
-  background: #00d9ff;
-  color: #0d1117;
-  font-weight: bold;
-  border: none;
-  text-decoration:none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  margin-top: 30px;
-  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.4);
-}
-
-.btn:hover {
-  background: #00b3cc;
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 217, 255, 0.6);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  body {
-    padding: 20px 0;
-    touch-action: pan-y;
-    overscroll-behavior-y: contain;
-  }
-
-  .container {
-    padding: 15px;
-  }
-
-  section p {
-    font-size: 16px;
-  }
-
-  .btn {
-    font-size: 15px;
-    padding: 12px 25px;
-  }
-}
-</style>
-
-
+  <style>
+     </style>
 </head>
 <body>
-    <div class="container" data-aos="fade-up">
-        <h1>À Propos de moi</h1>
-        <section id='hero'>    
-        <p>Je vous souhaite la bienvenue dans mon site web.</p>    
-        <p>Je suis un développeur web.</p>    
-        <p>   
-        <p>j'évolue et je continue à progresser successivement .</p>         
+  <div class="container" data-aos="fade-up">
+    <h1>À Propos de moi</h1>
+    <section id='hero'>
+      <p>Je me nomme messie </p>
+      <p>Je suis un développeur web.</p>
+      <p>J'évolue et je continue à progresser successivement.</p>
+    </section>
+  </div>
 
-    </section>    
-</div>    
+  <div data-aos="fade-left" class="container">
+    <section id='how-work'>
+      <p>mes compétences  :</p>
 
-    <div data-aos="fade-left" class="container">
-     <section id='how-work' class='section-margin'>   
-        <p>J'évolue aux langages suivants :</p>    
-        <p>HTML</p>    
-        <p>CSS</p>    
-        <p>JAVASCRIPT</p>  
-          
-        <p>NODE.JS.</p>    
-        <p>PHP</p>    
-        <p>PYTHON</p> 
-        <p>les deux derniers langages sont en cours d'apprentissage !</p>   
-    </section>    
-</div>    
+      <div class="langages">
+        <div class="language-card"><i class="fab fa-html5"></i><p>HTML</p></div>
+        <div class="language-card"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
+        <div class="language-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
+        <div class="language-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+        <div class="language-card"><i class="fab fa-php"></i><p>PHP</p></div>
+        <div class="language-card"><i class="fab fa-python"></i><p>Python</p></div>
+      </div>
 
-        <a class="btn" href='projet.html'>Voir mes projets</a>
-    </div>
+      <p style="margin-top: 20px;">Les deux derniers langages sont en cours d'apprentissage !</p>
+    </section>
+  </div>
 
-    <footer>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init({ duration: 800 });
-            
-        </script>
-          
-     
-    </footer>
+  <a class="btn" href='index.html'>retour</a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init({ duration: 50000 });</script>
 </body>
 </html>
